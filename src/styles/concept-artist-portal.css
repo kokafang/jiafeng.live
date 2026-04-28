@@ -1,0 +1,304 @@
+:root {
+  --bg: #0b0b0c;
+  --ink: #f7f3ea;
+  --muted: rgba(247, 243, 234, 0.72);
+  --line: rgba(247, 243, 234, 0.16);
+  --panel: #111214;
+  --accent: #d6b78a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100%;
+  height: 100vh;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Syne", sans-serif;
+  overflow-y: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.artist-portal {
+  min-height: 100vh;
+}
+
+.portal-mini-nav {
+  position: fixed;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-14px);
+  z-index: 30;
+  width: min(1120px, calc(100vw - 28px));
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  padding: 12px 16px;
+  border: 1px solid rgba(247, 243, 234, 0.12);
+  background: rgba(8, 10, 12, 0.58);
+  backdrop-filter: blur(14px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 160ms ease, transform 160ms ease;
+}
+
+.portal-mini-nav.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+.mini-brand,
+.mini-links a {
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.mini-links {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.mini-links a {
+  color: rgba(247, 243, 234, 0.62);
+  transition: color 120ms ease;
+}
+
+.mini-links a.is-active {
+  color: var(--ink);
+}
+
+.portal-stage {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: end;
+  padding: 108px 28px 28px;
+  background:
+    linear-gradient(180deg, rgba(3, 10, 16, 0.08), rgba(3, 10, 16, 0.24)),
+    linear-gradient(90deg, rgba(5, 8, 10, 0.28), rgba(5, 8, 10, 0.08) 46%, rgba(5, 8, 10, 0.3)),
+    radial-gradient(circle at 50% 24%, rgba(214, 183, 138, 0.16), transparent 18%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0)),
+    url("/expansion_20260429000519415.JPEG"),
+    linear-gradient(135deg, #101214 0%, #050506 100%);
+  background-size: auto, auto, auto, auto, 128%, auto;
+  background-position: center, center, center, center, center center, center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.portal-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.5)),
+    radial-gradient(circle at 80% 20%, rgba(214, 183, 138, 0.1), transparent 24%);
+}
+
+.portal-copy,
+.portal-nav {
+  position: relative;
+  z-index: 1;
+}
+
+.portal-copy {
+  align-self: center;
+  padding-right: 24px;
+}
+
+.portal-kicker,
+.section-index {
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.portal-copy h1,
+.portal-nav-title,
+.portal-section h2 {
+  margin: 0;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 500;
+  line-height: 0.9;
+}
+
+.portal-copy h1 {
+  font-size: clamp(5rem, 15vw, 12rem);
+  margin-top: 0;
+}
+
+.portal-nav {
+  display: grid;
+  gap: 14px;
+  justify-items: end;
+  align-self: end;
+  padding-bottom: 8px;
+}
+
+.portal-nav-title {
+  font-size: clamp(3.6rem, 7vw, 6.4rem);
+  margin-bottom: 18px;
+  line-height: 1.06;
+  text-shadow:
+    0 0 0.8px rgba(247, 243, 234, 0.98),
+    0 0 2px rgba(247, 243, 234, 0.26),
+    0 0 8px rgba(247, 243, 234, 0.18),
+    0 0 18px rgba(247, 243, 234, 0.12),
+    0 0 34px rgba(214, 183, 138, 0.12),
+    1px 0 10px rgba(247, 243, 234, 0.08),
+    -1px 0 10px rgba(247, 243, 234, 0.08);
+  filter: saturate(0.92);
+}
+
+.portal-nav a {
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink);
+  transition: color 120ms ease, transform 120ms ease;
+  text-shadow:
+    0 0 0.55px rgba(247, 243, 234, 0.96),
+    0 0 2px rgba(247, 243, 234, 0.18),
+    0 0 7px rgba(247, 243, 234, 0.12),
+    0 0 16px rgba(214, 183, 138, 0.07);
+}
+
+.portal-nav a:hover {
+  color: var(--accent);
+  transform: translateX(-4px);
+}
+
+.portal-sections {
+  background: var(--panel);
+}
+
+.portal-section {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 18px;
+  padding: 28px;
+  border-top: 1px solid var(--line);
+  min-height: 100vh;
+  min-height: 100svh;
+  align-items: start;
+}
+
+.portal-section h2 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+}
+
+.portal-section p {
+  margin: 10px 0 0;
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 60ch;
+}
+
+.section-fill {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 28px;
+  min-height: calc(100vh - 260px);
+}
+
+.fill-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 100%;
+  padding: 20px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.fill-block span {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 0.76rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.fill-block strong {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-weight: 500;
+  line-height: 1;
+}
+
+@media (max-width: 900px) {
+  .portal-stage {
+    grid-template-columns: 1fr;
+    align-items: end;
+  }
+
+  .portal-copy {
+    align-self: end;
+    padding-right: 0;
+  }
+
+  .portal-nav {
+    justify-items: start;
+    margin-top: 32px;
+  }
+
+  .portal-nav-title {
+    font-size: clamp(3.4rem, 12vw, 5.2rem);
+  }
+}
+
+@media (max-width: 640px) {
+  .portal-mini-nav {
+    top: 10px;
+    width: calc(100vw - 20px);
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+    padding: 12px 14px;
+  }
+
+  .mini-links {
+    gap: 10px;
+    justify-content: flex-start;
+  }
+
+  .portal-stage {
+    padding: 92px 18px 22px;
+  }
+
+  .portal-section {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 22px 18px;
+  }
+
+  .section-fill {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .fill-block {
+    min-height: 220px;
+  }
+}

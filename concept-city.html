@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>City Layout</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Instrument+Serif:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/styles/concept-city.css" />
+  </head>
+  <body>
+    <main class="city-shell">
+      <header class="city-topbar">
+        <div class="city-brand">JIAFENG CITY GUIDE</div>
+        <p class="city-subtitle">Enter by district, not by resume.</p>
+      </header>
+
+      <section class="city-intro">
+        <div class="city-copy">
+          <p class="city-kicker">Spatial layout</p>
+          <h1>A website laid out like a living city.</h1>
+          <p class="city-lede">
+            Instead of reading top to bottom, visitors choose where to go:
+            downtown for the public bio, the night district for music, the
+            power station for tools, and side streets for notes.
+          </p>
+        </div>
+      </section>
+
+      <section class="city-map" aria-label="City map">
+        <a class="map-zone downtown" href="#downtown">
+          <span class="zone-tag">Core</span>
+          <strong>Downtown</strong>
+          <p>Bio, speaker intro, official-facing identity</p>
+        </a>
+        <a class="map-zone night" href="#night">
+          <span class="zone-tag">Live</span>
+          <strong>Night District</strong>
+          <p>Music, performance, stage energy, releases</p>
+        </a>
+        <a class="map-zone power" href="#power">
+          <span class="zone-tag">Systems</span>
+          <strong>Power Station</strong>
+          <p>Apps, tools, AI experiments, coded instruments</p>
+        </a>
+        <a class="map-zone side" href="#side">
+          <span class="zone-tag">Writing</span>
+          <strong>Side Streets</strong>
+          <p>Fragments, notes, essays, ongoing thought</p>
+        </a>
+        <a class="map-zone venue" href="#venue">
+          <span class="zone-tag">People</span>
+          <strong>Venue Row</strong>
+          <p>Collaborators, communities, public appearances</p>
+        </a>
+      </section>
+
+      <section class="city-district-panels">
+        <article class="district-panel" id="downtown">
+          <p class="district-label">Downtown</p>
+          <h2>The polished front-facing core.</h2>
+        </article>
+        <article class="district-panel" id="night">
+          <p class="district-label">Night District</p>
+          <h2>The sound and stage side of the city.</h2>
+        </article>
+        <article class="district-panel" id="power">
+          <p class="district-label">Power Station</p>
+          <h2>The systems layer where new tools get built.</h2>
+        </article>
+        <article class="district-panel" id="side">
+          <p class="district-label">Side Streets</p>
+          <h2>Notes that feel discovered rather than announced.</h2>
+        </article>
+        <article class="district-panel" id="venue">
+          <p class="district-label">Venue Row</p>
+          <h2>A social geography of scenes, rooms, and collaborators.</h2>
+        </article>
+      </section>
+    </main>
+  </body>
+  </html>
