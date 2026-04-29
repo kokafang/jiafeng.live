@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=Cormorant+Garamond:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=Cormorant+Garamond:wght@400;500;600&family=Space+Grotesk:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/src/styles/concept-artist-portal.css" />
@@ -28,18 +28,21 @@
       </nav>
       <section class="portal-stage" id="top">
         <div class="portal-overlay"></div>
-        <div class="portal-copy"></div>
-
-        <nav class="portal-nav" aria-label="Primary">
-          <h1 class="portal-nav-title">Jiafeng</h1>
-          <a href="#music">MUSIC</a>
-          <a href="#shows">SHOWS</a>
-          <a href="#products">PRODUCTS</a>
-          <a href="#web-dj">WEB-DJ</a>
-          <a href="#press">PRESS</a>
-          <a href="#merch">MERCH</a>
-          <a href="#about">ABOUT</a>
-        </nav>
+        <div class="portal-copy">
+          <div class="portal-top-nav">
+            <div class="portal-top-nav-group">
+              <a href="#music">MUSIC</a>
+              <a href="#shows">SHOWS</a>
+              <a href="#products">PRODUCTS</a>
+            </div>
+            <h1 class="portal-hero-title">Jiafeng</h1>
+            <div class="portal-top-nav-group">
+              <a href="#web-dj">WEB-DJ</a>
+              <a href="#merch">MERCH</a>
+              <a href="#about">ABOUT</a>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section class="portal-sections">
@@ -47,15 +50,71 @@
           <span class="section-index">01</span>
           <div>
             <h2>Music</h2>
-            <p>Releases, songs, mixes, voice, and the emotional center of the project.</p>
-            <div class="section-fill">
-              <div class="fill-block">
-                <span>Selected Release</span>
-                <strong>Placeholder for album, single, or featured work</strong>
+            <div class="spotify-section spotify-featured">
+              <div class="music-year-nav" data-music-year-nav>
+                <div class="music-year-line" aria-hidden="true"></div>
+                <button type="button" class="music-year-dot" data-music-year="2023" data-music-release="early-technologies">2023</button>
+                <button type="button" class="music-year-dot" data-music-year="2021" data-music-release="ai-ni-ai-dao">2021</button>
+                <button type="button" class="music-year-dot" data-music-year="2021" data-music-release="cruel-outlets">2021</button>
+                <button type="button" class="music-year-dot" data-music-year="2020" data-music-release="emotional-dance-music">2020</button>
               </div>
-              <div class="fill-block">
-                <span>Listen</span>
-                <strong>Streaming links, embeds, tracklist, credits</strong>
+              <div class="spotify-meta spotify-album-card spotify-feature-card">
+                <div class="music-feature-layout">
+                  <div class="music-feature-left">
+                    <div class="album-cover-wrap album-cover-static" data-music-feature-card>
+                      <img
+                        src="/images/zaoqi-keji-cover.jpg"
+                        alt="Album cover"
+                        loading="lazy"
+                        data-music-cover
+                      />
+                    </div>
+                    <span data-music-tag>ALBUM 2023</span>
+                    <strong><span class="music-title-row"><span data-music-title-en>Early Technologies 早期科技</span></span></strong>
+                    <div class="music-feature-description" data-music-description>
+                      <p>
+                        Early Technologies imagines social media, autotune, and streaming
+                        services as artifacts from another era: awkward, romantic, and a
+                        little strange at the same time.
+                      </p>
+                      <p>
+                        Crossing hyperpop, indie rock, metal, and electronics, each track
+                        tells a different story about technology and everyday digital life.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="music-feature-right">
+                    <div class="album-player-panel">
+                      <iframe
+                        src="https://open.spotify.com/embed/album/0y0USrvArZ5AePcoTKp68p?utm_source=generator"
+                        title="Spotify album player"
+                        loading="lazy"
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                        data-music-player-frame
+                      ></iframe>
+                    </div>
+                  </div>
+                  <div class="music-release-nav">
+                    <button
+                      class="music-nav-button"
+                      type="button"
+                      aria-label="Go to more recent release"
+                      data-music-recent
+                    >
+                      <span aria-hidden="true">←</span>
+                      Newer
+                    </button>
+                    <button
+                      class="music-nav-button"
+                      type="button"
+                      aria-label="Go to earlier release"
+                      data-music-earlier
+                    >
+                      Earlier
+                      <span aria-hidden="true">→</span>
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -64,7 +123,6 @@
           <span class="section-index">02</span>
           <div>
             <h2>Shows</h2>
-            <p>Performances, appearances, screenings, and live activations across clubs, art spaces, and festivals.</p>
             <div class="section-fill">
               <div class="fill-block">
                 <span>Upcoming</span>
@@ -81,15 +139,41 @@
           <span class="section-index">03</span>
           <div>
             <h2>Products</h2>
-            <p>Interactive music tools, browser instruments, AI interfaces, and systems that turn language into sound.</p>
             <div class="section-fill">
               <div class="fill-block">
+                <div class="image-card-wrap">
+                  <img
+                    src="/images/codeplay-hardware.png"
+                    alt="CodePlay hardware"
+                    loading="lazy"
+                  />
+                </div>
+                <strong>CodePlay - LLM Groovebox</strong>
+              </div>
+              <div class="fill-block media-block">
                 <span>Featured Tool</span>
-                <strong>Hero slot for Vibe Collider or a future app</strong>
+                <strong>TRI-O - Algorithmic MIDI Controller</strong>
+                <div class="video-embed-wrap">
+                  <button
+                    class="video-placeholder"
+                    type="button"
+                    data-video-id="0MNyVq7LMpo"
+                    aria-label="Play TRI-O video"
+                  >
+                    <img
+                      src="/images/trio.jpeg"
+                      alt="TRI-O video thumbnail"
+                      loading="lazy"
+                    />
+                    <span class="video-play-button" aria-hidden="true">Play</span>
+                  </button>
+                </div>
               </div>
               <div class="fill-block">
-                <span>System Notes</span>
-                <strong>How it works, what it does, why it exists</strong>
+                <div class="image-card-wrap placeholder-card">
+                  <div class="placeholder-inner">Next Product</div>
+                </div>
+                <strong>More Hardware / Software Soon</strong>
               </div>
             </div>
           </div>
@@ -98,7 +182,6 @@
           <span class="section-index">04</span>
           <div>
             <h2>Web-DJ</h2>
-            <p>A home for live-coded sets, internet-native performance formats, and experiments in browser-based club culture.</p>
             <div class="section-fill">
               <div class="fill-block">
                 <span>Format</span>
@@ -115,7 +198,6 @@
           <span class="section-index">05</span>
           <div>
             <h2>Press</h2>
-            <p>Interviews, talks, public-facing bio material, panel appearances, and selected media moments.</p>
             <div class="section-fill">
               <div class="fill-block">
                 <span>Press Kit</span>
@@ -132,7 +214,6 @@
           <span class="section-index">06</span>
           <div>
             <h2>Merch</h2>
-            <p>Objects, drops, limited editions, and things that turn the project into something tactile.</p>
             <div class="section-fill">
               <div class="fill-block">
                 <span>Drop</span>
@@ -149,7 +230,6 @@
           <span class="section-index">07</span>
           <div>
             <h2>About</h2>
-            <p>An official-facing overview of the artist, practice, collaborators, and current direction.</p>
             <div class="section-fill">
               <div class="fill-block">
                 <span>Bio</span>
