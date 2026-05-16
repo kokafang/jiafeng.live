@@ -1054,6 +1054,8 @@ iframe {
 
   .portal-stage {
     padding: 92px 18px 22px;
+    background-size: auto, auto, auto, auto, cover, auto;
+    background-position: center, center, center, center, center center, center;
   }
 
   .portal-nav {
