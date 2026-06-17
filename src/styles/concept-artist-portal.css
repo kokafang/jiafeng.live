@@ -415,7 +415,7 @@ iframe {
 }
 
 #products .section-fill {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   grid-template-rows: 1fr;
   align-items: stretch;
   justify-content: stretch;
@@ -1152,12 +1152,14 @@ iframe {
 
   #products .fill-block:nth-child(1),
   #products .fill-block:nth-child(2),
-  #products .fill-block:nth-child(3) {
+  #products .fill-block:nth-child(3),
+  #products .fill-block:nth-child(4) {
     grid-column: auto;
     grid-row: auto;
   }
 }
 
-#products .fill-block:nth-child(1) .image-card-wrap {
+#products .fill-block:nth-child(1) .image-card-wrap,
+#products .fill-block:nth-child(2) .image-card-wrap {
   background: #000;
 }
