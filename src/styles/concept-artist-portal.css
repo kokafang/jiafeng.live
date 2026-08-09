@@ -752,7 +752,10 @@ iframe {
 
 .webdj-stage {
   position: relative;
-  min-height: 100%;
+  align-self: center;
+  width: 100%;
+  max-height: 100%;
+  aspect-ratio: 16 / 9;
   border: 1px solid var(--line);
   background: rgba(0, 0, 0, 0.3);
   overflow: hidden;
@@ -1280,8 +1283,7 @@ iframe {
   }
 
   .webdj-stage {
-    min-height: 0;
-    aspect-ratio: 16 / 9;
+    max-height: none;
   }
 
   #products .section-fill {
