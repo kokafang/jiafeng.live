@@ -18,11 +18,19 @@ let currentIndex = 0;
 let isAnimating = false;
 let animationFrameId = null;
 let touchStartY = 0;
-let wheelLocked = false;
+let wheelGestureActive = false;
+let wheelReleaseTimer = null;
+let lastWheelInputAt = 0;
+let wheelUnlockNotBefore = 0;
 let touchTriggered = false;
 let wheelAccumulatedDelta = 0;
 let fishRotation = 0;
 let fishTargetRotation = 0;
+
+const DESKTOP_SCROLL_DURATION = 220;
+const WHEEL_INTENT_THRESHOLD = 6;
+const WHEEL_GESTURE_IDLE_MS = 110;
+const WHEEL_POST_ANIMATION_GUARD_MS = 80;
 
 const codeTokens = [
   "setcpm",
@@ -39,10 +47,8 @@ const codeTokens = [
   "rev"
 ];
 
-function easeInOutCubic(t) {
-  return t < 0.5
-    ? 4 * t * t * t
-    : 1 - Math.pow(-2 * t + 2, 3) / 2;
+function easeOutCubic(t) {
+  return 1 - Math.pow(1 - t, 3);
 }
 
 function nearestSectionIndex() {
@@ -126,13 +132,13 @@ function smoothScrollTo(targetTop, duration = 160, onComplete) {
   function step(now) {
     const elapsed = now - startTime;
     const progress = Math.min(elapsed / duration, 1);
-    const eased = easeInOutCubic(progress);
+    const eased = easeOutCubic(progress);
     window.scrollTo(0, startTop + distance * eased);
-    syncNavigationState();
 
     if (progress < 1) {
       animationFrameId = requestAnimationFrame(step);
     } else {
+      window.scrollTo(0, targetTop);
       animationFrameId = null;
       isAnimating = false;
       syncNavigationState();
@@ -155,10 +161,10 @@ function goToSection(index, options = {}) {
   smoothScrollTo(target.offsetTop, duration);
 }
 
-function stepSection(direction) {
+function stepSection(direction, options = {}) {
   if (isAnimating) return;
   currentIndex = nearestSectionIndex();
-  goToSection(currentIndex + direction);
+  goToSection(currentIndex + direction, options);
 }
 
 function findScrollableParent(target) {
@@ -173,6 +179,32 @@ function canScrollWithin(element, deltaY) {
   return element.scrollTop > 1;
 }
 
+function scheduleWheelGestureRelease() {
+  if (wheelReleaseTimer) {
+    window.clearTimeout(wheelReleaseTimer);
+  }
+
+  const releaseWhenIdle = () => {
+    const idleFor = performance.now() - lastWheelInputAt;
+    const guardTimeLeft = wheelUnlockNotBefore - performance.now();
+
+    if (isAnimating || idleFor < WHEEL_GESTURE_IDLE_MS || guardTimeLeft > 0) {
+      const remainingIdleTime = Math.max(WHEEL_GESTURE_IDLE_MS - idleFor, 16);
+      wheelReleaseTimer = window.setTimeout(
+        releaseWhenIdle,
+        Math.max(remainingIdleTime, guardTimeLeft)
+      );
+      return;
+    }
+
+    wheelGestureActive = false;
+    wheelAccumulatedDelta = 0;
+    wheelReleaseTimer = null;
+  };
+
+  wheelReleaseTimer = window.setTimeout(releaseWhenIdle, WHEEL_GESTURE_IDLE_MS);
+}
+
 window.addEventListener(
   "wheel",
   (event) => {
@@ -184,19 +216,29 @@ window.addEventListener(
     }
 
     event.preventDefault();
+    lastWheelInputAt = performance.now();
+    scheduleWheelGestureRelease();
 
-    if (isAnimating || wheelLocked) return;
+    if (isAnimating) {
+      wheelGestureActive = true;
+      return;
+    }
+
+    if (wheelGestureActive) return;
 
     wheelAccumulatedDelta += event.deltaY;
 
-    if (Math.abs(wheelAccumulatedDelta) < 6) return;
+    if (Math.abs(wheelAccumulatedDelta) < WHEEL_INTENT_THRESHOLD) return;
 
-    wheelLocked = true;
-    stepSection(wheelAccumulatedDelta > 0 ? 1 : -1);
+    wheelGestureActive = true;
+    wheelUnlockNotBefore =
+      performance.now() +
+      DESKTOP_SCROLL_DURATION +
+      WHEEL_POST_ANIMATION_GUARD_MS;
+    stepSection(wheelAccumulatedDelta > 0 ? 1 : -1, {
+      duration: DESKTOP_SCROLL_DURATION
+    });
     wheelAccumulatedDelta = 0;
-    window.setTimeout(() => {
-      wheelLocked = false;
-    }, 16);
   },
   { passive: false }
 );
@@ -274,22 +316,26 @@ window.addEventListener(
   { passive: true }
 );
 
-document.querySelectorAll('.portal-nav a[href^="#"]').forEach((link) => {
-  link.addEventListener("click", (event) => {
-    const targetId = link.getAttribute("href");
-    const target = targetId
-      ? document.querySelector(targetId)
-      : null;
+document
+  .querySelectorAll(
+    '.portal-nav a[href^="#"], .portal-mini-nav a[href^="#"]'
+  )
+  .forEach((link) => {
+    link.addEventListener("click", (event) => {
+      const targetId = link.getAttribute("href");
+      const target = targetId
+        ? document.querySelector(targetId)
+        : null;
 
-    if (!target) return;
+      if (!target) return;
 
-    event.preventDefault();
-    const targetIndex = sections.findIndex((section) => section === target);
-    if (targetIndex === -1) return;
+      event.preventDefault();
+      const targetIndex = sections.findIndex((section) => section === target);
+      if (targetIndex === -1) return;
 
-    goToSection(targetIndex, { duration: 105 });
+      goToSection(targetIndex, { duration: 105 });
+    });
   });
-});
 
 document.querySelectorAll(".video-placeholder").forEach((button) => {
   button.addEventListener("click", () => {

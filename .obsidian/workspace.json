@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "欢迎.md",
+                "file": "2026-05-23.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "欢迎"
+              "title": "2026-05-23"
             }
           }
         ]
@@ -199,20 +199,31 @@
       "bases:新建数据库": false
     }
   },
-  "active": "da2fa7fa1b75d46b",
+  "active": "c4e0bbd03d6d4777",
   "lastOpenFiles": [
-    "dist/index.html",
-    "dist/assets/index-CKo0f4zj.js",
-    "dist/assets/index-BNEJr2O8.css",
-    "dist/assets",
-    "dist",
-    "package-lock.json",
-    "node_modules/fsevents/build/config.gypi",
-    "node_modules/fsevents/build",
+    "欢迎.md",
+    "2026-05-23.md",
+    "dist/assets/index-Cde2-Cxc.css",
+    "dist/assets/index-C6fpOJO_.js",
+    "dist/images/diy-dance-kit.jpg",
+    "dist/images/16-DIYDanceKit效果图.jpg",
+    "dist/images/14-游戏截屏.png",
+    "dist/images/07-gjf个人2（摄影：王玮）.jpg",
+    "public/images/diy-dance-kit.jpg",
+    "public/images/07-gjf个人2（摄影：王玮）.jpg",
+    "public/images/360ef3e5ee4b0c47244ac4bcd9ecaf5b.nas_pro_downloading",
+    "public/images/14-游戏截屏.png",
+    "public/images/f04266b4516cfa5f6bc89f9a9eeb8e85.nas_pro_downloading",
+    "public/images/16-DIYDanceKit效果图.jpg",
+    "public/images/261daa433eddf2b82cdb1bf9bf40d37c.nas_pro_downloading",
+    "dist/assets/index-BpQ38KGd.js",
+    "dist/assets/index-BO9DAUYf.css",
+    "dist/assets/index-D4MRMxz5.css",
+    "dist/assets/index-C9LUTQEC.js",
+    "dist/assets/index-DCV2uiTu.css",
+    "dist/assets/expansion_20260429000519415-DIFc4sub.JPEG",
+    "dist/images/横版扩展_8K_最终版.webp",
     "node_modules/@esbuild/darwin-arm64/README.md",
-    "node_modules/@esbuild/darwin-arm64/package.json",
-    "node_modules/vite/dist/node/chunks/moduleRunnerTransport.d.ts",
-    "node_modules/vite/dist/node/module-runner.d.ts",
     "node_modules/vite/README.md",
     "node_modules/vite/LICENSE.md",
     "node_modules/rollup/README.md",
@@ -228,7 +239,6 @@
     "node_modules/source-map-js/README.md",
     "node_modules/picocolors/README.md",
     "node_modules/nanoid/README.md",
-    "node_modules/fdir/README.md",
-    "欢迎.md"
+    "node_modules/fdir/README.md"
   ]
 }
