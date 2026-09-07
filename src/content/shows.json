@@ -1,0 +1,2857 @@
+[
+  {
+    "id": "show-2026-10-06-167",
+    "date": "2026-10-06",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2026,
+    "location": "Hamburg，德国",
+    "event": "AIPPI",
+    "performance": "Panel Speaker / 论坛嘉宾",
+    "status": "upcoming",
+    "sources": []
+  },
+  {
+    "id": "show-2026-10-03-166",
+    "date": "2026-10-03",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2026,
+    "location": "上海，中国",
+    "event": "Reactor",
+    "performance": "Web DJ",
+    "status": "upcoming",
+    "sources": []
+  },
+  {
+    "id": "show-2026-10-02-165",
+    "date": "2026-10-02",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2026,
+    "location": "上海，中国",
+    "event": "illum",
+    "performance": "Web DJ",
+    "status": "upcoming",
+    "sources": []
+  },
+  {
+    "id": "show-2026-09-26-164",
+    "date": "2026-09-26",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2026,
+    "location": "上海，中国",
+    "event": "育音堂小镇 C厅",
+    "performance": "Live Set，20:00；拼盘",
+    "status": "upcoming",
+    "sources": [],
+    "time": "20:00"
+  },
+  {
+    "id": "show-2026-07-17-162",
+    "date": "2026-07-17",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2026,
+    "location": "深圳，中国",
+    "event": "OIL Club",
+    "performance": "Web DJ",
+    "status": "artist-confirmed",
+    "sources": []
+  },
+  {
+    "id": "show-2026-05-29-161",
+    "date": "2026-05-29",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2026,
+    "location": "大理，中国",
+    "event": "喜客厅（大理古城）",
+    "performance": "Web DJ",
+    "status": "artist-confirmed",
+    "sources": []
+  },
+  {
+    "id": "show-2026-03-20-160",
+    "date": "2026-03-20",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2026,
+    "location": "上海，中国",
+    "event": "Dweller",
+    "performance": "Web DJ",
+    "status": "artist-confirmed",
+    "sources": []
+  },
+  {
+    "id": "show-2026-03-03-159",
+    "date": "2026-03-03",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2026,
+    "location": "地点未注明",
+    "event": "WebM",
+    "performance": "Web DJ",
+    "status": "artist-confirmed",
+    "sources": []
+  },
+  {
+    "id": "show-2026-01-01-158",
+    "date": "2026-01-01",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2026,
+    "location": "宁波，中国",
+    "event": "好Yeah音乐节 @ 鄞州花园里",
+    "performance": "Live Set",
+    "status": "artist-confirmed",
+    "sources": []
+  },
+  {
+    "id": "show-2025-10-22-157",
+    "date": "2025-10-22",
+    "endDate": "2025-10-25",
+    "dateUncertain": false,
+    "year": 2025,
+    "location": "上海，中国",
+    "event": "IMX（International Music X）",
+    "performance": "Panel Speaker / 论坛嘉宾",
+    "status": "artist-confirmed",
+    "sources": []
+  },
+  {
+    "id": "show-2025-06-14-156",
+    "date": "2025-06-14",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2025,
+    "location": "杭州，中国",
+    "event": "杭州草莓音乐节 @ 大运河杭钢公园",
+    "performance": "DJ set",
+    "status": "artist-confirmed",
+    "sources": [
+      {
+        "label": "C27",
+        "url": "https://hz.bendibao.com/xiuxian/2025512/164166.shtm"
+      }
+    ]
+  },
+  {
+    "id": "show-2025-06-01-155",
+    "date": "2025-06-01",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2025,
+    "location": "长沙，中国",
+    "event": "长沙草莓音乐节",
+    "performance": "Band live / 乐队 Live Set",
+    "status": "artist-confirmed",
+    "sources": [
+      {
+        "label": "C26",
+        "url": "https://www.sohu.com/a/884049684_121124772"
+      }
+    ]
+  },
+  {
+    "id": "show-2024-11-02-154",
+    "date": "2024-11-02",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2024,
+    "location": "上海，中国",
+    "event": "新天地一游记",
+    "performance": "Band live / 乐队 Live Set",
+    "status": "artist-confirmed",
+    "sources": []
+  },
+  {
+    "id": "show-2024-08-25-153",
+    "date": "2024-08-25",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2024,
+    "location": "上海，中国",
+    "event": "对冲联合巡演 @ YYT 育音堂",
+    "performance": "Band live；与 8:48 乐队",
+    "status": "listing",
+    "sources": [
+      {
+        "label": "C31",
+        "url": "https://www.suzhouhui.com/article/111251.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2024-08-23-152",
+    "date": "2024-08-23",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2024,
+    "location": "杭州，中国",
+    "event": "对冲联合巡演 @ 酒球会",
+    "performance": "Band live；与 8:48 乐队",
+    "status": "listing",
+    "sources": [
+      {
+        "label": "C31",
+        "url": "https://www.suzhouhui.com/article/111251.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2024-07-27-151",
+    "date": "2024-07-27",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2024,
+    "location": "苏州，中国",
+    "event": "对冲联合巡演 @ 山丘 LIVEHOUSE（斜塘店）",
+    "performance": "Band live；与 8:48 乐队，20:00",
+    "status": "listing",
+    "sources": [
+      {
+        "label": "C31",
+        "url": "https://www.suzhouhui.com/article/111251.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2024-07-26-150",
+    "date": "2024-07-26",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2024,
+    "location": "南京，中国",
+    "event": "对冲联合巡演 @ 1701 Live House",
+    "performance": "Band live；与 8:48 乐队",
+    "status": "listing",
+    "sources": [
+      {
+        "label": "C31",
+        "url": "https://www.suzhouhui.com/article/111251.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2024-07-06-149",
+    "date": "2024-07-06",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2024,
+    "location": "合肥，中国",
+    "event": "对冲联合巡演 @ 791 CROW",
+    "performance": "Band live；与 8:48 乐队",
+    "status": "listing",
+    "sources": [
+      {
+        "label": "C31",
+        "url": "https://www.suzhouhui.com/article/111251.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2024-07-05-148",
+    "date": "2024-07-05",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2024,
+    "location": "无锡，中国",
+    "event": "对冲联合巡演 @ 活塞 Live House",
+    "performance": "Band live；与 8:48 乐队",
+    "status": "listing",
+    "sources": [
+      {
+        "label": "C31",
+        "url": "https://www.suzhouhui.com/article/111251.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2024-06-23-147",
+    "date": "2024-06-23",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2024,
+    "location": "义乌，中国",
+    "event": "对冲联合巡演 @ 隔壁酒吧",
+    "performance": "Band live；与 8:48 乐队",
+    "status": "listing",
+    "sources": [
+      {
+        "label": "C31",
+        "url": "https://www.suzhouhui.com/article/111251.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2024-06-22-146",
+    "date": "2024-06-22",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2024,
+    "location": "宁波，中国",
+    "event": "对冲联合巡演 @ 灯塔音乐现场（U-PARK 店）",
+    "performance": "Band live；与 8:48 乐队",
+    "status": "listing",
+    "sources": [
+      {
+        "label": "C31",
+        "url": "https://www.suzhouhui.com/article/111251.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2024-06-21-145",
+    "date": "2024-06-21",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2024,
+    "location": "温州，中国",
+    "event": "对冲联合巡演 @ 盲堂",
+    "performance": "Band live；与 8:48 乐队，20:00",
+    "status": "listing",
+    "sources": [
+      {
+        "label": "C24",
+        "url": "https://www.sohu.com/a/785710102_386654"
+      },
+      {
+        "label": "C31",
+        "url": "https://www.suzhouhui.com/article/111251.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2024-05-25-144",
+    "date": "2024-05-25",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2024,
+    "location": "杭州，中国",
+    "event": "杭州草莓音乐节 @ 大运河杭钢公园",
+    "performance": "音乐节演出",
+    "status": "listing",
+    "sources": [
+      {
+        "label": "C32",
+        "url": "https://www.sina.cn/news/detail/5028092588068081.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2024-01-05-143",
+    "date": "2024-01-05",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2024,
+    "location": "北京，中国",
+    "event": "Early Technologies Release Party @ ByeByeDisco",
+    "performance": "Live + DJ；BloodzBoi、SPEED LEVEL.8、Kousei",
+    "status": "listing",
+    "sources": [
+      {
+        "label": "C23",
+        "url": "https://ra.co/events/1835079"
+      }
+    ]
+  },
+  {
+    "id": "show-2023-12-31-142",
+    "date": "2023-12-31",
+    "endDate": null,
+    "dateUncertain": true,
+    "year": 2023,
+    "location": "上海，中国",
+    "event": "Tank Shanghai / 油罐艺术中心",
+    "performance": "Live，具体形式待核",
+    "status": "provisional",
+    "sources": []
+  },
+  {
+    "id": "show-2023-12-29-141",
+    "date": "2023-12-29",
+    "endDate": null,
+    "dateUncertain": true,
+    "year": 2023,
+    "location": "上海，中国",
+    "event": "Elevator",
+    "performance": "Live，具体形式待核",
+    "status": "provisional",
+    "sources": []
+  },
+  {
+    "id": "show-2023-12-28-140",
+    "date": "2023-12-28",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2023,
+    "location": "深圳，中国",
+    "event": "Early Technologies Album Release Party @ OIL",
+    "performance": "DJ + Live；同场 Jas Lin & hearthealer、Dr.aDD、瓜西、617",
+    "status": "listing",
+    "sources": [
+      {
+        "label": "C22",
+        "url": "https://ra.co/events/1823815"
+      }
+    ]
+  },
+  {
+    "id": "show-2023-04-08-139",
+    "date": "2023-04-08",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2023,
+    "location": "成都，中国",
+    "event": "成都草莓音乐节 / STILL PARTY 舞台 @ 国际非遗创意产业园",
+    "performance": "音乐节演出，17:50–18:30",
+    "status": "listing",
+    "sources": [
+      {
+        "label": "C21",
+        "url": "https://m.cd.bendibao.com/xiuxian/154516.shtm"
+      }
+    ]
+  },
+  {
+    "id": "show-2022-12-16-138",
+    "date": "2022-12-16",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2022,
+    "location": "深圳，中国",
+    "event": "早期科技全国巡演 @ HOU LIVE & MPK",
+    "performance": "Band live",
+    "status": "listing",
+    "sources": [
+      {
+        "label": "C19",
+        "url": "https://www.sohu.com/a/603730160_121124750"
+      }
+    ]
+  },
+  {
+    "id": "show-2022-12-15-137",
+    "date": "2022-12-15",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2022,
+    "location": "广州，中国",
+    "event": "早期科技全国巡演 @ MAO 永庆坊店",
+    "performance": "Band live",
+    "status": "listing",
+    "sources": [
+      {
+        "label": "C19",
+        "url": "https://www.sohu.com/a/603730160_121124750"
+      }
+    ]
+  },
+  {
+    "id": "show-2022-12-02-136",
+    "date": "2022-12-02",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2022,
+    "location": "苏州，中国",
+    "event": "早期科技全国巡演 @ 山丘 Livehouse 新光店",
+    "performance": "Band live",
+    "status": "listing",
+    "sources": [
+      {
+        "label": "C19",
+        "url": "https://www.sohu.com/a/603730160_121124750"
+      },
+      {
+        "label": "C20",
+        "url": "https://www.pythonke.com/topics/gaojiafeng/"
+      }
+    ]
+  },
+  {
+    "id": "show-2022-12-01-135",
+    "date": "2022-12-01",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2022,
+    "location": "杭州，中国",
+    "event": "早期科技全国巡演 @ 酒球会",
+    "performance": "Band live",
+    "status": "listing",
+    "sources": [
+      {
+        "label": "C19",
+        "url": "https://www.sohu.com/a/603730160_121124750"
+      }
+    ]
+  },
+  {
+    "id": "show-2022-11-26-134",
+    "date": "2022-11-26",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2022,
+    "location": "成都，中国",
+    "event": "早期科技全国巡演 @ CH8 东郊店",
+    "performance": "Band live",
+    "status": "listing",
+    "sources": [
+      {
+        "label": "C19",
+        "url": "https://www.sohu.com/a/603730160_121124750"
+      }
+    ]
+  },
+  {
+    "id": "show-2022-11-25-133",
+    "date": "2022-11-25",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2022,
+    "location": "西安，中国",
+    "event": "早期科技全国巡演 @ 西演 Space·福星现场",
+    "performance": "Band live",
+    "status": "listing",
+    "sources": [
+      {
+        "label": "C19",
+        "url": "https://www.sohu.com/a/603730160_121124750"
+      }
+    ]
+  },
+  {
+    "id": "show-2022-11-13-132",
+    "date": "2022-11-13",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2022,
+    "location": "武汉，中国",
+    "event": "早期科技全国巡演 @ ThreeLive",
+    "performance": "Band live",
+    "status": "listing",
+    "sources": [
+      {
+        "label": "C19",
+        "url": "https://www.sohu.com/a/603730160_121124750"
+      }
+    ]
+  },
+  {
+    "id": "show-2022-11-12-131",
+    "date": "2022-11-12",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2022,
+    "location": "长沙，中国",
+    "event": "早期科技全国巡演 @ MAO Livehouse",
+    "performance": "Band live，下午场",
+    "status": "listing",
+    "sources": [
+      {
+        "label": "C19",
+        "url": "https://www.sohu.com/a/603730160_121124750"
+      }
+    ]
+  },
+  {
+    "id": "show-2022-09-11-130",
+    "date": "2022-09-11",
+    "endDate": "2022-09-12",
+    "dateUncertain": true,
+    "year": 2022,
+    "location": "长沙，中国",
+    "event": "长沙草莓音乐节",
+    "performance": "音乐节演出",
+    "status": "provisional",
+    "sources": [
+      {
+        "label": "C18",
+        "url": "https://cs.bendibao.com/xiuxian/2022822/94568.shtm"
+      }
+    ]
+  },
+  {
+    "id": "show-2022-08-07-129",
+    "date": "2022-08-07",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2022,
+    "location": "贵阳，中国",
+    "event": "贵阳草莓音乐节 / MSE @ 白云区曹关赤泥堆场",
+    "performance": "DJ set，17:10–17:50",
+    "status": "listing",
+    "sources": [
+      {
+        "label": "C17",
+        "url": "https://m.gy.bendibao.com/xiuxian/59965.shtm"
+      }
+    ]
+  },
+  {
+    "id": "show-2021-12-18-128",
+    "date": "2021-12-18",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2021,
+    "location": "上海，中国",
+    "event": "K11 / The Garage",
+    "performance": "Band live + DJ set",
+    "status": "listing",
+    "sources": [
+      {
+        "label": "C16",
+        "url": "https://www.xiaoyuzhoufm.com/episode/61bb20fda7eccbe3918aed2d"
+      }
+    ]
+  },
+  {
+    "id": "show-2020-10-01-127",
+    "date": "2020-10-01",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2020,
+    "location": "深圳，中国",
+    "event": "幻爱锐舞会电玩专辑巡演 @ OIL",
+    "performance": "Live",
+    "status": "listing",
+    "sources": [
+      {
+        "label": "C33",
+        "url": "https://www.sohu.com/a/420681120_282321"
+      }
+    ]
+  },
+  {
+    "id": "show-2020-09-30-126",
+    "date": "2020-09-30",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2020,
+    "location": "广州，中国",
+    "event": "幻爱锐舞会电玩专辑巡演 @ MAO Livehouse",
+    "performance": "Live，20:30",
+    "status": "listing",
+    "sources": [
+      {
+        "label": "C33",
+        "url": "https://www.sohu.com/a/420681120_282321"
+      },
+      {
+        "label": "C20",
+        "url": "https://www.pythonke.com/topics/gaojiafeng/"
+      }
+    ]
+  },
+  {
+    "id": "show-2020-09-25-125",
+    "date": "2020-09-25",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2020,
+    "location": "长沙，中国",
+    "event": "幻爱锐舞会电玩专辑巡演 @ MAO Livehouse",
+    "performance": "Live，20:30",
+    "status": "listing",
+    "sources": [
+      {
+        "label": "C33",
+        "url": "https://www.sohu.com/a/420681120_282321"
+      },
+      {
+        "label": "C20",
+        "url": "https://www.pythonke.com/topics/gaojiafeng/"
+      }
+    ]
+  },
+  {
+    "id": "show-2020-09-19-124",
+    "date": "2020-09-19",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2020,
+    "location": "成都，中国",
+    "event": "幻爱锐舞会电玩专辑巡演 @ MAO Livehouse",
+    "performance": "Live，20:30",
+    "status": "listing",
+    "sources": [
+      {
+        "label": "C20",
+        "url": "https://www.pythonke.com/topics/gaojiafeng/"
+      }
+    ]
+  },
+  {
+    "id": "show-2020-09-13-123",
+    "date": "2020-09-13",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2020,
+    "location": "杭州，中国",
+    "event": "幻爱锐舞会电玩专辑巡演 @ Loopy",
+    "performance": "Live",
+    "status": "provisional",
+    "sources": [
+      {
+        "label": "C14",
+        "url": "https://www.ososhow.com/topics/gaojiafeng/2020"
+      }
+    ]
+  },
+  {
+    "id": "show-2020-09-12-122",
+    "date": "2020-09-12",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2020,
+    "location": "上海，中国",
+    "event": "幻爱锐舞会电玩专辑巡演 @ 育音堂音乐公园",
+    "performance": "Live，20:30",
+    "status": "listing",
+    "sources": [
+      {
+        "label": "C15",
+        "url": "https://whlyj.sh.gov.cn/cmsres/9e/9edf91e907fd4ba79e048af520e44684/5e6184bfce2414daef6908df9d86ef79.pdf"
+      }
+    ]
+  },
+  {
+    "id": "show-2020-09-05-121",
+    "date": "2020-09-05",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2020,
+    "location": "北京，中国",
+    "event": "幻爱锐舞会电玩专辑巡演 @ 疆进酒 OMNI SPACE",
+    "performance": "Live",
+    "status": "listing",
+    "sources": [
+      {
+        "label": "C14",
+        "url": "https://www.ososhow.com/topics/gaojiafeng/2020"
+      }
+    ]
+  },
+  {
+    "id": "show-2019-10-27-120",
+    "date": "2019-10-27",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2019,
+    "location": "厦门，中国",
+    "event": "厦门草莓音乐节 / MSE 舞台",
+    "performance": "DJ set",
+    "status": "provisional",
+    "sources": [
+      {
+        "label": "C13",
+        "url": "https://xiamen.manmankan.com/gonglue/1474/"
+      }
+    ]
+  },
+  {
+    "id": "show-2019-10-19-119",
+    "date": "2019-10-19",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2019,
+    "location": "台北，台湾",
+    "event": "禾火 OUT Festival @ 公馆水岸广场",
+    "performance": "首日“秋月”舞台",
+    "status": "documented",
+    "sources": [
+      {
+        "label": "C12",
+        "url": "https://www.taiwannews.com.tw/zh/news/3799774"
+      }
+    ]
+  },
+  {
+    "id": "show-2019-10-06-118",
+    "date": "2019-10-06",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2019,
+    "location": "福州，中国（地点有冲突）",
+    "event": "高嘉丰 × Lows0n @ TheSigh 瀑布东街口店",
+    "performance": "联合演出",
+    "status": "provisional",
+    "sources": [
+      {
+        "label": "C11",
+        "url": "https://www.sohu.com/a/344927277_186333"
+      }
+    ]
+  },
+  {
+    "id": "show-2019-07-05-117",
+    "date": "2019-07-05",
+    "endDate": "2019-07-07",
+    "dateUncertain": true,
+    "year": 2019,
+    "location": "嘉义，台湾",
+    "event": "Wake Up Festival @ 港坪运动公园",
+    "performance": "音乐节演出",
+    "status": "provisional",
+    "sources": [
+      {
+        "label": "C10",
+        "url": "https://www.accupass.com/event/1906050845251855616190"
+      }
+    ]
+  },
+  {
+    "id": "show-2019-06-18-116",
+    "date": "2019-06-18",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2019,
+    "location": "上海，中国",
+    "event": "B-Side China / china.wav @ ALL",
+    "performance": "与 Josh Feola 对谈、Q&A，随后 Browser DJ set",
+    "status": "documented",
+    "sources": [
+      {
+        "label": "C8",
+        "url": "https://radii.co/article/event-b-side-china-podcast-live-recording-with-gao-jiafeng-at-all-shanghai/"
+      },
+      {
+        "label": "C9",
+        "url": "https://radii.co/article/chinawav"
+      }
+    ]
+  },
+  {
+    "id": "show-2019-06-02-115",
+    "date": "2019-06-02",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2019,
+    "location": "杭州，中国",
+    "event": "西湖音乐节",
+    "performance": "音乐节演出",
+    "status": "provisional",
+    "sources": [
+      {
+        "label": "C7",
+        "url": "https://hznews.hangzhou.com.cn/wenti/content/2019-05/30/content_7202497_2.htm"
+      }
+    ]
+  },
+  {
+    "id": "show-2019-05-31-114",
+    "date": "2019-05-31",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2019,
+    "location": "深圳，中国",
+    "event": "绿出我人生联合巡演 @ OIL",
+    "performance": "与 Lows0n",
+    "status": "listing",
+    "sources": [
+      {
+        "label": "C6",
+        "url": "https://www.showstart.com/event/82082?ssfrom=cp-310481"
+      }
+    ]
+  },
+  {
+    "id": "show-2018-12-23-113",
+    "date": "2018-12-23",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2018,
+    "location": "北京，中国",
+    "event": "Young Friends Concert Season 3 @ 糖果",
+    "performance": "联合演出",
+    "status": "provisional",
+    "sources": [
+      {
+        "label": "C5",
+        "url": "https://www.sohu.com/a/281738550_296992"
+      }
+    ]
+  },
+  {
+    "id": "show-2018-10-13-112",
+    "date": "2018-10-13",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2018,
+    "location": "上海，中国",
+    "event": "adidas Das Days House Party @ 育音堂",
+    "performance": "",
+    "status": "provisional",
+    "sources": [
+      {
+        "label": "C4",
+        "url": "https://nowre.com/fashion/363847/adidas-das-days-2018-huabanhuodongjiangdenglushanghai/"
+      }
+    ]
+  },
+  {
+    "id": "show-2018-08-26-111",
+    "date": "2018-08-26",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2018,
+    "location": "上海，中国／线上",
+    "event": "NTS: Jiafeng, Live from Shanghai",
+    "performance": "Browser DJ / Web-DJ",
+    "status": "documented",
+    "sources": [
+      {
+        "label": "N1",
+        "url": "https://www.nts.live/shows/shanghai/episodes/jiafeng-live-from-shanghai-26th-august-2018"
+      },
+      {
+        "label": "N2",
+        "url": "https://radii.co/article/listen-gao-jiafeng-inflicts-his-browser-dj-set-on-nts"
+      }
+    ]
+  },
+  {
+    "id": "show-2018-07-13-110",
+    "date": "2018-07-13",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2018,
+    "location": "北京，中国",
+    "event": "蹦迪治大病全国巡演 @ DDC 黄昏黎明",
+    "performance": "Solo live / DIY 视听；Fishdoll、Bob Dupont & The Outstanding Vegan Bankers、Angry Navel",
+    "status": "documented",
+    "sources": [
+      {
+        "label": "C3",
+        "url": "https://dashi.streetvoice.cn/article/20180717/001/"
+      }
+    ]
+  },
+  {
+    "id": "show-2017-11-17-109",
+    "date": "2017-11-17",
+    "endDate": null,
+    "dateUncertain": true,
+    "year": 2017,
+    "location": "台北，台湾",
+    "event": "上海的溫泉裡也沒有黑社會：台北濕地站 @ 濕地 venue B1",
+    "performance": "Solo live；同场白目樂隊、華衛音樂自救會、Gonzo",
+    "status": "provisional",
+    "sources": [
+      {
+        "label": "C2",
+        "url": "https://www.venue.tw/portfolio-item/jafong/"
+      }
+    ]
+  },
+  {
+    "id": "show-2017-07-08-108",
+    "date": "2017-07-08",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2017,
+    "location": "上海，中国",
+    "event": "撅，日落开始的相聚 @ 明当代美术馆",
+    "performance": "音乐／表演；同场巩中辉、二阶堂伊奥等",
+    "status": "listing",
+    "sources": [
+      {
+        "label": "C1",
+        "url": "https://m.sh.bendibao.com/tour/182965_5.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2017-03-06-107",
+    "date": "2017-03-06",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2017,
+    "location": "杭州，中国",
+    "event": "Loopy",
+    "performance": "DJ set",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W2",
+        "url": "https://web.archive.org/web/20170716070335/http://fenggaocom.domain.com/upcoming.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2017-02-17-106",
+    "date": "2017-02-17",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2017,
+    "location": "上海，中国",
+    "event": "DADA",
+    "performance": "DJ set",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W2",
+        "url": "https://web.archive.org/web/20170716070335/http://fenggaocom.domain.com/upcoming.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2017-01-13-104",
+    "date": "2017-01-13",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2017,
+    "location": "上海，中国",
+    "event": "Chronus Art Center / CAC",
+    "performance": "",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W2",
+        "url": "https://web.archive.org/web/20170716070335/http://fenggaocom.domain.com/upcoming.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2017-01-13-105",
+    "date": "2017-01-13",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2017,
+    "location": "上海，中国",
+    "event": "Creater Space",
+    "performance": "",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W2",
+        "url": "https://web.archive.org/web/20170716070335/http://fenggaocom.domain.com/upcoming.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2016-12-23-103",
+    "date": "2016-12-23",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2016,
+    "location": "上海，中国",
+    "event": "Basement6",
+    "performance": "DJ set",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W2",
+        "url": "https://web.archive.org/web/20170716070335/http://fenggaocom.domain.com/upcoming.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2016-12-18-102",
+    "date": "2016-12-18",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2016,
+    "location": "上海，中国",
+    "event": "Chair Club",
+    "performance": "个人现场",
+    "status": "documented",
+    "sources": [
+      {
+        "label": "W2",
+        "url": "https://web.archive.org/web/20170716070335/http://fenggaocom.domain.com/upcoming.html"
+      },
+      {
+        "label": "R2",
+        "url": "https://readinggroupcompany.bandcamp.com/album/selected-works-2013-2017"
+      }
+    ]
+  },
+  {
+    "id": "show-2016-12-17-101",
+    "date": "2016-12-17",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2016,
+    "location": "义乌，中国",
+    "event": "GEBI",
+    "performance": "",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W2",
+        "url": "https://web.archive.org/web/20170716070335/http://fenggaocom.domain.com/upcoming.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2016-12-15-100",
+    "date": "2016-12-15",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2016,
+    "location": "杭州，中国",
+    "event": "Loopy",
+    "performance": "",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W2",
+        "url": "https://web.archive.org/web/20170716070335/http://fenggaocom.domain.com/upcoming.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2016-10-29-99",
+    "date": "2016-10-29",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2016,
+    "location": "上海，中国",
+    "event": "space631",
+    "performance": "",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W2",
+        "url": "https://web.archive.org/web/20170716070335/http://fenggaocom.domain.com/upcoming.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2016-10-15-98",
+    "date": "2016-10-15",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2016,
+    "location": "上海，中国",
+    "event": "Chronus Art Center / CAC",
+    "performance": "",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W2",
+        "url": "https://web.archive.org/web/20170716070335/http://fenggaocom.domain.com/upcoming.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2016-09-29-97",
+    "date": "2016-09-29",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2016,
+    "location": "New York / Brooklyn，美国",
+    "event": "happyluckyno.1",
+    "performance": "",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W2",
+        "url": "https://web.archive.org/web/20170716070335/http://fenggaocom.domain.com/upcoming.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2016-09-18-96",
+    "date": "2016-09-18",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2016,
+    "location": "New York，美国",
+    "event": "Gallery 456",
+    "performance": "",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W2",
+        "url": "https://web.archive.org/web/20170716070335/http://fenggaocom.domain.com/upcoming.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2016-09-05-95",
+    "date": "2016-09-05",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2016,
+    "location": "New York / Brooklyn，美国",
+    "event": "65Fen Music Series",
+    "performance": "",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W2",
+        "url": "https://web.archive.org/web/20170716070335/http://fenggaocom.domain.com/upcoming.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2016-09-02-94",
+    "date": "2016-09-02",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2016,
+    "location": "New York / Brooklyn，美国",
+    "event": "Park Church",
+    "performance": "",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W2",
+        "url": "https://web.archive.org/web/20170716070335/http://fenggaocom.domain.com/upcoming.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2016-08-29-93",
+    "date": "2016-08-29",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2016,
+    "location": "New York / Brooklyn，美国",
+    "event": "Panoply Performance Lab",
+    "performance": "",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W2",
+        "url": "https://web.archive.org/web/20170716070335/http://fenggaocom.domain.com/upcoming.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2016-08-27-92",
+    "date": "2016-08-27",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2016,
+    "location": "New York / Brooklyn，美国",
+    "event": "Home Audio",
+    "performance": "",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W2",
+        "url": "https://web.archive.org/web/20170716070335/http://fenggaocom.domain.com/upcoming.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2016-08-24-91",
+    "date": "2016-08-24",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2016,
+    "location": "北京，中国",
+    "event": "Meridian Space",
+    "performance": "",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W2",
+        "url": "https://web.archive.org/web/20170716070335/http://fenggaocom.domain.com/upcoming.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2016-08-21-90",
+    "date": "2016-08-21",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2016,
+    "location": "北京，中国",
+    "event": "Fruityspace",
+    "performance": "",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W2",
+        "url": "https://web.archive.org/web/20170716070335/http://fenggaocom.domain.com/upcoming.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2016-08-05-89",
+    "date": "2016-08-05",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2016,
+    "location": "上海，中国",
+    "event": "Arkham",
+    "performance": "DJ set",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W2",
+        "url": "https://web.archive.org/web/20170716070335/http://fenggaocom.domain.com/upcoming.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2016-07-29-88",
+    "date": "2016-07-29",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2016,
+    "location": "上海，中国",
+    "event": "M64",
+    "performance": "",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W2",
+        "url": "https://web.archive.org/web/20170716070335/http://fenggaocom.domain.com/upcoming.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2016-07-23-87",
+    "date": "2016-07-23",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2016,
+    "location": "上海，中国",
+    "event": "Basement6",
+    "performance": "",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W2",
+        "url": "https://web.archive.org/web/20170716070335/http://fenggaocom.domain.com/upcoming.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2016-07-07-86",
+    "date": "2016-07-07",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2016,
+    "location": "北京，中国",
+    "event": "DADA",
+    "performance": "",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W2",
+        "url": "https://web.archive.org/web/20170716070335/http://fenggaocom.domain.com/upcoming.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2016-07-06-85",
+    "date": "2016-07-06",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2016,
+    "location": "北京，中国",
+    "event": "一个即兴的周三 @ fRUITYSPACE",
+    "performance": "Solo set",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W2",
+        "url": "https://web.archive.org/web/20170716070335/http://fenggaocom.domain.com/upcoming.html"
+      },
+      {
+        "label": "R1",
+        "url": "https://recordings.escdotdot.com/"
+      }
+    ]
+  },
+  {
+    "id": "show-2016-06-04-84",
+    "date": "2016-06-04",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2016,
+    "location": "上海，中国",
+    "event": "space631",
+    "performance": "",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W2",
+        "url": "https://web.archive.org/web/20170716070335/http://fenggaocom.domain.com/upcoming.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2016-05-08-83",
+    "date": "2016-05-08",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2016,
+    "location": "广州，中国",
+    "event": "Loft345",
+    "performance": "",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W2",
+        "url": "https://web.archive.org/web/20170716070335/http://fenggaocom.domain.com/upcoming.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2016-05-07-82",
+    "date": "2016-05-07",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2016,
+    "location": "澳门",
+    "event": "Kill The Silence: LUFF does Hong Kong — Opening Live @ LMA",
+    "performance": "同场 Mai Mai Mai、Aquiles Hadjis、e:ch bleeds、Frog.W、Faslane",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W2",
+        "url": "https://web.archive.org/web/20170716070335/http://fenggaocom.domain.com/upcoming.html"
+      },
+      {
+        "label": "S1",
+        "url": "https://sin-ned.blogspot.com/2016/03/"
+      }
+    ]
+  },
+  {
+    "id": "show-2016-04-30-81",
+    "date": "2016-04-30",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2016,
+    "location": "Paris，法国",
+    "event": "La Mécanique Ondulatoire",
+    "performance": "",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W2",
+        "url": "https://web.archive.org/web/20170716070335/http://fenggaocom.domain.com/upcoming.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2016-04-29-80",
+    "date": "2016-04-29",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2016,
+    "location": "Caen，法国",
+    "event": "Sauvages à la demeurée",
+    "performance": "",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W2",
+        "url": "https://web.archive.org/web/20170716070335/http://fenggaocom.domain.com/upcoming.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2016-04-27-79",
+    "date": "2016-04-27",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2016,
+    "location": "Prague，捷克",
+    "event": "Jedna-Dva-Tri Gallery",
+    "performance": "",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W2",
+        "url": "https://web.archive.org/web/20170716070335/http://fenggaocom.domain.com/upcoming.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2016-04-23-78",
+    "date": "2016-04-23",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2016,
+    "location": "Bratislava，斯洛伐克",
+    "event": "A4",
+    "performance": "",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W2",
+        "url": "https://web.archive.org/web/20170716070335/http://fenggaocom.domain.com/upcoming.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2016-04-17-77",
+    "date": "2016-04-17",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2016,
+    "location": "Berlin，德国",
+    "event": "Studio 8",
+    "performance": "",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W2",
+        "url": "https://web.archive.org/web/20170716070335/http://fenggaocom.domain.com/upcoming.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2016-04-10-76",
+    "date": "2016-04-10",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2016,
+    "location": "Stockholm，瑞典",
+    "event": "Fylkingen",
+    "performance": "",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W2",
+        "url": "https://web.archive.org/web/20170716070335/http://fenggaocom.domain.com/upcoming.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2016-04-07-75",
+    "date": "2016-04-07",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2016,
+    "location": "Uppsala，瑞典",
+    "event": "Omnikvariatet",
+    "performance": "",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W2",
+        "url": "https://web.archive.org/web/20170716070335/http://fenggaocom.domain.com/upcoming.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2016-02-29-74",
+    "date": "2016-02-29",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2016,
+    "location": "New York / Brooklyn，美国",
+    "event": "La Sala at Cantina Royale",
+    "performance": "Duo with Jordan Topiel Paul",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W2",
+        "url": "https://web.archive.org/web/20170716070335/http://fenggaocom.domain.com/upcoming.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2016-02-27-73",
+    "date": "2016-02-27",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2016,
+    "location": "New York / Brooklyn，美国",
+    "event": "Hell Phone",
+    "performance": "Duo with Miriam Atkin",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W2",
+        "url": "https://web.archive.org/web/20170716070335/http://fenggaocom.domain.com/upcoming.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2016-02-15-72",
+    "date": "2016-02-15",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2016,
+    "location": "New York / Brooklyn，美国",
+    "event": "65Fen Music Series @ Delroy's",
+    "performance": "Solo：人声、电子、手风琴、物件；同晚 Anaïs Maviel、Jordan Morton",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W2",
+        "url": "https://web.archive.org/web/20170716070335/http://fenggaocom.domain.com/upcoming.html"
+      },
+      {
+        "label": "A1",
+        "url": "https://www.anaismaviel.com/upcoming.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2016-01-04-71",
+    "date": "2016-01-04",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2016,
+    "location": "New York / Brooklyn，美国",
+    "event": "Anaïs Maviel: Cross Breath @ 65Fen",
+    "performance": "人声、手风琴；与 Anaïs Maviel、Daro Behroozi、Daniel Carter、Sean Ali、François Grillot、Jake Sokolov-Gonzales、Léa Lanoë",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W2",
+        "url": "https://web.archive.org/web/20170716070335/http://fenggaocom.domain.com/upcoming.html"
+      },
+      {
+        "label": "A1",
+        "url": "https://www.anaismaviel.com/upcoming.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2015-12-27-70",
+    "date": "2015-12-27",
+    "endDate": null,
+    "dateUncertain": true,
+    "year": 2015,
+    "location": "上海，中国",
+    "event": "R.E.S.O @ 南沙公寓",
+    "performance": "与 Mai Mai、Bryan Qu",
+    "status": "provisional",
+    "sources": [
+      {
+        "label": "W1",
+        "url": "https://web.archive.org/web/20160201055452/http://fenggaocom.domain.com/bio.html"
+      },
+      {
+        "label": "W4",
+        "url": "https://web.archive.org/web/20191026083337/http://fenggaocom.domain.com:80/bio.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2015-12-26-69",
+    "date": "2015-12-26",
+    "endDate": null,
+    "dateUncertain": true,
+    "year": 2015,
+    "location": "杭州，中国",
+    "event": "孤独之星",
+    "performance": "",
+    "status": "provisional",
+    "sources": [
+      {
+        "label": "W1",
+        "url": "https://web.archive.org/web/20160201055452/http://fenggaocom.domain.com/bio.html"
+      },
+      {
+        "label": "W4",
+        "url": "https://web.archive.org/web/20191026083337/http://fenggaocom.domain.com:80/bio.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2015-12-23-68",
+    "date": "2015-12-23",
+    "endDate": null,
+    "dateUncertain": true,
+    "year": 2015,
+    "location": "北京，中国",
+    "event": "XP",
+    "performance": "与 Wang Ziheng、Wang Xu、Aming Liang",
+    "status": "provisional",
+    "sources": [
+      {
+        "label": "W1",
+        "url": "https://web.archive.org/web/20160201055452/http://fenggaocom.domain.com/bio.html"
+      },
+      {
+        "label": "W4",
+        "url": "https://web.archive.org/web/20191026083337/http://fenggaocom.domain.com:80/bio.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2015-12-19-67",
+    "date": "2015-12-19",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2015,
+    "location": "New York / Brooklyn，美国",
+    "event": "Private venue",
+    "performance": "与 Sean Ali",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W2",
+        "url": "https://web.archive.org/web/20170716070335/http://fenggaocom.domain.com/upcoming.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2015-10-14-66",
+    "date": "2015-10-14",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2015,
+    "location": "New York / Brooklyn，美国",
+    "event": "Torus Porta",
+    "performance": "与 Sean Ali",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W1",
+        "url": "https://web.archive.org/web/20160201055452/http://fenggaocom.domain.com/bio.html"
+      },
+      {
+        "label": "W2",
+        "url": "https://web.archive.org/web/20170716070335/http://fenggaocom.domain.com/upcoming.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2015-10-04-65",
+    "date": "2015-10-04",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2015,
+    "location": "New York / Brooklyn，美国",
+    "event": "Share NYC @ Old American Can Factory",
+    "performance": "",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W1",
+        "url": "https://web.archive.org/web/20160201055452/http://fenggaocom.domain.com/bio.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2015-09-27-64",
+    "date": "2015-09-27",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2015,
+    "location": "New York / Brooklyn，美国",
+    "event": "Sky Gallery",
+    "performance": "与 Lillian Rossetti",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W1",
+        "url": "https://web.archive.org/web/20160201055452/http://fenggaocom.domain.com/bio.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2015-09-19-63",
+    "date": "2015-09-19",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2015,
+    "location": "New York / Brooklyn，美国",
+    "event": "Reverse Mirror @ La Sala, Cantina Royal",
+    "performance": "",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W1",
+        "url": "https://web.archive.org/web/20160201055452/http://fenggaocom.domain.com/bio.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2015-09-18-62",
+    "date": "2015-09-18",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2015,
+    "location": "New York / Brooklyn，美国",
+    "event": "Tarot Society",
+    "performance": "与 Lillian Rossetti",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W1",
+        "url": "https://web.archive.org/web/20160201055452/http://fenggaocom.domain.com/bio.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2015-09-06-61",
+    "date": "2015-09-06",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2015,
+    "location": "New York / Brooklyn，美国",
+    "event": "Union Pool",
+    "performance": "",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W1",
+        "url": "https://web.archive.org/web/20160201055452/http://fenggaocom.domain.com/bio.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2015-09-05-60",
+    "date": "2015-09-05",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2015,
+    "location": "New York / Brooklyn，美国",
+    "event": "1+2+3 Series / Ditmas Park house show",
+    "performance": "与 Michael Foster；Foster 页面写作 Gao Feng",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W1",
+        "url": "https://web.archive.org/web/20160201055452/http://fenggaocom.domain.com/bio.html"
+      },
+      {
+        "label": "F1",
+        "url": "https://michaelfostermusic.weebly.com/past-performances.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2015-08-28-59",
+    "date": "2015-08-28",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2015,
+    "location": "上海，中国",
+    "event": "Basement6",
+    "performance": "",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W1",
+        "url": "https://web.archive.org/web/20160201055452/http://fenggaocom.domain.com/bio.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2015-07-26-58",
+    "date": "2015-07-26",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2015,
+    "location": "武汉，中国",
+    "event": "汉阳噪 @ 汉艺空间",
+    "performance": "",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W1",
+        "url": "https://web.archive.org/web/20160201055452/http://fenggaocom.domain.com/bio.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2015-07-25-57",
+    "date": "2015-07-25",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2015,
+    "location": "重庆，中国",
+    "event": "Cici Park",
+    "performance": "",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W1",
+        "url": "https://web.archive.org/web/20160201055452/http://fenggaocom.domain.com/bio.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2015-07-24-56",
+    "date": "2015-07-24",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2015,
+    "location": "成都，中国",
+    "event": "早上好",
+    "performance": "",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W1",
+        "url": "https://web.archive.org/web/20160201055452/http://fenggaocom.domain.com/bio.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2015-07-19-55",
+    "date": "2015-07-19",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2015,
+    "location": "西安，中国",
+    "event": "光圈",
+    "performance": "",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W1",
+        "url": "https://web.archive.org/web/20160201055452/http://fenggaocom.domain.com/bio.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2015-07-18-54",
+    "date": "2015-07-18",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2015,
+    "location": "北京，中国",
+    "event": "Aotu Studio",
+    "performance": "",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W1",
+        "url": "https://web.archive.org/web/20160201055452/http://fenggaocom.domain.com/bio.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2015-07-16-53",
+    "date": "2015-07-16",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2015,
+    "location": "北京，中国",
+    "event": "MIJI Concert 26 @ Meridian Space",
+    "performance": "Siwen Saodi（与童义欣）及个人 set；同场李增辉",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W1",
+        "url": "https://web.archive.org/web/20160201055452/http://fenggaocom.domain.com/bio.html"
+      },
+      {
+        "label": "R1",
+        "url": "https://recordings.escdotdot.com/"
+      }
+    ]
+  },
+  {
+    "id": "show-2015-07-14-52",
+    "date": "2015-07-14",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2015,
+    "location": "北京，中国",
+    "event": "School",
+    "performance": "",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W1",
+        "url": "https://web.archive.org/web/20160201055452/http://fenggaocom.domain.com/bio.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2015-07-09-51",
+    "date": "2015-07-09",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2015,
+    "location": "New York / Ridgewood，美国",
+    "event": "Outpost Artists Resources",
+    "performance": "与 Todd Capp、Mike Bullock、Kurt Ralske",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W1",
+        "url": "https://web.archive.org/web/20160201055452/http://fenggaocom.domain.com/bio.html"
+      },
+      {
+        "label": "W2",
+        "url": "https://web.archive.org/web/20170716070335/http://fenggaocom.domain.com/upcoming.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2015-07-04-50",
+    "date": "2015-07-04",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2015,
+    "location": "New York / Brooklyn，美国",
+    "event": "Private venue",
+    "performance": "",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W1",
+        "url": "https://web.archive.org/web/20160201055452/http://fenggaocom.domain.com/bio.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2015-06-27-49",
+    "date": "2015-06-27",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2015,
+    "location": "New York / Brooklyn，美国",
+    "event": "1+2+3 Series",
+    "performance": "与 Sean Ali",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W1",
+        "url": "https://web.archive.org/web/20160201055452/http://fenggaocom.domain.com/bio.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2015-06-23-48",
+    "date": "2015-06-23",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2015,
+    "location": "New York / Brooklyn，美国",
+    "event": "Private venue",
+    "performance": "与 Anaïs Maviel",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W1",
+        "url": "https://web.archive.org/web/20160201055452/http://fenggaocom.domain.com/bio.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2015-06-09-47",
+    "date": "2015-06-09",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2015,
+    "location": "New York，美国",
+    "event": "Sidewalk Cafe",
+    "performance": "与 David Grollman",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W1",
+        "url": "https://web.archive.org/web/20160201055452/http://fenggaocom.domain.com/bio.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2015-05-23-46",
+    "date": "2015-05-23",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2015,
+    "location": "New York，美国",
+    "event": "Flux Factory",
+    "performance": "与 Arrington de Dionyso",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W1",
+        "url": "https://web.archive.org/web/20160201055452/http://fenggaocom.domain.com/bio.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2015-05-22-45",
+    "date": "2015-05-22",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2015,
+    "location": "地点未注明",
+    "event": "Private venue",
+    "performance": "与 Arrington de Dionyso",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W1",
+        "url": "https://web.archive.org/web/20160201055452/http://fenggaocom.domain.com/bio.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2015-05-21-44",
+    "date": "2015-05-21",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2015,
+    "location": "New York / Brooklyn，美国",
+    "event": "Bohemian Grove",
+    "performance": "与 Arrington de Dionyso",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W1",
+        "url": "https://web.archive.org/web/20160201055452/http://fenggaocom.domain.com/bio.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2015-05-18-43",
+    "date": "2015-05-18",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2015,
+    "location": "New York / Brooklyn，美国",
+    "event": "65Fen",
+    "performance": "与 Jeff Gretz、Arrington de Dionyso",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W1",
+        "url": "https://web.archive.org/web/20160201055452/http://fenggaocom.domain.com/bio.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2015-05-12-42",
+    "date": "2015-05-12",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2015,
+    "location": "New York / Brooklyn，美国",
+    "event": "NYU Poly",
+    "performance": "与 Javier Molina、Patrick Corbin、Jonathan Matthews、Caitlin Sikora、Jeff Gretz",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W1",
+        "url": "https://web.archive.org/web/20160201055452/http://fenggaocom.domain.com/bio.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2015-05-06-41",
+    "date": "2015-05-06",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2015,
+    "location": "New York / Queens，美国",
+    "event": "Trans-Pecos",
+    "performance": "",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W1",
+        "url": "https://web.archive.org/web/20160201055452/http://fenggaocom.domain.com/bio.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2015-04-29-40",
+    "date": "2015-04-29",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2015,
+    "location": "地点未注明",
+    "event": "Private event",
+    "performance": "与 Sean Ali",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W1",
+        "url": "https://web.archive.org/web/20160201055452/http://fenggaocom.domain.com/bio.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2015-04-22-39",
+    "date": "2015-04-22",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2015,
+    "location": "New York，美国",
+    "event": "Provincetown Playhouse",
+    "performance": "与 Wei Tan",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W1",
+        "url": "https://web.archive.org/web/20160201055452/http://fenggaocom.domain.com/bio.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2015-03-21-38",
+    "date": "2015-03-21",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2015,
+    "location": "New York / Queens，美国",
+    "event": "Trans-Pecos",
+    "performance": "Siwen Saodi、Jeff Gretz",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W1",
+        "url": "https://web.archive.org/web/20160201055452/http://fenggaocom.domain.com/bio.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2015-03-08-37",
+    "date": "2015-03-08",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2015,
+    "location": "New York，美国",
+    "event": "COMA @ ABC No Rio",
+    "performance": "与 Sean Ali",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W1",
+        "url": "https://web.archive.org/web/20160201055452/http://fenggaocom.domain.com/bio.html"
+      },
+      {
+        "label": "J2",
+        "url": "https://nycjazzrecord.com/issues/tnycjr201503.pdf"
+      }
+    ]
+  },
+  {
+    "id": "show-2015-03-07-36",
+    "date": "2015-03-07",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2015,
+    "location": "New York / Brooklyn，美国",
+    "event": "1+2+3 Series",
+    "performance": "与 Sean Ali",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W1",
+        "url": "https://web.archive.org/web/20160201055452/http://fenggaocom.domain.com/bio.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2015-02-26-35",
+    "date": "2015-02-26",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2015,
+    "location": "New York / Brooklyn，美国",
+    "event": "Ran Tea House",
+    "performance": "与 Jeff Gretz",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W1",
+        "url": "https://web.archive.org/web/20160201055452/http://fenggaocom.domain.com/bio.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2015-01-24-34",
+    "date": "2015-01-24",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2015,
+    "location": "台北，台湾",
+    "event": "Reykjavik Lab",
+    "performance": "与 Liu Fangyi、Li Shih-yang、Mingyen Hsieh",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W1",
+        "url": "https://web.archive.org/web/20160201055452/http://fenggaocom.domain.com/bio.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2015-01-23-32",
+    "date": "2015-01-23",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2015,
+    "location": "台南，台湾",
+    "event": "The Duiyue Gate / 兌悅門",
+    "performance": "",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W1",
+        "url": "https://web.archive.org/web/20160201055452/http://fenggaocom.domain.com/bio.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2015-01-23-33",
+    "date": "2015-01-23",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2015,
+    "location": "台南，台湾",
+    "event": "能盛興工廠",
+    "performance": "与 Liu Fangyi、Wu Hao",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W1",
+        "url": "https://web.archive.org/web/20160201055452/http://fenggaocom.domain.com/bio.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2015-01-22-31",
+    "date": "2015-01-22",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2015,
+    "location": "高雄，台湾",
+    "event": "Takao Books / 三餘書店",
+    "performance": "与 Liu Fangyi、Lin Zonghane",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W1",
+        "url": "https://web.archive.org/web/20160201055452/http://fenggaocom.domain.com/bio.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2015-01-21-30",
+    "date": "2015-01-21",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2015,
+    "location": "台东，台湾",
+    "event": "Dulan Sugar Factory / 都蘭糖廠",
+    "performance": "纪念 An-chih Tsai 的演出",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W1",
+        "url": "https://web.archive.org/web/20160201055452/http://fenggaocom.domain.com/bio.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2015-01-18-29",
+    "date": "2015-01-18",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2015,
+    "location": "新竹，台湾",
+    "event": "江山藝改所",
+    "performance": "与 Yude",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W1",
+        "url": "https://web.archive.org/web/20160201055452/http://fenggaocom.domain.com/bio.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2015-01-17-28",
+    "date": "2015-01-17",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2015,
+    "location": "香港",
+    "event": "Noise to Signal @ HKICC",
+    "performance": "与 sin:ned",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W1",
+        "url": "https://web.archive.org/web/20160201055452/http://fenggaocom.domain.com/bio.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2015-01-16-27",
+    "date": "2015-01-16",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2015,
+    "location": "深圳，中国",
+    "event": "Old Heaven Books / 旧天堂书店",
+    "performance": "与 Sanny Ho",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W1",
+        "url": "https://web.archive.org/web/20160201055452/http://fenggaocom.domain.com/bio.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2015-01-15-26",
+    "date": "2015-01-15",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2015,
+    "location": "广州，中国",
+    "event": "191 Space",
+    "performance": "与 Sanny Ho",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W1",
+        "url": "https://web.archive.org/web/20160201055452/http://fenggaocom.domain.com/bio.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2015-01-01-25",
+    "date": "2015-01-01",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2015,
+    "location": "长沙，中国",
+    "event": "Redlive",
+    "performance": "与 DINGCHENCHEN、Aming Liang",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W1",
+        "url": "https://web.archive.org/web/20160201055452/http://fenggaocom.domain.com/bio.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2014-12-14-24",
+    "date": "2014-12-14",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2014,
+    "location": "New York，美国",
+    "event": "Provincetown Playhouse",
+    "performance": "",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W1",
+        "url": "https://web.archive.org/web/20160201055452/http://fenggaocom.domain.com/bio.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2014-12-08-23",
+    "date": "2014-12-08",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2014,
+    "location": "New York / Brooklyn，美国",
+    "event": "Baby's All Right",
+    "performance": "与 Josh Feola、Kang Mao 抗猫、Dooll Chao",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W1",
+        "url": "https://web.archive.org/web/20160201055452/http://fenggaocom.domain.com/bio.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2014-12-07-22",
+    "date": "2014-12-07",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2014,
+    "location": "New York，美国",
+    "event": "COMA @ ABC No Rio",
+    "performance": "Siwen Saodi / 斯文扫地，与 Yi Xin Tong 童义欣",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W1",
+        "url": "https://web.archive.org/web/20160201055452/http://fenggaocom.domain.com/bio.html"
+      },
+      {
+        "label": "J1",
+        "url": "https://nycjazzrecord.com/issues/tnycjr201412.pdf"
+      }
+    ]
+  },
+  {
+    "id": "show-2014-10-06-21",
+    "date": "2014-10-06",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2014,
+    "location": "New York / Brooklyn，美国",
+    "event": "Silent Barn",
+    "performance": "与李增辉、解博翰、Matthew Choplick、Jeff Gretz",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W1",
+        "url": "https://web.archive.org/web/20160201055452/http://fenggaocom.domain.com/bio.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2014-06-28-20",
+    "date": "2014-06-28",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2014,
+    "location": "北京，中国",
+    "event": "XP",
+    "performance": "",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W1",
+        "url": "https://web.archive.org/web/20160201055452/http://fenggaocom.domain.com/bio.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2014-06-03-19",
+    "date": "2014-06-03",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2014,
+    "location": "北京，中国",
+    "event": "XP",
+    "performance": "与李青、Aming Liang 阿鸣",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W1",
+        "url": "https://web.archive.org/web/20160201055452/http://fenggaocom.domain.com/bio.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2014-06-01-18",
+    "date": "2014-06-01",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2014,
+    "location": "北京，中国",
+    "event": "XP",
+    "performance": "",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W1",
+        "url": "https://web.archive.org/web/20160201055452/http://fenggaocom.domain.com/bio.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2013-07-19-17",
+    "date": "2013-07-19",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2013,
+    "location": "中国，具体行政区待核",
+    "event": "Guyuan Wetland Music Festival, Lightning River National Park",
+    "performance": "音乐节演出",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W1",
+        "url": "https://web.archive.org/web/20160201055452/http://fenggaocom.domain.com/bio.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2012-12-31-16",
+    "date": "2012-12-31",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2012,
+    "location": "武汉，中国",
+    "event": "VOX",
+    "performance": "",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W1",
+        "url": "https://web.archive.org/web/20160201055452/http://fenggaocom.domain.com/bio.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2012-09-07-15",
+    "date": "2012-09-07",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2012,
+    "location": "长沙，中国",
+    "event": "Orange Isle Music Festival / 橘洲音乐节",
+    "performance": "音乐节演出",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W1",
+        "url": "https://web.archive.org/web/20160201055452/http://fenggaocom.domain.com/bio.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2012-09-01-14",
+    "date": "2012-09-01",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2012,
+    "location": "重庆，中国",
+    "event": "NUTS",
+    "performance": "",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W1",
+        "url": "https://web.archive.org/web/20160201055452/http://fenggaocom.domain.com/bio.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2012-08-26-13",
+    "date": "2012-08-26",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2012,
+    "location": "广州，中国",
+    "event": "Yuexiu Mountain Park / 越秀山公园",
+    "performance": "",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W1",
+        "url": "https://web.archive.org/web/20160201055452/http://fenggaocom.domain.com/bio.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2012-08-25-12",
+    "date": "2012-08-25",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2012,
+    "location": "广州，中国",
+    "event": "C-Union",
+    "performance": "",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W1",
+        "url": "https://web.archive.org/web/20160201055452/http://fenggaocom.domain.com/bio.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2011-08-27-11",
+    "date": "2011-08-27",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2011,
+    "location": "长沙，中国",
+    "event": "Freedom House",
+    "performance": "",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W1",
+        "url": "https://web.archive.org/web/20160201055452/http://fenggaocom.domain.com/bio.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2011-07-02-10",
+    "date": "2011-07-02",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2011,
+    "location": "长沙，中国",
+    "event": "2012（旧站原文）",
+    "performance": "",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W1",
+        "url": "https://web.archive.org/web/20160201055452/http://fenggaocom.domain.com/bio.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2009-12-31-9",
+    "date": "2009-12-31",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2009,
+    "location": "阳朔，中国",
+    "event": "KAYA",
+    "performance": "",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W1",
+        "url": "https://web.archive.org/web/20160201055452/http://fenggaocom.domain.com/bio.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2009-08-22-8",
+    "date": "2009-08-22",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2009,
+    "location": "成都，中国",
+    "event": "Xiong Mao",
+    "performance": "",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W1",
+        "url": "https://web.archive.org/web/20160201055452/http://fenggaocom.domain.com/bio.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2009-08-01-7",
+    "date": "2009-08-01",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2009,
+    "location": "长沙，中国",
+    "event": "4698",
+    "performance": "",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W1",
+        "url": "https://web.archive.org/web/20160201055452/http://fenggaocom.domain.com/bio.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2009-06-20-6",
+    "date": "2009-06-20",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2009,
+    "location": "上海，中国",
+    "event": "Antidote @ The Shelter",
+    "performance": "",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W1",
+        "url": "https://web.archive.org/web/20160201055452/http://fenggaocom.domain.com/bio.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2009-06-19-5",
+    "date": "2009-06-19",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2009,
+    "location": "杭州，中国",
+    "event": "Antidote @ Joy Luck Club",
+    "performance": "",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W1",
+        "url": "https://web.archive.org/web/20160201055452/http://fenggaocom.domain.com/bio.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2009-05-31-4",
+    "date": "2009-05-31",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2009,
+    "location": "长沙，中国",
+    "event": "Antidote @ Freedom House",
+    "performance": "",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W1",
+        "url": "https://web.archive.org/web/20160201055452/http://fenggaocom.domain.com/bio.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2009-05-30-3",
+    "date": "2009-05-30",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2009,
+    "location": "武汉，中国",
+    "event": "Antidote @ VOX",
+    "performance": "",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W1",
+        "url": "https://web.archive.org/web/20160201055452/http://fenggaocom.domain.com/bio.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2009-04-10-2",
+    "date": "2009-04-10",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2009,
+    "location": "长沙，中国",
+    "event": "Freedom House",
+    "performance": "",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W1",
+        "url": "https://web.archive.org/web/20160201055452/http://fenggaocom.domain.com/bio.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2009-02-28-1",
+    "date": "2009-02-28",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2009,
+    "location": "长沙，中国",
+    "event": "Freedom House",
+    "performance": "",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W1",
+        "url": "https://web.archive.org/web/20160201055452/http://fenggaocom.domain.com/bio.html"
+      }
+    ]
+  },
+  {
+    "id": "show-2009-02-14-0",
+    "date": "2009-02-14",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2009,
+    "location": "上海，中国",
+    "event": "Antidote @ The Shelter",
+    "performance": "",
+    "status": "artist-archive",
+    "sources": [
+      {
+        "label": "W1",
+        "url": "https://web.archive.org/web/20160201055452/http://fenggaocom.domain.com/bio.html"
+      }
+    ]
+  }
+]

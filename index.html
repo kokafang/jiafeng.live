@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jiafeng Live</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-j-blue-yellow.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <meta
       name="description"
       content="Jiafeng's official portal for music, shows, projects, web-DJ projects, press, merch, and about."
@@ -15,6 +17,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/src/styles/concept-artist-portal.css" />
+    <link rel="stylesheet" href="/src/styles/merch.css" />
   </head>
   <body>
     <main class="artist-portal">
@@ -32,14 +35,17 @@
       <nav class="portal-mini-nav" aria-label="Section navigation">
         <a class="mini-brand" href="#top">Jiafeng</a>
         <div class="mini-links">
-          <a href="#music" data-section-link="music">Music</a>
-          <a href="#web-dj" data-section-link="web-dj">Web-DJ</a>
-          <a href="#products" data-section-link="products">Projects</a>
-          <a href="#about" data-section-link="about">About</a>
-          <a href="#shows" data-section-link="shows">Shows</a>
-          <a href="#press" data-section-link="press">Press</a>
-          <a href="#merch" data-section-link="merch">Merch</a>
+          <a href="#music" data-section-link="music"><span class="mini-link-label">Music</span></a>
+          <a href="#web-dj" data-section-link="web-dj"><span class="mini-link-label">Web-DJ</span></a>
+          <a href="#products" data-section-link="products"><span class="mini-link-label">Projects</span></a>
+          <a href="#about" data-section-link="about"><span class="mini-link-label">About</span></a>
+          <a href="#shows" data-section-link="shows"><span class="mini-link-label">Shows</span></a>
+          <a href="#press" data-section-link="press"><span class="mini-link-label">Press</span></a>
+          <a href="#merch" data-section-link="merch"><span class="mini-link-label">Merch</span></a>
         </div>
+        <button class="mini-nav-next" type="button" aria-label="Scroll navigation right" title="More sections" disabled>
+          <span aria-hidden="true">&#8250;</span>
+        </button>
       </nav>
       <section class="portal-stage" id="top">
         <div class="portal-overlay"></div>
@@ -66,12 +72,17 @@
           <div>
             <h2>Music</h2>
             <div class="spotify-section spotify-featured">
-              <div class="music-year-nav" data-music-year-nav>
-                <div class="music-year-line" aria-hidden="true"></div>
-                <button type="button" class="music-year-dot" data-music-year="2023" data-music-release="early-technologies">2023</button>
-                <button type="button" class="music-year-dot" data-music-year="2021" data-music-release="ai-ni-ai-dao">2021</button>
-                <button type="button" class="music-year-dot" data-music-year="2021" data-music-release="cruel-outlets">2021</button>
-                <button type="button" class="music-year-dot" data-music-year="2020" data-music-release="emotional-dance-music">2020</button>
+              <div class="music-browse-bar">
+                <div class="music-year-nav" data-music-year-nav aria-label="Choose a release">
+                  <button type="button" class="music-year-dot" data-music-year="2023" data-music-release="early-technologies"><span class="release-year">2023</span><span class="release-name">Early Technologies</span></button>
+                  <button type="button" class="music-year-dot" data-music-year="2021" data-music-release="ai-ni-ai-dao"><span class="release-year">2021</span><span class="release-name">AI NI AI DAO</span></button>
+                  <button type="button" class="music-year-dot" data-music-year="2021" data-music-release="cruel-outlets"><span class="release-year">2021</span><span class="release-name">Cruel Outlets</span></button>
+                  <button type="button" class="music-year-dot" data-music-year="2020" data-music-release="emotional-dance-music"><span class="release-year">2020</span><span class="release-name">Emotional Dance Music</span></button>
+                </div>
+                <div class="music-release-nav">
+                  <button class="music-nav-button" type="button" aria-label="Go to more recent release" data-music-recent><span aria-hidden="true">&#8592;</span> Newer</button>
+                  <button class="music-nav-button" type="button" aria-label="Go to earlier release" data-music-earlier>Earlier <span aria-hidden="true">&#8594;</span></button>
+                </div>
               </div>
               <div class="spotify-meta spotify-album-card spotify-feature-card">
                 <div class="music-feature-layout">
@@ -86,6 +97,8 @@
                     </div>
                     <span data-music-tag>ALBUM 2023</span>
                     <strong><span class="music-title-row"><span data-music-title-en>Early Technologies 早期科技</span></span></strong>
+                  </div>
+                  <div class="music-feature-right">
                     <div class="music-feature-description" data-music-description>
                       <p>
                         Early Technologies imagines social media, autotune, and streaming
@@ -97,38 +110,25 @@
                         tells a different story about technology and everyday digital life.
                       </p>
                     </div>
-                  </div>
-                  <div class="music-feature-right">
+                    <div class="music-listen-bar">
+                      <span class="music-listen-label">Listen</span>
+                      <div class="music-service-links">
+                        <a data-music-external href="https://open.spotify.com/playlist/2kR91gqLTjewj8HLMme2QP" target="_blank" rel="noopener noreferrer">Open Spotify &#8599;</a>
+                        <a data-music-bandcamp href="https://jiafeng.bandcamp.com/album/early-technologies" target="_blank" rel="noopener noreferrer">Bandcamp &#8599;</a>
+                      </div>
+                    </div>
                     <div class="album-player-panel">
                       <iframe
-                        src="https://open.spotify.com/embed/album/0y0USrvArZ5AePcoTKp68p?utm_source=generator"
-                        title="Spotify album player"
+                        src="https://open.spotify.com/embed/playlist/2kR91gqLTjewj8HLMme2QP?utm_source=generator&amp;theme=0"
+                        title="Spotify playlist player"
+                        height="352"
                         loading="lazy"
                         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                         data-music-player-frame
                       ></iframe>
                     </div>
                   </div>
-                  <div class="music-release-nav">
-                    <button
-                      class="music-nav-button"
-                      type="button"
-                      aria-label="Go to more recent release"
-                      data-music-recent
-                    >
-                      <span aria-hidden="true">←</span>
-                      Newer
-                    </button>
-                    <button
-                      class="music-nav-button"
-                      type="button"
-                      aria-label="Go to earlier release"
-                      data-music-earlier
-                    >
-                      Earlier
-                      <span aria-hidden="true">→</span>
-                    </button>
-                  </div>
+
                 </div>
               </div>
             </div>
@@ -225,8 +225,17 @@
                       loading="lazy"
                     />
                   </div>
+                  <span>Browser Instrument</span>
                   <strong>LMDJ - Little Monster DJ</strong>
                 </a>
+              </div>
+              <div class="fill-block sampler-project">
+                <div class="image-card-wrap sampler-art">
+                  <img src="/images/sampler-project.png" alt="Sampler play and pad icon" loading="lazy" />
+                </div>
+                <span>In development</span>
+                <strong>Sampler</strong>
+                <p class="project-description">A video sampler for Web-DJ. Chop, loop and trigger audiovisual clips, then sequence them live.</p>
               </div>
               <div class="fill-block media-block">
                 <div class="video-embed-wrap">
@@ -241,7 +250,7 @@
                       alt="TRI-O video thumbnail"
                       loading="lazy"
                     />
-                    <span class="video-play-button" aria-hidden="true">Play</span>
+                    <span class="video-play-button" aria-hidden="true"></span>
                   </button>
                 </div>
                 <span>Featured Tool</span>
@@ -255,6 +264,7 @@
                     loading="lazy"
                   />
                 </div>
+                <span>DIY Kit</span>
                 <strong>Emotional Dance Music DIY Kit</strong>
               </div>
             </div>
@@ -301,11 +311,7 @@
           <span class="section-index">05</span>
           <div>
             <h2>Shows</h2>
-            <div class="section-fill">
-              <div class="fill-block">
-                <strong>Website under construction.</strong>
-              </div>
-            </div>
+            <div class="shows-archive" data-shows-archive></div>
           </div>
         </article>
         <article class="portal-section" id="press">
@@ -323,9 +329,16 @@
           <span class="section-index">07</span>
           <div>
             <h2>Merch</h2>
-            <div class="section-fill">
-              <div class="fill-block">
-                <strong>Website under construction.</strong>
+            <div class="merch-feature">
+              <div class="merch-photo">
+                <img src="/images/merch-dance-pad.jpg" alt="Emotional Dance Music DIY Dance Kit: USB dance pad and album packaging" loading="lazy" />
+              </div>
+              <div class="merch-copy">
+                <span class="merch-eyebrow">USB DANCE PAD / ALBUM + GAME</span>
+                <h3>Emotional Dance Music<span>DIY Dance Kit</span></h3>
+                <p class="merch-description">An album you can play with your feet. A USB dance pad, the digital album, and a download of the StepMania-based rhythm game.</p>
+                <span class="merch-stock">Out of stock</span>
+                <a class="merch-bandcamp" href="https://jiafeng.bandcamp.com/merch/pre-order-emotional-dance-music-diy-dance-kit-usb-dance-pad-included" target="_blank" rel="noopener noreferrer">View on Bandcamp <span aria-hidden="true">&#8599;</span></a>
               </div>
             </div>
           </div>
