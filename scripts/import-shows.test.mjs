@@ -102,6 +102,15 @@ test('site archive has unique IDs, real dates, known statuses and safe links', (
   }
 });
 
+test('full date searches do not confuse month and day, and include event intervals', () => {
+  const rows = JSON.parse(readFileSync(new URL('../src/content/shows.json', import.meta.url)));
+  const search = createShowSearch(rows);
+  assert.deepEqual(search('2026-03-03').map(show => show.event), ['WebM']);
+  assert.deepEqual(search('2026-03-20 Shanghai').map(show => show.event), ['Dweller']);
+  assert.deepEqual(search('2025-10-24').map(show => show.event), ['IMX（International Music X）']);
+  assert.deepEqual(search('2026-03-03 Shanghai'), []);
+});
+
 test('artist-supplied shows are added once, with correct formats and missing-city handling', () => {
   const rows = JSON.parse(readFileSync(new URL('../src/content/shows.json', import.meta.url)));
   const expected = [

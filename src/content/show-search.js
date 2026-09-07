@@ -13,8 +13,13 @@ export function createShowSearch(shows) {
     return { show, value, compact: value.replaceAll(' ', '') };
   });
   return query => {
-    const terms = normalize(query).split(/\s+/).filter(Boolean);
-    return entries.filter(({ value, compact }) => terms.every(term => value.includes(term) || compact.includes(term)))
+    const normalizedQuery = query.normalize('NFKD');
+    const dates = normalizedQuery.match(/\b\d{4}-\d{2}-\d{2}\b/g) || [];
+    const terms = normalize(normalizedQuery.replace(/\b\d{4}-\d{2}-\d{2}\b/g, ' ')).split(/\s+/).filter(Boolean);
+    // A complete date matches a single day or a recorded event interval, not separate month/day tokens.
+    return entries.filter(({ show, value, compact }) =>
+      dates.every(date => date >= show.date && date <= (show.endDate || show.date)) &&
+      terms.every(term => value.includes(term) || compact.includes(term)))
       .map(entry => entry.show);
   };
 }
