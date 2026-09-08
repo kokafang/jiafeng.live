@@ -1,6 +1,7 @@
 import shows from '../content/shows.json';
 import { displayShow } from '../content/shows-display.js';
 import { createShowSearch } from '../content/show-search.js';
+import { localDateKey, showPhase } from '../content/show-phase.js';
 import '../styles/shows-archive.css';
 
 export function mountShowsArchive() {
@@ -34,7 +35,9 @@ export function mountShowsArchive() {
   let filtered = shows;
   let page = 0;
   let pageSize = 6;
-  const labels = { provisional: 'To verify', documented: 'Live record', 'artist-archive': 'Artist archive', 'artist-confirmed': 'Artist confirmed', upcoming: 'Upcoming', listing: 'Listing' };
+  const labels = { upcoming: 'Upcoming', past: 'Past' };
+  let renderedDay = localDateKey();
+  let dayTimer;
 
   function text(tag, className, value) {
     const element = document.createElement(tag);
@@ -44,6 +47,9 @@ export function mountShowsArchive() {
   }
 
   function render(animate = false) {
+    const today = localDateKey();
+    if (today !== renderedDay) filtered = searchShows(search.value);
+    renderedDay = today;
     const pages = Math.max(1, Math.ceil(filtered.length / pageSize));
     page = Math.max(0, Math.min(page, pages - 1));
     const visible = filtered.slice(page * pageSize, (page + 1) * pageSize);
@@ -66,9 +72,8 @@ export function mountShowsArchive() {
       const location = text('span', 'show-location', display.location);
       const info = document.createElement('div');
       info.className = 'show-info';
-      const status = display.formatUncertain || show.status === 'provisional' ? 'provisional' : show.status;
-      const statusLabel = show.status === 'provisional' ? 'To verify' : display.formatUncertain ? 'Format to verify' : labels[show.status];
-      info.append(text('span', `show-status ${status}`, statusLabel));
+      const phase = showPhase(show, renderedDay);
+      info.append(text('span', `show-status ${phase}`, labels[phase]));
       if (show.sources.length) {
         const source = text('a', 'show-source', '↗');
         source.href = show.sources[0].url;
@@ -135,4 +140,20 @@ export function mountShowsArchive() {
     render();
   }).observe(list);
   render();
+
+  // Keep open tabs and status-filtered results current across local midnight and device sleep.
+  function refreshDate() {
+    clearTimeout(dayTimer);
+    if (localDateKey() !== renderedDay) {
+      filtered = searchShows(search.value);
+      render();
+    }
+    const now = new Date();
+    const midnight = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+    dayTimer = setTimeout(refreshDate, midnight.getTime() - now.getTime() + 50);
+  }
+  window.addEventListener('focus', refreshDate);
+  window.addEventListener('pageshow', refreshDate);
+  document.addEventListener('visibilitychange', () => { if (!document.hidden) refreshDate(); });
+  refreshDate();
 }

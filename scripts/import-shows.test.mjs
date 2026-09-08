@@ -31,23 +31,28 @@ test('public titles combine format and place, with Chinese subtitles and English
   for (const row of rows) {
     const display = displayShow(row);
     assert.ok(['Live set', 'DJ set', 'Hybrid set', 'Web DJ', 'Panel speaker'].includes(display.format));
-    assert.ok(display.title.startsWith(`${display.format} at `));
+    assert.ok(display.title.startsWith(`${display.format} @ `));
+    assert.doesNotMatch(display.title, /\bat\b/i);
     assert.match(display.chineseTitle, /\p{Script=Han}/u);
     assert.doesNotMatch(display.location, /\p{Script=Han}/u, row.location);
-    assert.doesNotMatch(display.location, /,|China|US|Taiwan|France/);
+    if (display.city !== 'Not recorded') {
+      assert.ok(display.country, row.location);
+      assert.equal(display.location, `${display.city}, ${display.country}`);
+    }
     assert.doesNotMatch(display.venue, /\p{Script=Han}/u, row.event);
   }
   const base = {event:'OIL', location:'深圳，中国'};
-  assert.equal(displayShow({...base, performance:'Browser DJ / Web-DJ'}).title, 'Web DJ at OIL');
-  assert.equal(displayShow({...base, performance:'DJ + Live'}).title, 'Hybrid set at OIL');
-  assert.equal(displayShow({...base, performance:'DJ set'}).title, 'DJ set at OIL');
-  assert.equal(displayShow({...base, performance:'Solo live'}).title, 'Live set at OIL');
+  assert.equal(displayShow({...base, performance:'Browser DJ / Web-DJ'}).title, 'Web DJ @ OIL');
+  assert.equal(displayShow({...base, performance:'DJ + Live'}).title, 'Hybrid set @ OIL');
+  assert.equal(displayShow({...base, performance:'DJ set'}).title, 'DJ set @ OIL');
+  assert.equal(displayShow({...base, performance:'Solo live'}).title, 'Live set @ OIL');
   assert.equal(displayShow({...base, performance:''}).formatUncertain, true);
   const strawberry = rows.find(show => show.date === '2025-06-14');
-  assert.equal(displayShow(strawberry).title, 'DJ set at Hangzhou Strawberry Music Festival');
+  assert.equal(displayShow(strawberry).title, 'DJ set @ Hangzhou Strawberry Music Festival');
   assert.equal(displayShow(strawberry).chineseTitle, 'DJ 演出 · 杭州草莓音乐节');
-  assert.equal(displayShow({...base, performance:'Live', location:'New York / Brooklyn，美国'}).location, 'New York');
-  assert.equal(displayShow({...base, performance:'Live', event:'对冲联合巡演；场地待公布（原公告）'}).title, 'Live set at an unconfirmed venue');
+  assert.equal(displayShow({...base, performance:'Live', location:'New York / Brooklyn，美国'}).location, 'New York, United States');
+  assert.equal(displayShow({...base, performance:'Live', event:'对冲联合巡演；场地待公布（原公告）'}).title, 'Live set @ an unconfirmed venue');
+  assert.equal(displayShow({...base, performance:'Live', event:'La Sala at Cantina Royale'}).title, 'Live set @ La Sala @ Cantina Royale');
 });
 
 test('August 2024 tour venues use artist corrections and remain searchable', () => {
@@ -55,9 +60,9 @@ test('August 2024 tour venues use artist corrections and remain searchable', () 
   const search = createShowSearch(rows);
   const hangzhou = rows.find(show => show.date === '2024-08-23');
   const shanghai = rows.find(show => show.date === '2024-08-25');
-  assert.equal(displayShow(hangzhou).title, 'Live set at 9 Club');
+  assert.equal(displayShow(hangzhou).title, 'Live set @ 9 Club');
   assert.equal(displayShow(hangzhou).chineseTitle, '现场演出 · 酒球会');
-  assert.equal(displayShow(shanghai).title, 'Live set at YYT Yuyintang');
+  assert.equal(displayShow(shanghai).title, 'Live set @ YYT Yuyintang');
   assert.equal(displayShow(shanghai).chineseTitle, '现场演出 · YYT 育音堂');
   assert.deepEqual(search('2024 酒球会'), [hangzhou]);
   assert.deepEqual(search('2024 YYT'), [shanghai]);
@@ -72,9 +77,10 @@ test('search supports years, cities, venues, formats, Chinese and multiple terms
     assert.ok(search(query).length, `No matches for ${query}`);
   }
   assert.ok(search('2015').every(show => show.year === 2015));
-  assert.ok(search('New York').every(show => displayShow(show).location === 'New York'));
+  assert.ok(search('New York').every(show => displayShow(show).city === 'New York'));
   assert.ok(search('Web DJ').every(show => displayShow(show).format === 'Web DJ'));
-  assert.ok(search('2024 Ningbo').every(show => show.year === 2024 && displayShow(show).location === 'Ningbo'));
+  assert.ok(search('2024 Ningbo').every(show => show.year === 2024 && displayShow(show).city === 'Ningbo'));
+  assert.deepEqual(search('New York United States'), search('New York'));
   assert.deepEqual(search('webdj'), search('Web DJ'));
   assert.deepEqual(search('mecanique'), search('Mécanique'));
   assert.deepEqual(search('nonexistent-show-xyz'), []);
@@ -130,7 +136,7 @@ test('artist-supplied shows are added once, with correct formats and missing-cit
     const show = matches[0];
     assert.equal(show.status, 'artist-confirmed', date);
     assert.equal(displayShow(show).format, format, date);
-    assert.equal(displayShow(show).location, location, date);
+    assert.equal(displayShow(show).city, location, date);
     assert.equal(displayShow(show).formatUncertain, false, date);
   }
   assert.equal(rows.find(show => show.date === '2025-10-22').endDate, '2025-10-25');
@@ -141,13 +147,13 @@ test('upcoming section exports future appearances separately without private not
   const rows = JSON.parse(readFileSync(new URL('../src/content/shows.json', import.meta.url)));
   const upcoming = rows.filter(show => show.status === 'upcoming');
   assert.deepEqual(upcoming.map(show => show.date), ['2026-10-06', '2026-10-03', '2026-10-02', '2026-09-26']);
-  assert.equal(displayShow(upcoming[0]).title, 'Panel speaker at AIPPI');
-  assert.equal(displayShow(upcoming[0]).location, 'Hamburg');
-  assert.equal(displayShow(upcoming[1]).title, 'Web DJ at Reactor');
-  assert.equal(displayShow(upcoming[2]).title, 'Web DJ at illum');
+  assert.equal(displayShow(upcoming[0]).title, 'Panel speaker @ AIPPI');
+  assert.equal(displayShow(upcoming[0]).location, 'Hamburg, Germany');
+  assert.equal(displayShow(upcoming[1]).title, 'Web DJ @ Reactor');
+  assert.equal(displayShow(upcoming[2]).title, 'Web DJ @ illum');
   assert.equal(upcoming[3].time, '20:00');
-  assert.equal(displayShow(upcoming[3]).title, 'Live set at Yuyintang Town C Hall');
-  assert.deepEqual(createShowSearch(rows)('upcoming'), upcoming);
+  assert.equal(displayShow(upcoming[3]).title, 'Live set @ Yuyintang Town C Hall');
+  assert.deepEqual(createShowSearch(rows)('upcoming', new Date(2026, 8, 7)), upcoming);
   assert.doesNotMatch(JSON.stringify(rows), /分票房|联系人|\/Users\//);
   assert.ok(!rows.some(show => show.date === '2026-08-29'));
 });

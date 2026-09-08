@@ -86,14 +86,14 @@ const locations = {
   '武汉，中国': 'Wuhan, China', '贵阳，中国': 'Guiyang, China', '厦门，中国': 'Xiamen, China',
   '台北，台湾': 'Taipei, Taiwan', '福州，中国（地点有冲突）': 'Fuzhou, China *', '嘉义，台湾': 'Chiayi, Taiwan',
   '上海，中国／线上': 'Shanghai, China / Online', 'New York / Brooklyn，美国': 'Brooklyn, New York, US',
-  'New York，美国': 'New York, US', '澳门': 'Macau', 'Paris，法国': 'Paris, France',
+  'New York，美国': 'New York, US', '澳门': 'Macau, China', 'Paris，法国': 'Paris, France',
   'Caen，法国': 'Caen, France', 'Prague，捷克': 'Prague, Czech Republic',
   'Bratislava，斯洛伐克': 'Bratislava, Slovakia', 'Berlin，德国': 'Berlin, Germany',
   'Stockholm，瑞典': 'Stockholm, Sweden', 'Uppsala，瑞典': 'Uppsala, Sweden',
   '重庆，中国': 'Chongqing, China', 'New York / Ridgewood，美国': 'Ridgewood, New York, US',
   '地点未注明': 'Location not recorded', 'New York / Queens，美国': 'Queens, New York, US',
   '台南，台湾': 'Tainan, Taiwan', '高雄，台湾': 'Kaohsiung, Taiwan', '台东，台湾': 'Taitung, Taiwan',
-  '新竹，台湾': 'Hsinchu, Taiwan', '香港': 'Hong Kong',
+  '新竹，台湾': 'Hsinchu, Taiwan', '香港': 'Hong Kong, China',
   '中国，具体行政区待核': 'China / location to verify', '阳朔，中国': 'Yangshuo, China',
   '大理，中国': 'Dali, China',
   'Hamburg，德国': 'Hamburg, Germany',
@@ -126,6 +126,10 @@ export function displayShow(show) {
   const city = /New York/.test(fullLocation) ? 'New York'
     : /not recorded|location to verify/i.test(fullLocation) ? 'Not recorded'
     : fullLocation.split(',')[0];
+  const country = fullLocation.includes(',')
+    ? fullLocation.split(',').at(-1).split('/')[0].replace('*', '').trim().replace(/^US$/, 'United States')
+    : '';
+  const location = country ? `${city}, ${country}` : city;
   const web = /Browser DJ|Web[- ]?DJ/i.test(show.performance);
   const panel = /Panel Speaker/i.test(show.performance);
   const dj = /\bDJ\b/i.test(show.performance);
@@ -141,7 +145,8 @@ export function displayShow(show) {
     : show.event.includes(' @ ') ? show.event.split(' @ ').at(-1)
     : titles[show.event]?.[1]?.split(' · ').at(-1)?.replace(/现场$/, '');
   if (chinesePlace && /\p{Script=Han}/u.test(chinesePlace)) chineseTitle += ` · ${chinesePlace}`;
-  return { format, title: `${format} at ${placeUncertain ? 'an unconfirmed venue' : place}`,
-    chineseTitle, venue, location: city, fullLocation,
+  const displayPlace = (placeUncertain ? 'an unconfirmed venue' : place).replace(/\bat\b/gi, '@');
+  return { format, title: `${format} @ ${displayPlace}`,
+    chineseTitle, venue, city, country, location, fullLocation,
     formatUncertain: !panel && !web && !dj && !live };
 }
