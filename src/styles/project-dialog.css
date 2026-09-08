@@ -103,8 +103,8 @@ html.project-dialog-open { overflow: hidden; }
   grid-template-columns: minmax(0, 0.36fr) minmax(0, 0.64fr);
   gap: clamp(24px, 3.5vw, 52px);
 }
-.project-dialog-figure { margin: 0; }
-.project-dialog-figure img {
+.project-dialog-figure { position: relative; margin: 0; }
+.project-dialog-figure > img {
   display: block;
   width: 100%;
   aspect-ratio: 4 / 3;
@@ -112,8 +112,27 @@ html.project-dialog-open { overflow: hidden; }
   border: 1px solid rgba(194, 220, 211, 0.18);
 }
 .project-dialog-figure figcaption { margin-top: 10px; color: #a4bdb5; font-size: 12px; }
-.project-dialog-figure--gallery img { aspect-ratio: 3 / 4; object-fit: contain; background: #101a1c; }
+.project-dialog-figure--gallery > img { aspect-ratio: 3 / 4; object-fit: contain; background: #101a1c; }
 .project-dialog-figure--gallery figcaption { min-height: 3em; line-height: 1.5; }
+.project-dialog-image-overlay {
+  position: absolute;
+  right: 5%;
+  top: 4%;
+  width: 45%;
+  aspect-ratio: 192 / 208;
+  overflow: hidden;
+  pointer-events: none;
+}
+.project-dialog-image-overlay img {
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 800%;
+  height: 900%;
+  max-width: none;
+  object-fit: fill;
+  image-rendering: pixelated;
+  filter: drop-shadow(0 8px 3px rgba(0, 0, 0, 0.2));
+}
 .project-dialog-gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-top: 10px; }
 .project-dialog-thumbnail {
   min-width: 0;

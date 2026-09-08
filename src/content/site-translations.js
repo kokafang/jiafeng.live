@@ -21,7 +21,7 @@ const labels = {
   'Music for the entire immersive dance-theatre production.': '为整部沉浸式舞蹈剧场作品创作音乐。',
   'Dialect / Sound / Place': '方言 / 声音 / 地方', 'Ting Difang: Dialect & Sound 听地方': '听地方：方言与声音',
   'Local dialects, everyday voices and playful listening in Changsha.': '从长沙出发，在方言、日常声音与互动中聆听地方。',
-  'Watch the full set': '观看完整演出', 'Open Spotify ↗': '在 Spotify 收听 ↗', 'Open YouTube ↗': '在 YouTube 观看 ↗',
+  'Watch the full set': '观看完整演出', 'Open Spotify ↗': '在 Spotify 收听 ↗', 'Open YouTube ↗': '在 YouTube 观看 ↗', 'Open Bandcamp ↗': '在 Bandcamp 收听 ↗',
   'Click to use player': '点击操作播放器', 'Activate player controls': '启用播放器控制',
   'USB DANCE PAD / ALBUM + GAME': 'USB 跳舞毯 / 专辑 + 游戏', 'DIY Dance Kit': 'DIY 跳舞套装',
   'Emotional Dance Music': '幻爱锐舞会', 'Early Technologies': '早期科技', 'AI NI AI DAO': '爱你爱到', 'Cruel Outlets': '残酷奥特莱斯',
@@ -40,7 +40,7 @@ const labels = {
   'Selected coverage and records': '媒体报道与机构记录', 'Previous press page': '上一页媒体报道', 'Next press page': '下一页媒体报道',
   'Project pages': '项目分页', 'Previous projects page': '上一页项目', 'Next projects page': '下一页项目',
   'Play Web-DJ set video': '播放网页 DJ 演出视频', 'Play TRI-O video': '播放 TRI-O 视频', 'Album cover': '专辑封面',
-  'Spotify playlist player': 'Spotify 歌单播放器', 'Spotify album player': 'Spotify 专辑播放器', 'YouTube video player': 'YouTube 视频播放器',
+  'Spotify playlist player': 'Spotify 歌单播放器', 'Spotify album player': 'Spotify 专辑播放器', 'Bandcamp album player': 'Bandcamp 专辑播放器', 'YouTube video player': 'YouTube 视频播放器',
   'Cruel Outlets video': '《残酷奥特莱斯》视频', 'Website under construction': '网站建设中',
   'Jiafeng Gao portrait': '高嘉丰肖像', 'Jiafeng performing a Web-DJ set': '高嘉丰的网页 DJ 演出',
   'The FakeBook camera jazz instrument': '中指爵士摄像头互动乐器', 'TRI-O video thumbnail': 'TRI-O 视频封面',
@@ -69,10 +69,52 @@ export const musicZh = {
   'early-technologies': ['早期科技', '《早期科技》把社交媒体、自动调音与流媒体想象成来自另一个时代的遗物：笨拙、浪漫，又带着一点陌生感。专辑游走于超流行、独立摇滚、金属与电子音乐之间，每首歌都讲述了一个关于科技与日常数字生活的不同故事。'],
   'ai-ni-ai-dao': ['爱你爱到', '《爱你爱到》是一首解构流行单曲，将超流行、金属、未来贝斯与朋克缝合成一个关于迷恋与毁灭的强烈故事。继原版单曲和 MV 之后，《爱你爱到 Remixes》通过跨地域合作拓展了这个世界，参与者包括 Catnapp、galen tipton、recovery girl、Junior Astronaut、Shelhiel、GG龙虾和 Jellyeeee，五个重混版本陆续发布。'],
   'cruel-outlets': ['残酷奥特莱斯', '《残酷奥特莱斯》把高嘉丰的解构流行语言带入更尖锐的情感维度，在紧凑的歌曲结构中，将旋律的张力与数字音色的粗粝感结合起来。'],
-  'emotional-dance-music': ['幻爱锐舞会', '《幻爱锐舞会》以俱乐部音乐的尺度探索对比：柔软与冲击、浪漫与断裂、亲密与音量，通过层层交织的电子制作展开。']
+  'emotional-dance-music': ['幻爱锐舞会', '《幻爱锐舞会》以俱乐部音乐的尺度探索对比：柔软与冲击、浪漫与断裂、亲密与音量，通过层层交织的电子制作展开。'],
+  'beng-di-zhi-da-bing': ['蹦迪治大病', '《蹦迪治大病》发行于 2016 年，用四分钟将泡泡糖流行、未来贝斯与 Trance 压缩在一起，以超现实的中文歌词、失控的幽默和 DIY 俱乐部能量推进。']
 };
 
 export const projectsZh = {
+  fakebook: {
+    title: '中指爵士 The FakeBook', category: '互动乐器', status: '浏览器乐器',
+    summary: '一件基于浏览器摄像头的爵士乐器，将手势转化为由实时和弦谱组织的音符。',
+    paragraphs: [
+      '中指爵士通过摄像头追踪手的位置与手指数，将动作转化为音高、节奏和颤音。音符会被限制在当前爵士和声中，让即兴演奏既直接，又不会变得随意。',
+      '滚动和弦谱与 Real Book 风格的伴奏，把浏览器变成一件可以演奏的爵士乐器。项目可以直接在线体验，源代码也在 GitHub 公开。'
+    ],
+    factLabels: ['输入', '音乐系统', '平台'],
+    facts: ['摄像头手势追踪', '爵士和声中的手势控制音符', '网页浏览器'],
+    captions: ['摄像头爵士乐器'],
+    alts: ['中指爵士摄像头互动乐器界面'],
+    source: ['在线体验中指爵士', '高嘉丰创作的浏览器摄像头乐器。'],
+    references: ['在 GitHub 查看源代码']
+  },
+  'emotional-dance-music-kit': {
+    title: '幻爱锐舞会 DIY 套装', category: '游戏与互动音乐专辑', status: '互动发行',
+    summary: '一张以节奏游戏套装形式发行的专辑，将音乐、USB 跳舞毯与可下载的 StepMania 游戏结合起来。',
+    paragraphs: [
+      '《幻爱锐舞会》被构想为一张不仅能听、也能亲自玩的专辑。DIY 套装把作品与 USB 跳舞毯和可下载的 StepMania 节奏游戏组合在一起，让聆听变成全身参与的交互体验。',
+      '这个项目把专辑延伸到流媒体和实体包装之外：每首歌都成为一个可玩的关卡，连接俱乐部音乐、游戏设计与参与式表演。'
+    ],
+    factLabels: ['作品', '形式', '平台'],
+    facts: ['幻爱锐舞会', '专辑 / 节奏游戏 / USB 跳舞毯', 'StepMania'],
+    captions: ['专辑、游戏与 USB 跳舞毯'],
+    alts: ['包含专辑视觉与跳舞毯控制器的幻爱锐舞会 DIY 套装'],
+    listen: ['幻爱锐舞会', '高嘉丰的音乐专辑', '在 Bandcamp 收听'],
+    source: ['在 Bandcamp 查看 DIY 套装', '高嘉丰创作的专辑及互动版本。']
+  },
+  'bach-typewriter': {
+    title: '巴赫打字机', category: '音乐桌面伙伴', status: 'macOS 应用',
+    summary: '一件让用户通过一次次键盘敲击，逐音演奏巴赫原作的趣味桌面乐器。',
+    paragraphs: [
+      '巴赫打字机把普通键盘输入映射到巴赫的原始乐谱。每次按键都会推进一个音符，因此作品仍是巴赫原作，而演奏的时间与乐句则由用户的打字动作形成。',
+      '像素巴赫与层叠的桌面窗口，让软件像一位住在电脑里的微型音乐伙伴。该应用开源，并可在 GitHub 获取。'
+    ],
+    factLabels: ['输入', '输出', '平台'],
+    facts: ['电脑键盘', '巴赫原作，由用户逐音敲出', 'macOS'],
+    captions: ['巴赫原谱，通过打字演奏'],
+    alts: ['巴赫打字机中的 Windows 风格乐谱窗口'],
+    source: ['在 GitHub 查看巴赫打字机', '高嘉丰创作的开源音乐桌面伙伴。']
+  },
   'ting-difang': {
     title: '听地方：方言与声音', category: '方言 / 声音 / 地方', status: '创作团队与空间',
     summary: '一个以地方方言为根的声音项目，从长沙出发，将语言的节奏、日常聆听和动手参与连接起来。',
@@ -129,17 +171,29 @@ export function createSiteTranslator({ shows = [], projectDetails = {}, pressIte
     for (const field of ['title', 'category', 'status', 'summary']) add(project[field], zh[field]);
     add(project.category + ' / ' + project.status, zh.category + ' / ' + zh.status);
     project.paragraphs.forEach((paragraph, index) => add(paragraph, zh.paragraphs[index]));
-    project.facts.forEach((fact, index) => add(fact.value, zh.facts[index]));
+    project.facts.forEach((fact, index) => {
+      add(fact.label, zh.factLabels?.[index]);
+      add(fact.value, zh.facts[index]);
+    });
     [project.image, ...(project.gallery || [])].forEach((image, index) => {
       add(image.caption, zh.captions[index]); add(image.alt, zh.alts[index]);
     });
     add(project.source?.label, zh.source[0]); add(project.source?.credit, zh.source[1]);
+    project.source?.references?.forEach((reference, index) => add(reference.label, zh.references?.[index]));
+    if (project.listen && zh.listen) {
+      add(project.listen.title, zh.listen[0]);
+      add(project.listen.credit, zh.listen[1]);
+      add(project.listen.label, zh.listen[2]);
+    }
   }
   Object.entries({
     'Music for the entire production': '全场音乐', 'Choreography / co-direction': '编舞 / 联合导演', 'Stage design, writing / co-direction': '舞台设计、编剧 / 联合导演',
     'Music from the production': '作品配乐', 'Full production music by Jiafeng 高嘉丰': '全场音乐：高嘉丰', 'Listen on NetEase Cloud Music': '在网易云音乐收听',
     'Production background (Chinese)': '作品背景介绍', 'View Da Wo Xian Ren 打窝仙人 project details': '查看打窝仙人项目介绍',
     'View Ting Difang: Dialect and Sound 听地方 project details': '查看听地方：方言与声音项目介绍',
+    'View The FakeBook 中指爵士 project details': '查看中指爵士项目介绍',
+    'View Emotional Dance Music DIY Kit project details': '查看幻爱锐舞会 DIY 套装项目介绍',
+    'View Bach Typewriter 巴赫打字机 project details': '查看巴赫打字机项目介绍',
     'Beijing Times Art Museum': '北京时代美术馆', 'McaM / Mingyuan Group': '明当代美术馆 / 明园集团'
   }).forEach(([source, target]) => add(source, target));
   const kinds = { 'Release feature': '作品介绍', 'Year-end selection': '年度推荐', Interview: '专访', 'Exhibition report': '展览报道', Feature: '专题', 'Performance report': '演出回顾' };
@@ -175,7 +229,7 @@ export function createSiteTranslator({ shows = [], projectDetails = {}, pressIte
       const cover = key.match(/^(.+) cover$/);
       const image = key.match(/^Show image (\d+): (.+)$/);
       const year = key.match(/^(\d{4}): (.+)$/);
-      const external = key.match(/^Open (.+) on (Spotify|YouTube) \(new tab\)$/);
+      const external = key.match(/^Open (.+) on (Spotify|YouTube|Bandcamp) \(new tab\)$/);
       const sourceLink = key.match(/^Source for (.+), (\d{4}-\d{2}-\d{2}) \(opens in new tab\)$/);
       if (page) result = `${page[1]}–${page[2]} / ${page[3]} 条 · 第 ${page[4]} / ${page[5]} 页`;
       else if (count) result = `${count[1]} / ${count[2]} · ${count[3]} ${count[4] === 'sources' ? '条来源' : '个项目'}`;

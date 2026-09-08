@@ -1084,7 +1084,7 @@ a {
 .music-year-nav {
   position: relative;
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 20px;
   padding: 0;
 }
@@ -1641,6 +1641,7 @@ a {
   .music-feature-description { height: auto; flex: none; overflow: visible; padding: 0; }
   .music-feature-right .album-player-panel { height: 352px; min-height: 0; border: 0; border-radius: 12px; }
   .music-feature-layout[data-player-kind="video"] .album-player-panel { height: auto; aspect-ratio: 16 / 9; }
+  .music-feature-layout[data-player-kind="bandcamp"] .album-player-panel { height: 180px; }
   .music-browse-bar { grid-template-columns: minmax(0, 1fr); gap: 0; }
   .music-release-nav { justify-self: end; }
   .music-nav-button { min-height: 44px; }
@@ -1807,6 +1808,10 @@ a {
     min-height: 0;
     border: 0;
     border-radius: 12px;
+  }
+  .artist-portal .music-feature-layout[data-player-kind="bandcamp"] .album-player-panel {
+    height: clamp(140px, 30cqh, 180px);
+    align-self: end;
   }
   .artist-portal .music-feature-description {
     height: 100%;

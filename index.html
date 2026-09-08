@@ -78,6 +78,7 @@
                   <button type="button" class="music-year-dot" data-music-year="2021" data-music-release="ai-ni-ai-dao"><span class="release-year">2021</span><span class="release-name">AI NI AI DAO</span></button>
                   <button type="button" class="music-year-dot" data-music-year="2021" data-music-release="cruel-outlets"><span class="release-year">2021</span><span class="release-name">Cruel Outlets</span></button>
                   <button type="button" class="music-year-dot" data-music-year="2020" data-music-release="emotional-dance-music"><span class="release-year">2020</span><span class="release-name">Emotional Dance Music</span></button>
+                  <button type="button" class="music-year-dot" data-music-year="2016" data-music-release="beng-di-zhi-da-bing"><span class="release-year">2016</span><span class="release-name">Beng Di Zhi Da Bing 蹦迪治大病</span></button>
                 </div>
                 <div class="music-release-nav">
                   <button class="music-nav-button" type="button" aria-label="Go to more recent release" data-music-recent><span aria-hidden="true">&#8592;</span> Newer</button>
@@ -192,41 +193,27 @@
             <h2>Projects</h2>
             <div class="section-fill">
               <div class="fill-block">
-                <a
-                  href="https://fakebook.vercel.app"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="project-link-card"
-                >
-                  <div class="image-card-wrap">
-                    <img
-                      src="/images/fakebook-project-icon.png"
-                      alt="The FakeBook camera jazz instrument"
-                      loading="lazy"
-                    />
+                <div class="image-card-wrap bach-art">
+                  <div class="bach-sprite">
+                    <img src="/images/bach-typewriter-sprites.webp" alt="Pixel Bach playing the harpsichord, from Bach Typewriter" loading="lazy" />
                   </div>
-                  <span>Interactive Instrument</span>
-                  <strong>The FakeBook 中指爵士</strong>
-                </a>
+                </div>
+                <span>Musical Desktop Companion</span>
+                <strong>Bach Typewriter 巴赫打字机</strong>
+                <p class="project-description">Turn everyday typing into a Bach performance.</p>
+                <button class="project-detail-trigger" type="button" data-project-detail="bach-typewriter" aria-label="View Bach Typewriter 巴赫打字机 project details"></button>
               </div>
               <div class="fill-block">
                 <div class="image-card-wrap">
                   <img
-                    src="/images/lmdj.png"
-                    alt="LMDJ"
+                    src="/images/diy-dance-kit.jpg"
+                    alt="Emotional Dance Music DIY Kit"
                     loading="lazy"
                   />
                 </div>
-                <span>In development</span>
-                <strong>LMDJ - Little Monster DJ</strong>
-              </div>
-              <div class="fill-block sampler-project" data-avs-project>
-                <div class="image-card-wrap sampler-art">
-                  <img src="/images/gao-video-sampler-interface.jpg" alt="AVS Sampler interface with two video decks, tempo controls and sample pads" width="1600" height="1088" loading="lazy" />
-                </div>
-                <span>In development</span>
-                <strong>AVS Sampler</strong>
-                <p class="project-description">A performance sampler for mixing, chopping, and sequencing audiovisual clips live.</p>
+                <span>Game &amp; Interactive Music Album</span>
+                <strong>Emotional Dance Music DIY Kit</strong>
+                <button class="project-detail-trigger" type="button" data-project-detail="emotional-dance-music-kit" aria-label="View Emotional Dance Music DIY Kit project details"></button>
               </div>
               <div class="fill-block media-block">
                 <div class="video-embed-wrap">
@@ -248,25 +235,25 @@
                 <strong>TRI-O - Algorithmic MIDI Controller</strong>
               </div>
               <div class="fill-block">
+                <div class="image-card-wrap ting-difang-art">
+                  <img src="/images/ting-difang-logo-photo.jpg" alt="Colourful Ting Difang 听地方 logo on the wall of its riverside space" width="960" height="1440" loading="lazy" />
+                </div>
+                <span>Dialect / Sound / Place</span>
+                <strong>Ting Difang: Dialect &amp; Sound 听地方</strong>
+                <p class="project-description">Local dialects, everyday voices and playful listening in Changsha.</p>
+                <button class="project-detail-trigger" type="button" data-project-detail="ting-difang" aria-label="View Ting Difang: Dialect and Sound 听地方 project details"></button>
+              </div>
+              <div class="fill-block">
                 <div class="image-card-wrap">
                   <img
-                    src="/images/diy-dance-kit.jpg"
-                    alt="Emotional Dance Music DIY Kit"
+                    src="/images/fakebook-project-icon.png"
+                    alt="The FakeBook camera jazz instrument"
                     loading="lazy"
                   />
                 </div>
-                <span>Game &amp; Interactive Music Album</span>
-                <strong>Emotional Dance Music DIY Kit</strong>
-              </div>
-              <div class="fill-block">
-                <div class="image-card-wrap bach-art">
-                  <div class="bach-sprite">
-                    <img src="/images/bach-typewriter-sprites.webp" alt="Pixel Bach playing the harpsichord, from Bach Typewriter" loading="lazy" />
-                  </div>
-                </div>
-                <span>Musical Desktop Companion</span>
-                <strong>Bach Typewriter 巴赫打字机</strong>
-                <p class="project-description">Turn everyday typing into a Bach performance.</p>
+                <span>Interactive Instrument</span>
+                <strong>The FakeBook 中指爵士</strong>
+                <button class="project-detail-trigger" type="button" data-project-detail="fakebook" aria-label="View The FakeBook 中指爵士 project details"></button>
               </div>
               <div class="fill-block">
                 <div class="image-card-wrap">
@@ -278,13 +265,23 @@
                 <button class="project-detail-trigger" type="button" data-project-detail="da-wo-xian-ren" aria-label="View Da Wo Xian Ren 打窝仙人 project details"></button>
               </div>
               <div class="fill-block">
-                <div class="image-card-wrap ting-difang-art">
-                  <img src="/images/ting-difang-logo-photo.jpg" alt="Colourful Ting Difang 听地方 logo on the wall of its riverside space" width="960" height="1440" loading="lazy" />
+                <div class="image-card-wrap">
+                  <img
+                    src="/images/lmdj.png"
+                    alt="LMDJ"
+                    loading="lazy"
+                  />
                 </div>
-                <span>Dialect / Sound / Place</span>
-                <strong>Ting Difang: Dialect &amp; Sound 听地方</strong>
-                <p class="project-description">Local dialects, everyday voices and playful listening in Changsha.</p>
-                <button class="project-detail-trigger" type="button" data-project-detail="ting-difang" aria-label="View Ting Difang: Dialect and Sound 听地方 project details"></button>
+                <span>In development</span>
+                <strong>LMDJ - Little Monster DJ</strong>
+              </div>
+              <div class="fill-block sampler-project" data-avs-project>
+                <div class="image-card-wrap sampler-art">
+                  <img src="/images/gao-video-sampler-interface.jpg" alt="AVS Sampler interface with two video decks, tempo controls and sample pads" width="1600" height="1088" loading="lazy" />
+                </div>
+                <span>In development</span>
+                <strong>AVS Sampler</strong>
+                <p class="project-description">A performance sampler for mixing, chopping, and sequencing audiovisual clips live.</p>
               </div>
             </div>
           </div>

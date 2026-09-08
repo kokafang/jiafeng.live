@@ -45,7 +45,18 @@ export function mountProjectDialog({ onOpen = () => {}, onClose = () => {} } = {
     image.decoding = 'async';
     const caption = element('figcaption', '', project.image.caption);
     caption.setAttribute('aria-live', 'polite');
-    figure.append(image, caption);
+    figure.append(image);
+    if (project.image.overlay) {
+      figure.classList.add('project-dialog-figure--composite');
+      const overlay = element('span', 'project-dialog-image-overlay');
+      const overlayImage = element('img');
+      overlayImage.src = project.image.overlay.src;
+      overlayImage.alt = project.image.overlay.alt;
+      overlayImage.decoding = 'async';
+      overlay.append(overlayImage);
+      figure.append(overlay);
+    }
+    figure.append(caption);
     aside.append(figure);
     if (project.gallery?.length) {
       figure.classList.add('project-dialog-figure--gallery');

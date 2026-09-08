@@ -17,6 +17,11 @@ test('project introductions have readable copy and existing local artwork', () =
       assert.ok(existsSync(new URL('../public' + image.src, import.meta.url)));
       assert.ok(image.alt);
       assert.ok(image.caption);
+      if (image.overlay) {
+        assert.match(image.overlay.src, /^\/images\/[^/]+\.(svg|jpg|jpeg|png|webp)$/);
+        assert.ok(existsSync(new URL('../public' + image.overlay.src, import.meta.url)));
+        assert.ok(image.overlay.alt);
+      }
     }
     if (project.source) {
       assert.equal(new URL(project.source.href).protocol, 'https:');
@@ -64,10 +69,33 @@ test('project thumbnails retain a real dance photo and the original Bach sprite'
 test('every project dialog button maps to a reusable content record', () => {
   const html = readFileSync(new URL('../index.html', import.meta.url), 'utf8');
   const ids = [...html.matchAll(/<button\b[^>]*data-project-detail="([^"]+)"/g)].map(match => match[1]);
-  assert.ok(ids.includes('ting-difang'));
-  assert.ok(ids.includes('da-wo-xian-ren'));
+  for (const id of [
+    'fakebook',
+    'emotional-dance-music-kit',
+    'bach-typewriter',
+    'ting-difang',
+    'da-wo-xian-ren'
+  ]) assert.ok(ids.includes(id), id);
   assert.equal(new Set(ids).size, ids.length);
   for (const id of ids) assert.ok(projectDetails[id], id);
+});
+
+test('new instrument popups use the intended public destinations', () => {
+  const fakebook = projectDetails.fakebook;
+  assert.equal(fakebook.source.href, 'https://fakebook.vercel.app');
+  assert.equal(fakebook.source.references[0].href, 'https://github.com/kokafang/fakebook');
+
+  const bach = projectDetails['bach-typewriter'];
+  assert.equal(bach.source.href, 'https://github.com/kokafang/bach-typewriter');
+  assert.equal(bach.facts.find(fact => fact.label === 'Output').value, 'Original Bach compositions, typed note by note');
+  assert.match(bach.image.overlay.src, /bach-typewriter-sprites\.webp$/);
+
+  const danceKit = projectDetails['emotional-dance-music-kit'];
+  assert.equal(danceKit.listen.href, 'https://jiafeng.bandcamp.com/album/emotional-dance-music');
+  assert.match(danceKit.source.href, /jiafeng\.bandcamp\.com\/merch\//);
+
+  const html = readFileSync(new URL('../index.html', import.meta.url), 'utf8');
+  assert.doesNotMatch(html, /<a[^>]+href="https:\/\/fakebook\.vercel\.app"[^>]+class="project-link-card"/);
 });
 
 test('Da Wo Xian Ren credits the full production music and links to the supplied release', () => {

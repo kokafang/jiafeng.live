@@ -291,6 +291,21 @@ const musicReleases = [
     bandcampUrl: "https://jiafeng.bandcamp.com/album/emotional-dance-music",
     description:
       "Emotional Dance Music explores contrast at club scale: softness and impact, romance and rupture, intimacy and volume, all staged through layered electronic production."
+  },
+  {
+    id: "beng-di-zhi-da-bing",
+    year: 2016,
+    type: "SINGLE",
+    titleEn: "Beng Di Zhi Da Bing 蹦迪治大病",
+    titleZh: "蹦迪治大病",
+    cover: "/images/beng-di-zhi-da-bing.jpg",
+    embed: "https://bandcamp.com/EmbeddedPlayer/album=3268137205/size=large/bgcol=171b1d/linkcol=9bd8cb/tracklist=false/artwork=small/transparent=true/",
+    playerTitle: "Bandcamp album player",
+    service: "Bandcamp",
+    externalUrl: "https://jiafeng.bandcamp.com/album/--2",
+    bandcampUrl: "https://jiafeng.bandcamp.com/album/--2",
+    description:
+      "Released in 2016, Beng Di Zhi Da Bing compresses bubblegum pop, future bass and trance into four minutes of surreal Mandarin lyrics, unruly humour and DIY club energy."
   }
 ].sort((a, b) => b.year - a.year);
 
@@ -377,15 +392,22 @@ function applyReleaseCopy(release) {
   musicTitleEn.textContent = release.titleEn;
   const source = new URL(release.embed);
   const isVideo = source.hostname === "www.youtube.com";
-  if (musicFeatureLayout) musicFeatureLayout.dataset.playerKind = isVideo ? "video" : "audio";
-  if (musicExternalLink) {
-    musicExternalLink.href = isVideo
-      ? `https://www.youtube.com/watch?v=${source.pathname.split("/").at(-1)}`
-      : `${source.origin}${source.pathname.replace("/embed/", "/")}`;
-    musicExternalLink.textContent = `${isVideo ? "Open YouTube" : "Open Spotify"} \u2197`;
-    musicExternalLink.setAttribute("aria-label", `Open ${release.titleEn} on ${isVideo ? "YouTube" : "Spotify"} (new tab)`);
+  const service = release.service || (isVideo ? "YouTube" : "Spotify");
+  const externalUrl = release.externalUrl || (isVideo
+    ? `https://www.youtube.com/watch?v=${source.pathname.split("/").at(-1)}`
+    : `${source.origin}${source.pathname.replace("/embed/", "/")}`);
+  if (musicFeatureLayout) {
+    musicFeatureLayout.dataset.playerKind = service === "Bandcamp" ? "bandcamp" : (isVideo ? "video" : "audio");
   }
-  if (musicBandcampLink) musicBandcampLink.href = release.bandcampUrl;
+  if (musicExternalLink) {
+    musicExternalLink.href = externalUrl;
+    musicExternalLink.textContent = `Open ${service} \u2197`;
+    musicExternalLink.setAttribute("aria-label", `Open ${release.titleEn} on ${service} (new tab)`);
+  }
+  if (musicBandcampLink) {
+    musicBandcampLink.href = release.bandcampUrl;
+    musicBandcampLink.hidden = release.bandcampUrl === externalUrl;
+  }
   if (musicDescription && release.description) {
     musicDescription.innerHTML = `<p>${release.description}</p>`;
     musicDescription.scrollTop = 0;

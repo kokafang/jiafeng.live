@@ -1,5 +1,99 @@
 // Add a record here and a matching data-project-detail button to reuse the dialog.
 export const projectDetails = {
+  fakebook: {
+    title: 'The FakeBook',
+    titleZh: '中指爵士',
+    category: 'Interactive Instrument',
+    status: 'Browser instrument',
+    summary: 'A browser-based camera jazz instrument that turns hand gestures into notes shaped by a live chord chart.',
+    image: {
+      src: '/images/fakebook-project-icon.png',
+      alt: 'The FakeBook camera jazz instrument interface',
+      caption: 'Camera jazz instrument'
+    },
+    gallery: [],
+    facts: [
+      { label: 'Input', value: 'Camera hand tracking' },
+      { label: 'Musical system', value: 'Gesture-controlled notes within jazz harmony' },
+      { label: 'Platform', value: 'Web browser' }
+    ],
+    paragraphs: [
+      'The FakeBook uses the camera to track hand position and finger count, translating movement into pitch, rhythm and vibrato. Notes are constrained by the current jazz harmony, making improvisation immediate without becoming musically arbitrary.',
+      'A scrolling chord chart and Real Book-style backing tracks turn the browser into a playable jazz instrument. The project can be performed online, while its source code is available on GitHub.'
+    ],
+    source: {
+      label: 'Play The FakeBook online',
+      href: 'https://fakebook.vercel.app',
+      credit: 'A browser-based camera instrument by Jiafeng 高嘉丰.',
+      references: [
+        { label: 'View source code on GitHub', href: 'https://github.com/kokafang/fakebook' }
+      ]
+    }
+  },
+  'emotional-dance-music-kit': {
+    title: 'Emotional Dance Music DIY Kit',
+    titleZh: '幻爱锐舞会 DIY 套装',
+    category: 'Game & Interactive Music Album',
+    status: 'Interactive release',
+    summary: 'An album released as a playable rhythm-game kit, combining music, a USB dance pad and a downloadable StepMania game.',
+    image: {
+      src: '/images/diy-dance-kit.jpg',
+      alt: 'Emotional Dance Music DIY Kit with album artwork and dance-pad controls',
+      caption: 'Album, game and USB dance pad'
+    },
+    gallery: [],
+    facts: [
+      { label: 'Release', value: 'Emotional Dance Music' },
+      { label: 'Format', value: 'Album / rhythm game / USB dance pad' },
+      { label: 'Platform', value: 'StepMania' }
+    ],
+    paragraphs: [
+      'Emotional Dance Music was conceived as an album that could be played as well as heard. The DIY kit pairs the release with a USB dance pad and a downloadable StepMania-based rhythm game, turning listening into a full-body interface.',
+      'The project extends the album beyond streaming and physical packaging: each track becomes a playable level, connecting club music, game design and participatory performance.'
+    ],
+    listen: {
+      title: 'Emotional Dance Music',
+      credit: 'Album by Jiafeng 高嘉丰',
+      label: 'Listen on Bandcamp',
+      href: 'https://jiafeng.bandcamp.com/album/emotional-dance-music'
+    },
+    source: {
+      label: 'View the DIY Kit on Bandcamp',
+      href: 'https://jiafeng.bandcamp.com/merch/pre-order-emotional-dance-music-diy-dance-kit-usb-dance-pad-included',
+      credit: 'Album and interactive edition by Jiafeng 高嘉丰.'
+    }
+  },
+  'bach-typewriter': {
+    title: 'Bach Typewriter',
+    titleZh: '巴赫打字机',
+    category: 'Musical Desktop Companion',
+    status: 'macOS app',
+    summary: 'A playful desktop instrument that lets the user perform original Bach compositions one keystroke at a time.',
+    image: {
+      src: '/images/bach-windows-score-background.jpg',
+      alt: 'Windows-style score windows from Bach Typewriter',
+      caption: 'Original Bach scores, performed through typing',
+      overlay: {
+        src: '/images/bach-typewriter-sprites.webp',
+        alt: 'Pixel Bach playing the harpsichord'
+      }
+    },
+    gallery: [],
+    facts: [
+      { label: 'Input', value: 'Computer keyboard' },
+      { label: 'Output', value: 'Original Bach compositions, typed note by note' },
+      { label: 'Platform', value: 'macOS' }
+    ],
+    paragraphs: [
+      'Bach Typewriter maps ordinary keyboard input onto an original Bach score. Each keystroke advances the music by one note, so the composition remains Bach\'s while its timing and phrasing emerge from the user\'s typing.',
+      'A pixel Bach and layered desktop windows make the software feel like a tiny musical companion living inside the computer. The application is open source and available on GitHub.'
+    ],
+    source: {
+      label: 'View Bach Typewriter on GitHub',
+      href: 'https://github.com/kokafang/bach-typewriter',
+      credit: 'An open-source musical desktop companion by Jiafeng 高嘉丰.'
+    }
+  },
   'da-wo-xian-ren': {
     title: 'Da Wo Xian Ren',
     titleZh: '打窝仙人',

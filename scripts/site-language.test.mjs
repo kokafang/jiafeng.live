@@ -59,7 +59,8 @@ test('all shows translate performance format and city while preserving proper ve
 });
 
 test('all music releases have Chinese titles and descriptions', () => {
-  assert.equal(Object.keys(musicZh).length, 4);
+  assert.equal(Object.keys(musicZh).length, 5);
+  assert.ok(musicZh['beng-di-zhi-da-bing']);
   for (const [id, [title, description]] of Object.entries(musicZh)) {
     const source = { id, titleEn: 'Title ' + id, description: 'Description ' + id };
     const translator = createSiteTranslator({ musicReleases: [source] });
