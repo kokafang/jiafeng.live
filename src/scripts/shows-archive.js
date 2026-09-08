@@ -34,7 +34,7 @@ export function mountShowsArchive() {
   const searchShows = createShowSearch(shows);
   let filtered = shows;
   let page = 0;
-  let pageSize = 6;
+  const pageSize = 6;
   const labels = { upcoming: 'Upcoming', past: 'Past' };
   let renderedDay = localDateKey();
   let dayTimer;
@@ -68,7 +68,8 @@ export function mountShowsArchive() {
       const chineseTitle = text('span', 'show-chinese-title', display.chineseTitle);
       chineseTitle.lang = 'zh-CN';
       chineseTitle.title = display.chineseTitle;
-      detail.append(title, chineseTitle);
+      detail.title = `${display.title} ${display.chineseTitle}`.trim();
+      detail.append(title, ' ', chineseTitle);
       const location = text('span', 'show-location', display.location);
       const info = document.createElement('div');
       info.className = 'show-info';
@@ -128,17 +129,7 @@ export function mountShowsArchive() {
   newer.addEventListener('click', () => { page -= 1; render(true); });
   earlier.addEventListener('click', () => { page += 1; render(true); });
 
-  // Pagination follows the actual content height, including desktop fitting and zoom.
-  new ResizeObserver(() => {
-    if (!list.clientHeight) return;
-    const minHeight = parseFloat(getComputedStyle(list).getPropertyValue('--show-row-min')) || 100;
-    const nextSize = Math.max(1, Math.min(6, Math.floor(list.clientHeight / minHeight)));
-    if (nextSize === pageSize) return;
-    const firstVisible = page * pageSize;
-    pageSize = nextSize;
-    page = Math.floor(firstVisible / pageSize);
-    render();
-  }).observe(list);
+  // Keep six entries per page; CSS adapts row spacing instead of dropping entries.
   render();
 
   // Keep open tabs and status-filtered results current across local midnight and device sleep.

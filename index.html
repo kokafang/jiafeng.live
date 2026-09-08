@@ -8,7 +8,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <meta
       name="description"
-      content="Jiafeng's official portal for music, shows, projects, web-DJ projects, press, merch, and about."
+      content="Jiafeng's official portal for music, shows, projects, Web DJ, press, merch, and about."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -60,6 +60,7 @@
             <div class="portal-top-nav-group">
               <a href="#about">ABOUT</a>
               <a href="#shows">SHOWS</a>
+              <a href="#press">PRESS</a>
               <a href="#merch">MERCH</a>
             </div>
           </div>
@@ -68,7 +69,6 @@
 
       <section class="portal-sections">
         <article class="portal-section" id="music">
-          <span class="section-index">01</span>
           <div>
             <h2>Music</h2>
             <div class="spotify-section spotify-featured">
@@ -135,7 +135,6 @@
           </div>
         </article>
         <article class="portal-section" id="web-dj">
-          <span class="section-index">02</span>
           <div>
             <h2>Web-DJ</h2>
             <div class="section-fill webdj-fill">
@@ -189,7 +188,6 @@
           </div>
         </article>
         <article class="portal-section" id="products">
-          <span class="section-index">03</span>
           <div>
             <h2>Projects</h2>
             <div class="section-fill">
@@ -212,30 +210,23 @@
                 </a>
               </div>
               <div class="fill-block">
-                <a
-                  href="https://lmdj.jiafeng.live"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="project-link-card"
-                >
-                  <div class="image-card-wrap">
-                    <img
-                      src="/images/lmdj.png"
-                      alt="LMDJ"
-                      loading="lazy"
-                    />
-                  </div>
-                  <span>Browser Instrument</span>
-                  <strong>LMDJ - Little Monster DJ</strong>
-                </a>
-              </div>
-              <div class="fill-block sampler-project">
-                <div class="image-card-wrap sampler-art">
-                  <img src="/images/sampler-project.png" alt="Sampler play and pad icon" loading="lazy" />
+                <div class="image-card-wrap">
+                  <img
+                    src="/images/lmdj.png"
+                    alt="LMDJ"
+                    loading="lazy"
+                  />
                 </div>
                 <span>In development</span>
-                <strong>Sampler</strong>
-                <p class="project-description">A video sampler for Web-DJ. Chop, loop and trigger audiovisual clips, then sequence them live.</p>
+                <strong>LMDJ - Little Monster DJ</strong>
+              </div>
+              <div class="fill-block sampler-project" data-avs-project>
+                <div class="image-card-wrap sampler-art">
+                  <img src="/images/gao-video-sampler-interface.jpg" alt="AVS Sampler interface with two video decks, tempo controls and sample pads" width="1600" height="1088" loading="lazy" />
+                </div>
+                <span>In development</span>
+                <strong>AVS Sampler</strong>
+                <p class="project-description">A performance sampler for mixing, chopping, and sequencing audiovisual clips live.</p>
               </div>
               <div class="fill-block media-block">
                 <div class="video-embed-wrap">
@@ -253,7 +244,7 @@
                     <span class="video-play-button" aria-hidden="true"></span>
                   </button>
                 </div>
-                <span>Featured Tool</span>
+                <span>MIDI Controller</span>
                 <strong>TRI-O - Algorithmic MIDI Controller</strong>
               </div>
               <div class="fill-block">
@@ -264,14 +255,41 @@
                     loading="lazy"
                   />
                 </div>
-                <span>DIY Kit</span>
+                <span>Game &amp; Interactive Music Album</span>
                 <strong>Emotional Dance Music DIY Kit</strong>
+              </div>
+              <div class="fill-block">
+                <div class="image-card-wrap bach-art">
+                  <div class="bach-sprite">
+                    <img src="/images/bach-typewriter-sprites.webp" alt="Pixel Bach playing the harpsichord, from Bach Typewriter" loading="lazy" />
+                  </div>
+                </div>
+                <span>Musical Desktop Companion</span>
+                <strong>Bach Typewriter 巴赫打字机</strong>
+                <p class="project-description">Turn everyday typing into a Bach performance.</p>
+              </div>
+              <div class="fill-block">
+                <div class="image-card-wrap">
+                  <img class="da-wo-dance-thumbnail" src="/images/da-wo-xian-ren-dance.webp" alt="Da Wo Xian Ren dancers performing together under blue stage light" width="640" height="853" loading="lazy" />
+                </div>
+                <span>Music for Dance Theatre</span>
+                <strong>Da Wo Xian Ren 打窝仙人</strong>
+                <p class="project-description">Music for the entire immersive dance-theatre production.</p>
+                <button class="project-detail-trigger" type="button" data-project-detail="da-wo-xian-ren" aria-label="View Da Wo Xian Ren 打窝仙人 project details"></button>
+              </div>
+              <div class="fill-block">
+                <div class="image-card-wrap ting-difang-art">
+                  <img src="/images/ting-difang-logo-photo.jpg" alt="Colourful Ting Difang 听地方 logo on the wall of its riverside space" width="960" height="1440" loading="lazy" />
+                </div>
+                <span>Dialect / Sound / Place</span>
+                <strong>Ting Difang: Dialect &amp; Sound 听地方</strong>
+                <p class="project-description">Local dialects, everyday voices and playful listening in Changsha.</p>
+                <button class="project-detail-trigger" type="button" data-project-detail="ting-difang" aria-label="View Ting Difang: Dialect and Sound 听地方 project details"></button>
               </div>
             </div>
           </div>
         </article>
         <article class="portal-section" id="about">
-          <span class="section-index">04</span>
           <div>
             <h2>About</h2>
             <div class="about-frame">
@@ -308,38 +326,48 @@
           </div>
         </article>
         <article class="portal-section" id="shows">
-          <span class="section-index">05</span>
           <div>
             <h2>Shows</h2>
             <div class="shows-archive" data-shows-archive></div>
           </div>
         </article>
         <article class="portal-section" id="press">
-          <span class="section-index">06</span>
           <div>
             <h2>Press</h2>
-            <div class="section-fill">
-              <div class="fill-block">
-                <strong>Website under construction.</strong>
-              </div>
-            </div>
+            <div class="press-archive" data-press-archive></div>
           </div>
         </article>
         <article class="portal-section" id="merch">
-          <span class="section-index">07</span>
           <div>
             <h2>Merch</h2>
-            <div class="merch-feature">
-              <div class="merch-photo">
-                <img src="/images/merch-dance-pad.jpg" alt="Emotional Dance Music DIY Dance Kit: USB dance pad and album packaging" loading="lazy" />
-              </div>
-              <div class="merch-copy">
-                <span class="merch-eyebrow">USB DANCE PAD / ALBUM + GAME</span>
-                <h3>Emotional Dance Music<span>DIY Dance Kit</span></h3>
-                <p class="merch-description">An album you can play with your feet. A USB dance pad, the digital album, and a download of the StepMania-based rhythm game.</p>
-                <span class="merch-stock">Out of stock</span>
-                <a class="merch-bandcamp" href="https://jiafeng.bandcamp.com/merch/pre-order-emotional-dance-music-diy-dance-kit-usb-dance-pad-included" target="_blank" rel="noopener noreferrer">View on Bandcamp <span aria-hidden="true">&#8599;</span></a>
-              </div>
+            <div class="merch-collection">
+              <article class="merch-card" aria-labelledby="dance-kit-title">
+                <div class="merch-photo">
+                  <img src="/images/merch-dance-pad.jpg" alt="Emotional Dance Music DIY Dance Kit: USB dance pad and album packaging" loading="lazy" />
+                </div>
+                <div class="merch-copy">
+                  <span class="merch-eyebrow">USB DANCE PAD / ALBUM + GAME</span>
+                  <h3 id="dance-kit-title">Emotional Dance Music<span>DIY Dance Kit</span></h3>
+                  <p class="merch-description">An album you can play with your feet. A USB dance pad, the digital album, and a download of the StepMania-based rhythm game.</p>
+                  <div class="merch-actions">
+                    <span class="merch-stock">Out of stock</span>
+                    <a class="merch-source" href="https://jiafeng.bandcamp.com/merch/pre-order-emotional-dance-music-diy-dance-kit-usb-dance-pad-included" target="_blank" rel="noopener noreferrer">View on Bandcamp <span aria-hidden="true">&#8599;</span></a>
+                  </div>
+                </div>
+              </article>
+              <article class="merch-card" aria-labelledby="wechat-tshirt-title">
+                <div class="merch-photo merch-photo--tshirt">
+                  <img src="/images/merch-wechat-tshirt.webp" alt="Black T-shirt with white custom Chinese lettering reading 微信是聊天的坟墓" width="1080" height="1158" loading="lazy" />
+                </div>
+                <div class="merch-copy">
+                  <span class="merch-eyebrow">LYRIC T-SHIRT / 2024</span>
+                  <h3 id="wechat-tshirt-title">WeChat Is the Graveyard of Conversation<span lang="zh-CN">微信是聊天的坟墓</span></h3>
+                  <p class="merch-description">A lyric made wearable. A black T-shirt named after Jiafeng's song, with custom Chinese lettering by Italian designer Kenshiro Caravaggio Carena.</p>
+                  <div class="merch-actions">
+                    <a class="merch-source" href="https://www.xiaohongshu.com/explore/668e7698000000000d00d59b" target="_blank" rel="noopener noreferrer">View on Xiaohongshu <span aria-hidden="true">&#8599;</span></a>
+                  </div>
+                </div>
+              </article>
             </div>
           </div>
         </article>

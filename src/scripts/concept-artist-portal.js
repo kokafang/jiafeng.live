@@ -3,8 +3,24 @@ import { fitDesktopSections } from './desktop-fit.js';
 import { guardPlayerScrolling } from './player-scroll-guard.js';
 import { createLiquidNavigation } from './liquid-navigation.js';
 import { mountShowsArchive } from './shows-archive.js';
+import { mountPressArchive } from './press-archive.js';
+import { mountProjectsGallery } from './projects-gallery.js';
+import { mountProjectDialog } from './project-dialog.js';
+import { mountProjectMist } from './project-mist.js';
+import { mountLanguageSwitch } from './site-language.js';
+import { mountAvsProjectLink } from './avs-project-link.js';
+
+if (import.meta.env.DEV) {
+  mountAvsProjectLink({
+    card: document.querySelector('[data-avs-project]'),
+    isDevelopment: true,
+    href: 'http://localhost:3000'
+  });
+}
 
 mountShowsArchive();
+mountPressArchive();
+mountProjectsGallery();
 
 const sections = [...document.querySelectorAll(".portal-stage, .portal-section")];
 const stageSection = document.querySelector(".portal-stage");
@@ -19,10 +35,17 @@ const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
 const mobilePages = window.matchMedia("(max-width: 900px) and (pointer: coarse)");
 const liquidNavigation = createLiquidNavigation({ nav: miniNav, strip: miniNavStrip, reducedMotion });
 const playerScroll = guardPlayerScrolling({ mobilePages });
+let projectDialog;
+let projectMist;
 const desktopSnap = createDesktopSnap({
-  sections, enabled: () => !mobilePages.matches, reducedMotion,
+  sections, enabled: () => !mobilePages.matches && !projectDialog?.isOpen(), reducedMotion,
   onNavigate: playerScroll.guardAll
 });
+projectDialog = mountProjectDialog({
+  onOpen: () => { desktopSnap.cancel(); playerScroll.guardAll(); projectMist?.setPaused(true); },
+  onClose: () => { desktopSnap.cancel(); projectMist?.setPaused(false); }
+});
+projectMist = mountProjectMist({ finePointer, reducedMotion });
 let mobileSectionId = sections.find(section => `#${section.id}` === location.hash)?.id || "top";
 let currentIndex = -1;
 let sectionTops = [];
@@ -188,7 +211,7 @@ document.querySelectorAll(".video-placeholder").forEach((button) => {
 
     const iframe = document.createElement("iframe");
     iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&playsinline=1&enablejsapi=1&origin=${encodeURIComponent(location.origin)}`;
-    iframe.title = button.getAttribute("aria-label") || "YouTube video player";
+    iframe.title = videoId === 'TuOVWeBmguQ' ? 'Play Web-DJ set video' : videoId === '0MNyVq7LMpo' ? 'Play TRI-O video' : 'YouTube video player';
     iframe.allow =
       "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
     iframe.referrerPolicy = "strict-origin-when-cross-origin";
@@ -487,7 +510,7 @@ if (cursorFish && cursorTrail) {
     if (event.target instanceof HTMLIFrameElement) hideFish();
   });
   window.addEventListener("pointermove", (event) => {
-    if (!finePointer.matches || reducedMotion.matches || event.pointerType !== "mouse" || event.target instanceof HTMLIFrameElement) {
+    if (!finePointer.matches || reducedMotion.matches || projectDialog.isOpen() || event.pointerType !== "mouse" || event.target instanceof HTMLIFrameElement) {
       hideFish();
       return;
     }
@@ -510,3 +533,11 @@ if (cursorFish && cursorTrail) {
 applyPageMode();
 measureSections();
 fitDesktopSections({ sections, mobilePages });
+document.addEventListener('site:languagechange', () => {
+  requestAnimationFrame(() => {
+    measureSections();
+    updateNavOverflow();
+    liquidNavigation.update({ immediate: true });
+  });
+});
+mountLanguageSwitch({ musicReleases });

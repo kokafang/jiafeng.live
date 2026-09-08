@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="600" viewBox="0 0 900 600">
+  <rect width="900" height="600" fill="#183836"/>
+  <g fill="none" stroke="#b8d5bf" stroke-opacity=".16">
+    <path d="M75 120H825M75 210H825M75 300H825M75 390H825M75 480H825"/>
+    <path d="M135 80V520M345 80V520M555 80V520M765 80V520"/>
+  </g>
+  <g fill="#dce3c7" text-anchor="middle">
+    <text x="450" y="181" font-family="monospace" font-size="18" letter-spacing="4">SOUND / LANGUAGE / PLACE</text>
+    <text x="450" y="335" font-family="'Songti SC', serif" font-size="112" letter-spacing="18">&#21548;&#22320;&#26041;</text>
+    <text x="450" y="407" font-family="serif" font-size="30" letter-spacing="6">TING DIFANG</text>
+  </g>
+</svg>

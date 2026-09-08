@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="600" viewBox="0 0 900 600">
+  <rect width="900" height="600" fill="#25252e"/>
+  <g fill="none" stroke="#bdaaaa" stroke-opacity=".25">
+    <ellipse cx="450" cy="310" rx="320" ry="168"/>
+    <ellipse cx="450" cy="310" rx="270" ry="168"/>
+    <path d="M100 485H800M100 115H800"/>
+  </g>
+  <g fill="#e5d5cb" text-anchor="middle">
+    <text x="450" y="212" font-family="monospace" font-size="18" letter-spacing="5">MUSIC FOR BALLET</text>
+    <text x="450" y="336" font-family="'Songti SC', serif" font-size="100">&#25171;&#31389;&#20185;&#20154;</text>
+    <text x="450" y="395" font-family="serif" font-size="30" letter-spacing="4">DA WO XIAN REN</text>
+  </g>
+</svg>

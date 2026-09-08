@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <title>Jiafeng / J studies</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-j-blue-yellow.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet" />
+    <style>
+      :root { color-scheme: light; --paper: #eeeae1; --ink: #102129; --muted: #52636a; --line: #c8cec9; }
+      * { box-sizing: border-box; }
+      body { margin: 0; background: radial-gradient(ellipse at 80% 0%, #d9e4df, transparent 48%), var(--paper); color: var(--ink); font-family: "Space Grotesk", "PingFang SC", sans-serif; }
+      main { max-width: 1260px; margin: auto; padding: 42px 36px 64px; }
+      header { display: flex; justify-content: space-between; gap: 24px; align-items: baseline; padding-bottom: 20px; border-bottom: 1px solid var(--line); }
+      a { color: inherit; text-underline-offset: 5px; }
+      .wordmark { font-family: "Cormorant Garamond", serif; font-size: 32px; text-decoration: none; }
+      .intro { display: flex; align-items: end; justify-content: space-between; gap: 40px; margin: 48px 0 32px; }
+      .eyebrow { font-size: 12px; letter-spacing: 0.15em; margin: 0 0 10px; }
+      h1 { font: 400 clamp(56px, 7vw, 86px)/1 "Cormorant Garamond", serif; margin: 0; }
+      .intro p:last-child { max-width: 430px; color: var(--muted); font-size: 14px; line-height: 1.8; margin-bottom: 0; }
+      .studies { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; }
+      .collection-heading { margin: 48px 0 24px; padding-top: 24px; border-top: 1px solid var(--line); font-size: 14px; letter-spacing: 0.05em; }
+      .palette { display: flex; gap: 8px; align-items: center; margin: 16px 0; color: var(--muted); font-size: 12px; }
+      .palette i { width: 16px; height: 16px; border-radius: 50%; background: var(--swatch); }
+      article { min-width: 0; }
+      .art { display: block; width: 100%; height: auto; aspect-ratio: 1; object-fit: contain; background: #0a151b; border-radius: 8px; }
+      .card-title { display: flex; gap: 14px; align-items: baseline; margin-top: 22px; }
+      .letter { color: var(--muted); font-size: 12px; }
+      h2 { font-size: 19px; font-weight: 500; margin: 0; }
+      .description { font-size: 14px; color: var(--muted); line-height: 1.7; min-height: 48px; margin: 12px 0 24px; }
+      .tab { display: flex; align-items: center; gap: 9px; padding: 11px 14px; font-size: 12px; border: 1px solid var(--line); border-radius: 10px 10px 0 0; background: #fcfbf7; }
+      .tab.dark { margin-top: 7px; background: #1d292e; color: #edf2ef; border-color: #1d292e; }
+      .tab img { width: 16px; height: 16px; border-radius: 3px; }
+      .close { margin-left: auto; opacity: 0.45; }
+      .sizes { display: flex; align-items: baseline; gap: 24px; margin: 20px 0; }
+      .sizes span { display: inline-flex; gap: 8px; align-items: center; font-size: 11px; color: var(--muted); }
+      .sizes img { border-radius: 4px; }
+      button { width: 100%; min-height: 46px; padding: 12px; border: 1px solid var(--ink); border-radius: 99px; background: transparent; color: var(--ink); font: inherit; font-size: 13px; cursor: pointer; }
+      button:hover, button[aria-pressed="true"] { background: var(--ink); color: #fffdf5; }
+      :focus-visible { outline: 2px solid #32697b; outline-offset: 4px; }
+      footer { margin-top: 36px; border-top: 1px solid var(--line); padding-top: 20px; }
+      #status { font-size: 13px; color: var(--muted); min-height: 24px; }
+      @media (max-width: 850px) {
+        main { padding: 24px 20px 44px; }
+        .intro { display: block; margin: 36px 0; }
+        .intro p:last-child { max-width: 100%; }
+        .studies { grid-template-columns: minmax(0, 1fr); gap: 52px; max-width: 500px; margin: auto; }
+        .description { min-height: 0; }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <a class="wordmark" href="/">Jiafeng</a>
+        <a href="/#music">查看 Liquid Glass 菜单</a>
+      </header>
+      <div class="intro">
+        <div><p class="eyebrow">IDENTITY STUDIES / 02</p><h1>J, in full color.</h1></div>
+        <p>网站已选用 D：蓝底亮黄色的像素 J。其他配色与原版保留作对照，点击按钮只在当前预览标签试用，不改变网站选定的图标。</p>
+      </div>
+      <section class="studies" id="color-studies" aria-label="彩色 J 标识候选稿"></section>
+      <h2 class="collection-heading">原版对照 / Original studies</h2>
+      <section class="studies" aria-label="J 标识候选稿">
+        <article>
+          <img class="art" src="/design/logo-concepts/j-pixel.png" alt="A：底部以阶梯形转折的像素 J" width="1254" height="1254" />
+          <div class="card-title"><span class="letter">A</span><h2>Pixel / 像素切角</h2></div>
+          <p class="description">直线与阶梯式的回钩，偏代码、数字乐器。三版里数字感最直接。</p>
+          <div class="tab" aria-label="浅色浏览器标签预览"><img src="/design/logo-concepts/j-pixel.png" alt="" />Jiafeng Live<span class="close" aria-hidden="true">&#215;</span></div>
+          <div class="tab dark" aria-label="深色浏览器标签预览"><img src="/design/logo-concepts/j-pixel.png" alt="" />Jiafeng Live<span class="close" aria-hidden="true">&#215;</span></div>
+          <div class="sizes" aria-label="24 和 32 像素预览"><span><img src="/design/logo-concepts/j-pixel.png" width="24" height="24" alt="" />24 px</span><span><img src="/design/logo-concepts/j-pixel.png" width="32" height="32" alt="" />32 px</span></div>
+          <button type="button" data-icon="j-pixel" data-label="A · Pixel" aria-pressed="false">在当前标签页试用 A</button>
+        </article>
+        <article>
+          <img class="art" src="/design/logo-concepts/j-tide.png" alt="B：柔和、连续、向左弯曲的流线 J" width="1254" height="1254" />
+          <div class="card-title"><span class="letter">B</span><h2>Tide / 流线曲线</h2></div>
+          <p class="description">圆润的回钩带一点水流感。形态最简洁，和水下背景、玻璃菜单更接近。</p>
+          <div class="tab" aria-label="浅色浏览器标签预览"><img src="/design/logo-concepts/j-tide.png" alt="" />Jiafeng Live<span class="close" aria-hidden="true">&#215;</span></div>
+          <div class="tab dark" aria-label="深色浏览器标签预览"><img src="/design/logo-concepts/j-tide.png" alt="" />Jiafeng Live<span class="close" aria-hidden="true">&#215;</span></div>
+          <div class="sizes" aria-label="24 和 32 像素预览"><span><img src="/design/logo-concepts/j-tide.png" width="24" height="24" alt="" />24 px</span><span><img src="/design/logo-concepts/j-tide.png" width="32" height="32" alt="" />32 px</span></div>
+          <button type="button" data-icon="j-tide" data-label="B · Tide" aria-pressed="false">在当前标签页试用 B</button>
+        </article>
+        <article>
+          <img class="art" src="/design/logo-concepts/j-serif.png" alt="C：衬线与一处像素切角结合的 J" width="1254" height="1254" />
+          <div class="card-title"><span class="letter">C</span><h2>Serif / 衬线字形</h2></div>
+          <p class="description">保留艺术家字标的书写感，只留一处数字切角。更接近首页 Jiafeng 的气质。</p>
+          <div class="tab" aria-label="浅色浏览器标签预览"><img src="/design/logo-concepts/j-serif.png" alt="" />Jiafeng Live<span class="close" aria-hidden="true">&#215;</span></div>
+          <div class="tab dark" aria-label="深色浏览器标签预览"><img src="/design/logo-concepts/j-serif.png" alt="" />Jiafeng Live<span class="close" aria-hidden="true">&#215;</span></div>
+          <div class="sizes" aria-label="24 和 32 像素预览"><span><img src="/design/logo-concepts/j-serif.png" width="24" height="24" alt="" />24 px</span><span><img src="/design/logo-concepts/j-serif.png" width="32" height="32" alt="" />32 px</span></div>
+          <button type="button" data-icon="j-serif" data-label="C · Serif" aria-pressed="false">在当前标签页试用 C</button>
+        </article>
+      </section>
+      <footer><p id="status" role="status">网站已选用 D · Electric 蓝黄 J。其他按钮只改变当前预览标签的图标。</p></footer>
+    </main>
+    <script>
+      const colors = [
+        { id: 'j-lime', letter: 'D', name: 'Electric / 亮绿 × 电蓝', description: '阶梯形 J，亮度与色相一起拉开。更跳、更数字，缩成小图标仍然直接。', fg: '#d4ff38', bg: '#183bf0' },
+        { id: 'j-orange', letter: 'E', name: 'Buoy / 橙色 × 深蓝', description: '流线 J 像深水里的橙色浮标。暖色醒目，曲线延续网站的水感。', fg: '#ff801f', bg: '#061e61' },
+        { id: 'j-yellow', letter: 'F', name: 'Signal / 明黄 × 玫红', description: '衬线 J 搭配明黄与莓红。保留艺术家字标气质，让色彩更大胆。', fg: '#fff257', bg: '#b60852' },
+      ];
+      document.getElementById('color-studies').innerHTML = colors.map(color => {
+        const src = `/images/logo-colors/${color.id}.png`;
+        return `<article>
+          <img class="art" src="${src}" alt="${color.name} J Logo" width="1254" height="1254" />
+          <div class="card-title"><span class="letter">${color.letter}</span><h2>${color.name}</h2></div>
+          <p class="description">${color.description}</p>
+          <div class="palette"><i style="--swatch:${color.fg}"></i><i style="--swatch:${color.bg}"></i>高对比双配色</div>
+          <div class="tab" aria-label="浅色标签 16 像素预览"><img src="${src}" alt="" />Jiafeng Live<span class="close" aria-hidden="true">&#215;</span></div>
+          <div class="tab dark" aria-label="深色标签 16 像素预览"><img src="${src}" alt="" />Jiafeng Live<span class="close" aria-hidden="true">&#215;</span></div>
+          <div class="sizes"><span><img src="${src}" width="24" height="24" alt="" />24 px</span><span><img src="${src}" width="32" height="32" alt="" />32 px</span></div>
+          <button type="button" data-icon="${color.id}" data-src="${src}" data-label="${color.letter} · ${color.name}" aria-pressed="false">在当前标签页试用 ${color.letter}</button>
+        </article>`;
+      }).join('');
+      const choices = [...document.querySelectorAll('[data-icon]')];
+      choices.forEach(button => button.addEventListener('click', () => {
+        let icon = document.querySelector('link[rel="icon"]');
+        if (!icon) {
+          icon = document.createElement('link');
+          icon.rel = 'icon';
+          icon.type = 'image/png';
+          document.head.append(icon);
+        }
+        icon.href = button.dataset.src || `/design/logo-concepts/${button.dataset.icon}.png`;
+        icon.removeAttribute('sizes');
+        choices.forEach(choice => choice.setAttribute('aria-pressed', String(choice === button)));
+        document.title = `${button.dataset.label} / Jiafeng`;
+        document.getElementById('status').textContent = `当前标签正在预览 ${button.dataset.label}。正式网站未改动。`;
+      }));
+    </script>
+  </body>
+</html>

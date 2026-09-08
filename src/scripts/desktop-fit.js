@@ -15,28 +15,20 @@ export function fitDesktopSections({ sections, mobilePages }) {
     if (mobilePages.matches) return;
     const uiScale = Math.min(1, innerWidth / 1100, innerHeight / 700);
     set(root, '--desktop-ui-scale', String(uiScale));
-    set(root, '--desktop-top-safe', `${Math.max(56 * uiScale, (nav?.offsetHeight || 40) + 14 + 24 * uiScale)}px`);
-    set(root, '--desktop-bottom-safe', `${Math.max(8, Math.min(56, innerHeight * 0.055))}px`);
+    set(root, '--desktop-top-safe', `${Math.ceil(Math.max(56 * uiScale, (nav?.offsetHeight || 40) + 14 + 24 * uiScale))}px`);
+    set(root, '--desktop-bottom-safe', `${Math.round(Math.max(8, Math.min(56, innerHeight * 0.055)))}px`);
 
     for (const { section, content } of contents) {
       const style = getComputedStyle(section);
-      const width = parseFloat(style.gridTemplateColumns.split(' ').at(-1));
       const height = section.clientHeight - parseFloat(style.paddingTop) - parseFloat(style.paddingBottom);
-      // Every section shares the same width/scale. Height changes the internal layout only.
-      const canvasWidth = Math.max(980, width);
-      const scale = Math.min(1, width / canvasWidth);
-      const canvasHeight = Math.max(1, height - 2) / scale;
-      set(content, '--fit-width', `${canvasWidth}px`);
-      set(content, '--fit-height', `${canvasHeight}px`);
-      const density = Math.min(1, canvasHeight / 730);
+      // Reflow at the real viewport width; do not resample a scaled text canvas.
+      const density = Math.min(1, height / 730);
       set(content, '--layout-density', String(density));
-      set(content, '--fit-scale', String(scale));
-      set(content, '--fit-offset', '0px');
-      content.querySelectorAll('.music-feature-description, .webdj-copy, .about-copy, .project-description').forEach(copy => {
-        const max = (copy.matches('.project-description') ? 17 : 19.5) * density;
+      content.querySelectorAll('.music-feature-description, .webdj-copy, .about-copy').forEach(copy => {
+        const max = Math.round(21 * Math.max(0.86, density));
         set(copy, '--copy-font', `${max}px`);
         if (copy.scrollHeight > copy.clientHeight + 1) {
-          let low = 6;
+          let low = 10;
           let high = max;
           // Fit only prose, not the entire music player, cover, or page heading.
           for (let i = 0; i < 9; i++) {
@@ -45,9 +37,34 @@ export function fitDesktopSections({ sections, mobilePages }) {
             if (copy.scrollHeight > copy.clientHeight + 1) high = size;
             else low = size;
           }
-          set(copy, '--copy-font', `${low}px`);
+          set(copy, '--copy-font', `${Math.floor(low)}px`);
         }
       });
+      if (section.id === 'products') {
+        const grid = content.querySelector('.section-fill');
+        const cards = [...grid.children].filter(card => !card.hidden);
+        set(content, '--projects-fit-width', '100%');
+        let bestWidth = grid.getBoundingClientRect().width;
+        let bestOverflow = Infinity;
+        // Preserve 4:3 artwork: fit the grid's width in short windows, never its image height.
+        for (let i = 0; i < 8; i++) {
+          const overflow = Math.max(0, ...cards.map(card => {
+            const stack = card.querySelector('.project-link-card') || card;
+            return stack.scrollHeight - stack.clientHeight;
+          }));
+          if (overflow <= 1) break;
+          const width = grid.getBoundingClientRect().width;
+          if (overflow >= bestOverflow) {
+            set(content, '--projects-fit-width', bestWidth + 'px');
+            break;
+          }
+          bestOverflow = overflow;
+          bestWidth = width;
+          const next = Math.max(Math.min(720, content.clientWidth), width - (overflow + 2) * 16 / 3);
+          if (next >= width) break;
+          set(content, '--projects-fit-width', next + 'px');
+        }
+      }
       content.scrollTop = 0;
     }
     if (heroNav) {
@@ -68,6 +85,8 @@ export function fitDesktopSections({ sections, mobilePages }) {
   window.visualViewport?.addEventListener('resize', schedule, { passive: true });
   mobilePages.addEventListener('change', schedule);
   document.addEventListener('load', schedule, true);
+  document.addEventListener('projects:pagechange', schedule);
+  document.addEventListener('site:languagechange', schedule);
   document.fonts.ready.then(schedule);
   schedule();
 }

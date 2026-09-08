@@ -1,10 +1,11 @@
 :root {
   --app-vh: 100svh;
   --section-bottom-safe: 56px;
+  --section-gutter: clamp(24px, 6vw, 112px);
   --description-box-height: 158px;
   --bg: #0b0b0c;
   --ink: #f7f3ea;
-  --muted: rgba(247, 243, 234, 0.72);
+  --muted: rgba(247, 243, 234, 0.86);
   --line: rgba(247, 243, 234, 0.16);
   --panel: #111214;
   --accent: #d6b78a;
@@ -493,9 +494,9 @@ a {
 .portal-section {
   position: relative;
   display: grid;
-  grid-template-columns: 72px minmax(0, 1fr);
-  gap: 18px;
-  padding: 96px 28px var(--section-bottom-safe);
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+  padding: 96px var(--section-gutter) var(--section-bottom-safe);
   align-content: start;
   border-top: 1px solid var(--line);
   height: auto;
@@ -608,6 +609,8 @@ a {
   flex: 1;
 }
 
+#products .avs-project-link { min-height: 0; }
+
 #products .fill-block:nth-child(1) {
   grid-column: auto;
   grid-row: auto;
@@ -625,6 +628,7 @@ a {
 
 #products .fill-block strong {
   margin-top: 0;
+  word-break: keep-all;
   font-size: clamp(0.9rem, 1.5vw, 1.4rem);
   line-height: 1.12;
 }
@@ -640,7 +644,7 @@ a {
 #products .video-embed-wrap {
   margin-top: 0;
   margin-bottom: 18px;
-  padding-top: 56.25%;
+  padding-top: 66.6667%;
 }
 
 #products .media-block .video-embed-wrap {
@@ -751,6 +755,107 @@ a {
   height: 100%;
   object-fit: contain;
   object-position: center center;
+}
+
+#products .image-card-wrap {
+  position: relative;
+  aspect-ratio: 4 / 3;
+}
+
+#products .video-embed-wrap {
+  padding-top: 0;
+  aspect-ratio: 4 / 3;
+}
+
+#products .image-card-wrap img,
+#products .video-placeholder img {
+  object-fit: cover;
+}
+
+/* Static blue tint remains available when WebGL or motion is unavailable. */
+@media (hover: hover) and (pointer: fine) {
+  #products :is(.image-card-wrap, .video-placeholder)::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(ellipse at center, rgba(9, 30, 36, 0.60), rgba(8, 27, 33, 0.84));
+    opacity: 1;
+    transition: opacity 420ms ease;
+  }
+  #products :is(.image-card-wrap, .video-placeholder) img {
+    filter: grayscale(0.65) saturate(0.6) brightness(0.82);
+    transition: filter 420ms ease;
+  }
+  #products .fill-block:is(:hover, :focus-within) :is(.image-card-wrap, .video-placeholder)::after {
+    opacity: 0;
+  }
+  #products .fill-block:is(:hover, :focus-within) :is(.image-card-wrap, .video-placeholder) img {
+    filter: none;
+  }
+  #products .video-play-button { z-index: 1; }
+  #products.has-project-mist :is(.image-card-wrap, .video-placeholder)::after { opacity: 0; transition: none; }
+  #products.has-project-mist :is(.image-card-wrap, .video-placeholder) img { filter: none; transition: none; }
+}
+
+#products { position: relative; }
+#products .project-mist-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+  visibility: hidden;
+}
+#products.has-project-mist .video-play-button,
+#products.has-project-mist .project-detail-trigger { z-index: 3; }
+
+/* Touch browsing stays clear and single-tap; only the thumbnail edges carry the water tint. */
+@media (hover: none), (pointer: coarse) {
+  #products .project-mist-layer { display: none; }
+
+  #products :is(.image-card-wrap, .video-placeholder) img { filter: none; }
+
+  #products :is(.image-card-wrap, .video-placeholder)::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background:
+      linear-gradient(180deg, rgba(116, 202, 213, 0.06), transparent 16%, transparent 84%, rgba(22, 106, 127, 0.08)),
+      linear-gradient(90deg, rgba(89, 190, 205, 0.05), transparent 12%, transparent 88%, rgba(89, 190, 205, 0.05));
+    box-shadow: inset 0 0 0 1px rgba(157, 222, 229, 0.16);
+    transition: box-shadow 180ms ease-out;
+  }
+
+  #products :is(.project-link-card, .project-detail-trigger, .video-placeholder) {
+    -webkit-tap-highlight-color: rgba(139, 221, 231, 0.13);
+  }
+
+  #products .project-link-card:active .image-card-wrap::after,
+  #products .fill-block:has(.project-detail-trigger:active) .image-card-wrap::after,
+  #products .video-placeholder:active::after {
+    box-shadow: inset 0 0 0 1px rgba(181, 242, 247, 0.52), inset 0 0 24px rgba(105, 208, 225, 0.20);
+    transition-duration: 70ms;
+  }
+
+  #products .video-play-button { z-index: 2; }
+  #products .video-placeholder:hover .video-play-button {
+    transform: translate(-50%, -50%);
+    border-color: rgba(255, 255, 255, 0.58);
+    background: rgba(8, 10, 12, 0.52);
+  }
+  #products .video-placeholder:active .video-play-button {
+    border-color: rgba(190, 244, 250, 0.9);
+    background: rgba(18, 59, 69, 0.7);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #products :is(.image-card-wrap, .video-placeholder)::after,
+  #products :is(.image-card-wrap, .video-placeholder) img { transition: none; }
 }
 
 .project-link-card {
@@ -1517,7 +1622,7 @@ a {
   .portal-section {
     grid-template-columns: minmax(0, 1fr);
     gap: 14px;
-    padding: 88px 24px 48px;
+    padding: 88px var(--section-gutter) 48px;
     min-height: 100svh;
   }
 
@@ -1554,7 +1659,7 @@ a {
 }
 
 @media (max-width: 480px) and (pointer: coarse) {
-  .portal-section { padding: 84px 16px 40px; }
+  .portal-section { padding: 84px var(--section-gutter) 40px; }
   .portal-top-nav-group { gap: 20px; }
   .portal-mini-nav { width: calc(100% - 16px); gap: 12px; }
   .mini-brand { font-size: 0.7rem; }
@@ -1626,24 +1731,23 @@ a {
     height: 100dvh;
     min-height: 100dvh;
     max-height: 100dvh;
-    grid-template-columns: calc(72px * var(--desktop-ui-scale, 1)) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr);
     grid-template-rows: minmax(0, 1fr);
     padding-top: var(--desktop-top-safe, 96px);
     padding-bottom: var(--desktop-bottom-safe, 40px);
-    gap: calc(18px * var(--desktop-ui-scale, 1));
+    gap: 0;
     overflow: clip;
   }
   .artist-portal .portal-section > div {
-    width: var(--fit-width, 100%);
-    height: var(--fit-height, 100%);
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     min-height: 0;
     overflow: visible;
-    transform: translateX(var(--fit-offset, 0px)) scale(var(--fit-scale, 1));
-    transform-origin: top left;
+    transform: none;
   }
-  .artist-portal #about > div { height: var(--fit-height, 100%); }
+  .artist-portal #about > div { height: 100%; }
   .artist-portal .portal-section h2 {
     flex-shrink: 0;
     font-size: calc(3.5rem * var(--layout-density, 1));
@@ -1686,9 +1790,9 @@ a {
   }
   .artist-portal .music-feature-left strong {
     font-family: "Cormorant Garamond", "Noto Serif SC", "Songti SC", serif;
-    font-size: calc(2.9rem * var(--layout-density, 1));
+    font-size: clamp(34px, calc(3.2rem * var(--layout-density, 1)), 52px);
     font-weight: 400;
-    line-height: 1.02;
+    line-height: 1.15;
     word-break: keep-all;
     overflow-wrap: normal;
   }
@@ -1710,15 +1814,16 @@ a {
     padding: 0;
   }
   .artist-portal .music-feature-description p, .artist-portal .webdj-copy p, .artist-portal .about-copy p {
-    font-size: var(--copy-font, 19.5px);
+    font-size: var(--copy-font, 21px);
     line-height: 1.5;
   }
   .artist-portal .music-feature-description p { margin: 0; }
   .music-listen-bar { padding-top: calc(12px * var(--layout-density, 1)); }
-  .music-service-links a { font-size: calc(0.8rem * var(--layout-density, 1)); }
-  .music-listen-bar .music-listen-label { font-size: calc(0.75rem * var(--layout-density, 1)); }
+  .music-service-links a { font-size: clamp(13px, calc(0.9rem * var(--layout-density, 1)), 15px); }
+  .music-listen-bar .music-listen-label { font-size: clamp(12px, calc(0.85rem * var(--layout-density, 1)), 14px); }
   .music-nav-button { font-size: calc(0.74rem * var(--layout-density, 1)); }
   .artist-portal .music-year-dot { font-size: calc(0.92rem * var(--layout-density, 1)); }
+  .artist-portal .webdj-fill { grid-template-columns: minmax(0, 0.4fr) minmax(0, 0.6fr); }
   .artist-portal .webdj-copy { overflow: visible; padding: calc(24px * var(--layout-density, 1)); }
   .artist-portal .webdj-copy > strong { font-size: calc(3rem * var(--layout-density, 1)); flex-shrink: 0; }
   .artist-portal .webdj-copy p { flex-shrink: 0; margin-top: calc(14px * var(--layout-density, 1)); }
@@ -1727,6 +1832,7 @@ a {
   .artist-portal .webdj-stage .video-placeholder img { object-fit: contain; }
   .artist-portal .about-frame { height: 0; }
   .artist-portal .about-copy {
+    width: 40%;
     top: calc(18px * var(--layout-density, 1));
     bottom: calc(18px * var(--layout-density, 1));
     height: auto;
@@ -1735,7 +1841,10 @@ a {
   }
   .artist-portal .about-copy p + p { margin-top: calc(12px * var(--layout-density, 1)); }
   .artist-portal #products .section-fill {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: var(--projects-fit-width, 100%);
+    max-width: 100%;
+    align-self: center;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     grid-template-rows: repeat(2, minmax(0, 1fr));
     gap: calc(18px * var(--layout-density, 1));
   }
@@ -1746,25 +1855,25 @@ a {
   }
   .artist-portal #products .project-link-card { height: 100%; min-height: 0; }
   .artist-portal #products .image-card-wrap, .artist-portal #products .video-embed-wrap {
-    height: 58%;
+    height: auto;
     min-height: 0;
     padding-top: 0;
-    aspect-ratio: auto;
+    aspect-ratio: 4 / 3;
     flex: none;
     margin-bottom: calc(12px * var(--layout-density, 1));
   }
-  .artist-portal #products .video-placeholder img { object-fit: contain; }
-  .artist-portal #products .fill-block strong { font-size: calc(1.7rem * var(--layout-density, 1)); }
+  .artist-portal #products .video-placeholder img { object-fit: cover; }
+  .artist-portal #products .fill-block strong { font-size: clamp(19px, calc(24px * var(--layout-density, 1)), 24px); }
   .artist-portal #products .fill-block > span, .artist-portal #products .project-link-card > span {
-    font-size: calc(0.94rem * var(--layout-density, 1));
-    margin-bottom: calc(8px * var(--layout-density, 1));
+    font-size: clamp(10px, calc(13px * var(--layout-density, 1)), 13px);
+    margin-bottom: calc(6px * var(--layout-density, 1));
   }
   .artist-portal #products .project-description {
-    flex: 1;
+    flex: 0 0 auto;
     min-height: 0;
-    margin-top: calc(8px * var(--layout-density, 1));
-    font-size: var(--copy-font, 17px);
-    line-height: 1.5;
+    margin-top: calc(6px * var(--layout-density, 1));
+    font-size: clamp(13px, calc(16px * var(--layout-density, 1)), 16px);
+    line-height: 1.4;
   }
   .artist-portal .fill-block { overflow: visible; }
   .artist-portal :is(#shows, #press, #merch) .section-fill { grid-template-columns: minmax(0, 1fr); }
@@ -1778,7 +1887,7 @@ a {
     gap: calc(18px * var(--desktop-ui-scale, 1));
     padding: calc(12px * var(--desktop-ui-scale, 1)) calc(16px * var(--desktop-ui-scale, 1));
   }
-  .mini-brand, .mini-links a { font-size: calc(0.96rem * var(--desktop-ui-scale, 1)); }
+  .mini-brand, .mini-links a { font-size: clamp(14px, calc(1.05rem * var(--desktop-ui-scale, 1)), 17px); }
   .mini-links { flex-wrap: nowrap; gap: calc(14px * var(--desktop-ui-scale, 1)); }
   .portal-top-nav {
     width: max-content;
@@ -1786,9 +1895,9 @@ a {
     transform: scale(var(--hero-nav-scale, 1));
     transform-origin: top center;
   }
-  .music-year-dot, .music-nav-button { font-size: calc(0.88rem * var(--layout-density, 1)); }
-  .music-feature-left > [data-music-tag] { font-size: calc(0.94rem * var(--layout-density, 1)); }
-  .webdj-link { font-size: calc(0.92rem * var(--layout-density, 1)); }
+  .music-year-dot, .music-nav-button { font-size: clamp(13px, calc(1rem * var(--layout-density, 1)), 16px); }
+  .music-feature-left > [data-music-tag] { font-size: clamp(14px, calc(1.05rem * var(--layout-density, 1)), 17px); }
+  .webdj-link { font-size: clamp(14px, calc(1rem * var(--layout-density, 1)), 16px); }
 }
 
 /* Keep section headings for assistive navigation without reserving visual space. */
@@ -1807,10 +1916,10 @@ a {
 .portal-top-nav-group a { font-size: 1.12rem; }
 
 @media (max-width: 900px) and (pointer: coarse) {
-  .mini-brand, .mini-links a { font-size: 0.88rem; }
-  .music-year-dot, .music-nav-button, .webdj-link { font-size: 0.86rem; }
+  .mini-brand, .mini-links a { font-size: 0.94rem; }
+  .music-year-dot, .music-nav-button, .webdj-link { font-size: 0.94rem; }
   .music-feature-description p, .webdj-copy p, .about-copy p,
-  #products .project-description { font-size: 1.12rem; }
-  #products .fill-block strong { font-size: 1.65rem; }
-  .fill-block > span, .project-link-card > span, .music-feature-left > [data-music-tag] { font-size: 0.94rem; }
+  #products .project-description { font-size: 1.2rem; }
+  #products .fill-block strong { font-size: 1.8rem; }
+  .fill-block > span, .project-link-card > span, .music-feature-left > [data-music-tag] { font-size: 1rem; }
 }

@@ -1,39 +1,48 @@
-.merch-feature {
+.merch-collection {
   flex: 1;
   min-height: 0;
   display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
-  grid-template-rows: minmax(0, 1fr);
-  gap: clamp(28px, 4vw, 72px);
-  align-items: center;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: minmax(0, 1fr) repeat(4, auto);
+  column-gap: clamp(28px, 4vw, 64px);
+  row-gap: clamp(10px, 1.5vh, 16px);
   border-top: 1px solid rgba(230, 245, 236, 0.16);
-  padding-top: 24px;
+  padding-top: calc(20px * var(--layout-density, 1));
 }
-.merch-photo { display: flex; align-items: center; justify-content: center; min-width: 0; min-height: 0; height: 100%; }
+
+/* Shared tracks keep both images, descriptions and links aligned. */
+.merch-card {
+  min-width: 0;
+  min-height: 0;
+  display: grid;
+  grid-row: 1 / span 5;
+  grid-template-rows: subgrid;
+}
+.merch-copy { display: contents; }
+.merch-photo { min-width: 0; min-height: 0; overflow: hidden; }
 .merch-photo img { display: block; width: 100%; height: 100%; object-fit: contain; }
-.merch-copy { display: flex; flex-direction: column; align-items: flex-start; gap: 20px; min-width: 0; }
-.merch-eyebrow { color: #aebfba; font-size: 12px; letter-spacing: 0.16em; }
-.merch-copy h3 { margin: 0; font: 400 clamp(2.4rem, 4vw, 4.4rem)/1.03 "Cormorant Garamond", serif; }
-.merch-copy h3 span { display: block; font-size: 0.67em; margin-top: 0.25em; }
-.artist-portal .merch-description { margin: 0; font-size: 18px; line-height: 1.6; max-width: 36ch; }
-.merch-stock { display: inline-flex; align-items: center; gap: 9px; border: 1px solid #858a74; border-radius: 24px; padding: 9px 16px; color: #e8dec2; font-size: 13px; letter-spacing: 0.03em; }
-.merch-stock::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
-.merch-bandcamp { display: inline-flex; align-items: center; gap: 24px; color: var(--ink); text-decoration: none; border-bottom: 1px solid #91a59b; padding: 12px 0; min-height: 44px; font-size: 14px; }
-.merch-bandcamp:hover { border-color: #e6f2db; }
-.merch-bandcamp:focus-visible { outline: 2px solid #b8f1d9; outline-offset: 6px; }
-@media (min-width: 901px), (pointer: fine) {
-  .merch-feature { height: 100%; padding-top: calc(24px * var(--layout-density, 1)); }
-  .merch-copy { gap: calc(22px * var(--layout-density, 1)); }
-  .merch-copy h3 { font-size: calc(4.4rem * var(--layout-density, 1)); }
-  .artist-portal .merch-description { font-size: calc(19px * var(--layout-density, 1)); }
+.merch-photo--tshirt { background: #fff; }
+.merch-eyebrow { color: #aebfba; font-size: 12px; letter-spacing: 0.14em; }
+.merch-copy h3 {
+  margin: 0;
+  font: 400 clamp(1.8rem, calc(2.7rem * var(--layout-density, 1)), 2.7rem)/1.04 "Cormorant Garamond", serif;
+  text-wrap: balance;
 }
+.merch-copy h3 span { display: block; font-size: 0.6em; margin-top: 0.3em; }
+.artist-portal .merch-description { margin: 0; font-size: clamp(16px, 1.4vw, 19px); line-height: 1.5; max-width: 52ch; }
+.merch-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 24px; align-self: end; min-height: 44px; }
+.merch-stock { display: inline-flex; align-items: center; gap: 9px; border: 1px solid #858a74; border-radius: 24px; padding: 8px 14px; color: #e8dec2; font-size: 13px; letter-spacing: 0.03em; }
+.merch-stock::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
+.merch-source { display: inline-flex; align-items: center; gap: 16px; color: var(--ink); text-decoration: none; border-bottom: 1px solid #91a59b; padding: 10px 0; min-height: 44px; font-size: 14px; }
+.merch-source:hover { border-color: #e6f2db; }
+.merch-source:focus-visible { outline: 2px solid #b8f1d9; outline-offset: 6px; }
+
 @media (max-width: 900px) and (pointer: coarse) {
-  .mobile-pages #merch.is-mobile-active { grid-template-rows: minmax(0, 1fr); gap: 0; }
-  #merch .section-index { display: none; }
+  .mobile-pages #merch.is-mobile-active { grid-template-rows: auto; gap: 0; }
   #merch > div { min-height: 0; }
-  .merch-feature { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto auto; gap: 22px; padding-top: 16px; }
-  .merch-photo { height: min(36dvh, 340px); }
-  .merch-copy { gap: 14px; }
-  .merch-copy h3 { font-size: 2.7rem; }
-  .artist-portal .merch-description { font-size: 16px; }
+  .merch-collection { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto; gap: 40px; padding-top: 16px; }
+  .merch-card { grid-row: auto; grid-template-rows: auto; gap: 14px; }
+  .merch-photo { height: auto; aspect-ratio: 4 / 3; }
+  .merch-copy h3 { font-size: 2.3rem; }
+  .artist-portal .merch-description { font-size: 18px; }
 }

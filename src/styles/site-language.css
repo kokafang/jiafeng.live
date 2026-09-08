@@ -1,0 +1,49 @@
+.language-toggle {
+  display: inline-grid;
+  place-items: center;
+  flex: 0 0 44px;
+  width: 44px;
+  min-width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid rgba(218, 242, 241, 0.36);
+  border-radius: 15px;
+  color: var(--ink);
+  background: rgba(166, 211, 213, 0.08);
+  font-family: "Space Grotesk", "PingFang SC", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0;
+  transition: background 180ms ease, border-color 180ms ease;
+}
+.language-toggle[lang="zh-CN"] { font-size: 18px; }
+.portal-mini-nav > .mini-links { min-width: 0; }
+@media (max-width: 1100px) {
+  .portal-mini-nav > .mini-links {
+    flex: 1 1 auto;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .portal-mini-nav > .mini-links a { flex-shrink: 0; }
+  .portal-mini-nav > .mini-brand { flex-shrink: 0; }
+}
+.language-toggle:hover { background: rgba(188, 231, 228, 0.2); border-color: #d6ede5; }
+.language-toggle:focus-visible { outline: 2px solid #d6ede5; outline-offset: 4px; }
+.hero-language-toggle { align-self: center; margin-block: -10px; }
+.project-dialog-header > .language-toggle { margin-left: auto; margin-right: 12px; }
+.language-status { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+html[lang="zh-CN"] .artist-portal { font-family: "Syne", "PingFang SC", "Microsoft YaHei", sans-serif; }
+html[lang="zh-CN"] :is(.mini-link-label, .portal-top-nav-group a) { letter-spacing: 0.08em; }
+html[lang="zh-CN"] :is(.show-chinese-title, .project-dialog-title > span, #wechat-tshirt-title > span) { display: none; }
+html[lang="zh-CN"] :is(.webdj-copy, .about-copy, .music-feature-description, .project-dialog-copy) { line-break: auto; }
+html[lang="zh-CN"] :is(.project-description, .merch-description) { line-height: 1.7; }
+@media (max-width: 900px) and (pointer: coarse) {
+  .portal-mini-nav { gap: 8px; }
+  .portal-mini-nav > .language-toggle { flex-basis: 44px; }
+  .portal-top-nav-group .language-toggle { display: none; }
+  .project-dialog-header > .language-toggle { margin-right: 8px; }
+}
+@media (prefers-reduced-motion: reduce) { .language-toggle { transition: none; } }

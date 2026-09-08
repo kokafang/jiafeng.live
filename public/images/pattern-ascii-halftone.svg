@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="96" viewBox="0 0 128 96">
+  <g fill="#cadc82" fill-opacity=".5" font-family="'Courier New', monospace" font-size="12" xml:space="preserve">
+    <text x="0" y="10" textLength="128" lengthAdjust="spacingAndGlyphs">....::::++++####</text>
+    <text x="0" y="22" textLength="128" lengthAdjust="spacingAndGlyphs">....::::++++####</text>
+    <text x="0" y="34" textLength="128" lengthAdjust="spacingAndGlyphs">::::++++####++++</text>
+    <text x="0" y="46" textLength="128" lengthAdjust="spacingAndGlyphs">::::++++####++++</text>
+    <text x="0" y="58" textLength="128" lengthAdjust="spacingAndGlyphs">++++####++++::::</text>
+    <text x="0" y="70" textLength="128" lengthAdjust="spacingAndGlyphs">++++####++++::::</text>
+    <text x="0" y="82" textLength="128" lengthAdjust="spacingAndGlyphs">####++++::::....</text>
+    <text x="0" y="94" textLength="128" lengthAdjust="spacingAndGlyphs">####++++::::....</text>
+  </g>
+</svg>
