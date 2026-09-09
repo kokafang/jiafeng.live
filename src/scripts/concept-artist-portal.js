@@ -1,5 +1,6 @@
 import { createDesktopSnap } from './desktop-snap.js';
 import { fitDesktopSections } from './desktop-fit.js';
+import { extendAboutBackdrop } from './about-backdrop.js';
 import { guardPlayerScrolling } from './player-scroll-guard.js';
 import { createLiquidNavigation } from './liquid-navigation.js';
 import { mountShowsArchive } from './shows-archive.js';
@@ -555,6 +556,7 @@ if (cursorFish && cursorTrail) {
 applyPageMode();
 measureSections();
 fitDesktopSections({ sections, mobilePages });
+extendAboutBackdrop(document.querySelector('.about-frame'));
 document.addEventListener('site:languagechange', () => {
   requestAnimationFrame(() => {
     measureSections();
