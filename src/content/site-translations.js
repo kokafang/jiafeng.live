@@ -60,7 +60,7 @@ export const staticParagraphsZh = {
   ],
   '.about-copy > p': [
     '高嘉丰 Jiafeng 是一位常驻上海的歌手、制作人、数字艺术家和开发者，创作横跨实验流行、俱乐部音乐、声音艺术与音乐科技。',
-    '他的实践涵盖歌曲、现场表演、浏览器乐器、AI 音乐系统、网页 DJ 和面向艺术机构的声音项目。作品曾在上海当代艺术博物馆、上海油罐艺术中心、深圳戏剧双年展和斯德哥尔摩 EMS 等艺术空间与活动中呈现，并受到 AVYSS、NTS Radio、Dazed、Mixmag 和 Rate Your Music 等平台关注。',
+    '他的实践涵盖歌曲、现场表演、浏览器乐器、AI 音乐系统、网页 DJ 和面向艺术机构的声音项目。作品曾在上海当代艺术博物馆、上海油罐艺术中心、深圳戏剧双年展和斯德哥尔摩 EMS 等艺术空间与活动中呈现。他曾为 NTS Radio 上海节目带来 Web-DJ 现场，并做客 Bloodz Boi 的节目。其作品也受到 AVYSS、Dazed、Mixmag 和 Rate Your Music 等平台关注。',
     '他曾获 Margaret Guthman 国际新乐器设计大赛奖项，也是中国较早将 AI、NFT 与流行音乐创作相结合的实践者之一。在他的创作中，技术并非新奇的装饰，而是重新组织声音、情感、作者性与日常数字生活的方式。他毕业于纽约大学 Music Technology 硕士项目。'
   ]
 };
