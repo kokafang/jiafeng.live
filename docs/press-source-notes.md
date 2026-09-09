@@ -14,6 +14,23 @@ The website uses short editorial summaries, not copied articles. Publication dat
 | Mixmag Asia | 2020-08-02 | Cheryl Chow interview about music, internet culture and the interactive Emotional Dance Music release. Article opened and read. | [Interview](https://mixmag.asia/feature/chinese-hyper-pop-artist-gao-jiafeng-emotional-dance-music) |
 | RADII | 2018-09-03 | Josh Feola feature on Jiafeng's browser-based NTS performance. Article opened and read. | [Browser DJ feature](https://radii.co/article/listen-gao-jiafeng-inflicts-his-browser-dj-set-on-nts) |
 
+## NTS Radio programmes
+
+Checked and added: 2026-09-09. These are official programme records naming Jiafeng as a performer or guest. Dates are broadcast dates, and the website labels them as radio programmes.
+
+| Programme | Broadcast date | Verified evidence | Source |
+| --- | --- | --- | --- |
+| Bloodz Boi w/ Jiafeng | 2024-01-17 | NTS title and Beijing location; genre tags Trance, Hyperpop and Drum & Bass; tracklist includes Jiafeng's Baby Monster, AC Remote, dice life and Netflix. | [Official episode](https://www.nts.live/shows/bloodz-boi/episodes/bloodz-boi-17th-january-2024) |
+| Jiafeng: Live from Shanghai | 2018-08-26 | Official description documents a live mix of YouTube and Bilibili videos with saxophone and throat singing. The website heading adds the location for clarity. | [Official episode](https://www.nts.live/shows/shanghai/episodes/jiafeng-live-from-shanghai-26th-august-2018) |
+
+The cards reuse the site's existing artist portrait (`/images/07-gjf个人2（摄影：王玮）.jpg`) and Web-DJ performance image (`/images/webdj-video-cover.png`). They illustrate the artist and performance format; they are not presented as official episode artwork or photographs from these particular broadcasts.
+
+The official episode artwork URLs were found in page metadata, but downloads from both NTS image hosts timed out. Retained here for a future artwork update:
+- [Bloodz Boi episode artwork](https://media2.ntslive.co.uk/resize/1600x1600/a5270d9d-353b-46b1-9b06-a8d55aeb9236_1656892800.png).
+- [Jiafeng Shanghai episode artwork](https://media2.ntslive.co.uk/resize/1600x1600/c2215419-45c8-4c79-b098-0701ad02783c_1535587200.jpeg).
+
+The existing RADII article remains a separate editorial source about the 2018 performance. NTS artist pages listing tracks played by other presenters were not treated as Jiafeng-hosted programmes.
+
 ## Chinese institutions
 
 | Publisher | Year | Record and evidence | Source |

@@ -143,6 +143,8 @@ export const projectsZh = {
 };
 
 export const pressZh = {
+  'nts-bloodz-boi-jiafeng': ['Bloodz Boi 与高嘉丰', '高嘉丰参与 Bloodz Boi 从北京播出的节目，选曲涵盖 Trance、Hyperpop 与 Drum & Bass，并收录 Baby Monster、AC Remote 和 Netflix。', '做客 NTS Bloodz Boi 节目的高嘉丰肖像'],
+  'nts-jiafeng-shanghai': ['高嘉丰：上海现场', '为 NTS 上海带来的 Web-DJ 现场，将 YouTube、Bilibili 视频片段与萨克斯、呼麦交织在一起。', '高嘉丰表演 Web-DJ 的演出照片'],
   'avyss-early-technologies': ['早期科技', 'AVYSS 介绍专辑中关于日常科技的陌生而浪漫的故事，以及流行与地下电子音乐之间的游走。', '《早期科技》专辑封面'],
   'avyss-baby-monster': ['Baby Monster：一首关于 AI 的歌', '在《早期科技》发行前，AVYSS 专文介绍这首回应人工智能的单曲。', 'AVYSS 报道中的 Baby Monster 单曲封面'],
   'mixmag-albums-2020': ['2020 年度最佳专辑', 'Eastern Margins 在 Mixmag 年度专辑专题中推荐《幻爱锐舞会》。', 'Mixmag 2020 年度专题图片'],
@@ -196,7 +198,7 @@ export function createSiteTranslator({ shows = [], projectDetails = {}, pressIte
     'View Bach Typewriter 巴赫打字机 project details': '查看巴赫打字机项目介绍',
     'Beijing Times Art Museum': '北京时代美术馆', 'McaM / Mingyuan Group': '明当代美术馆 / 明园集团'
   }).forEach(([source, target]) => add(source, target));
-  const kinds = { 'Release feature': '作品介绍', 'Year-end selection': '年度推荐', Interview: '专访', 'Exhibition report': '展览报道', Feature: '专题', 'Performance report': '演出回顾' };
+  const kinds = { 'Radio show': '电台节目', 'Live radio set': '电台现场', 'Release feature': '作品介绍', 'Year-end selection': '年度推荐', Interview: '专访', 'Exhibition report': '展览报道', Feature: '专题', 'Performance report': '演出回顾' };
   const languages = { EN: '英文', ZH: '中文', JA: '日文' };
   for (const item of pressItems) {
     const zh = pressZh[item.id];

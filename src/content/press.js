@@ -1,5 +1,13 @@
-// Publication dates, not release dates. Source checks are in docs/press-source-notes.md.
+// Publication or broadcast dates, not release dates. Source checks are in docs/press-source-notes.md.
 export const pressItems = [
+  {
+    id: 'nts-bloodz-boi-jiafeng', category: 'press', publisher: 'NTS Radio',
+    published: '2024-01-17', kind: 'Radio show', language: 'EN',
+    title: 'Bloodz Boi w/ Jiafeng',
+    thumbnail: { src: '/images/07-gjf个人2（摄影：王玮）.jpg', alt: 'Portrait of Jiafeng, guest on Bloodz Boi on NTS' },
+    description: "Jiafeng joins Bloodz Boi's Beijing broadcast, with selections spanning trance, hyperpop and drum & bass, including Baby Monster, AC Remote and Netflix.",
+    url: 'https://www.nts.live/shows/bloodz-boi/episodes/bloodz-boi-17th-january-2024'
+  },
   {
     id: 'avyss-early-technologies', category: 'press', publisher: 'AVYSS',
     published: '2024-01-05', kind: 'Release feature', language: 'JA',
@@ -47,6 +55,14 @@ export const pressItems = [
     thumbnail: { src: '/images/press-radii-browser-dj.jpg', alt: 'Jiafeng in the RADII Browser DJ feature image' },
     description: 'Josh Feola looks at Jiafeng\'s browser-based NTS set, mixing internet videos and sounds live across multiple tabs.',
     url: 'https://radii.co/article/listen-gao-jiafeng-inflicts-his-browser-dj-set-on-nts'
+  },
+  {
+    id: 'nts-jiafeng-shanghai', category: 'press', publisher: 'NTS Radio',
+    published: '2018-08-26', kind: 'Live radio set', language: 'EN',
+    title: 'Jiafeng: Live from Shanghai',
+    thumbnail: { src: '/images/webdj-video-cover.png', alt: 'Jiafeng performing a Web-DJ set' },
+    description: 'A live Web-DJ set for NTS Shanghai, weaving YouTube and Bilibili clips into a performance with saxophone and throat singing.',
+    url: 'https://www.nts.live/shows/shanghai/episodes/jiafeng-live-from-shanghai-26th-august-2018'
   },
   {
     id: 'mcam-performance', category: 'institutions', publisher: 'McaM / Mingyuan Group',
