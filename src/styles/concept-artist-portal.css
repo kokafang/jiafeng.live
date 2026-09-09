@@ -1036,6 +1036,10 @@ a {
   overflow: hidden;
 }
 
+.webdj-stage .video-placeholder img {
+  object-fit: contain;
+}
+
 .webdj-stage .video-embed-wrap {
   position: absolute;
   inset: 0;
@@ -1834,7 +1838,6 @@ a {
   .artist-portal .webdj-copy p { flex-shrink: 0; margin-top: calc(14px * var(--layout-density, 1)); }
   .artist-portal .webdj-link { flex-shrink: 0; padding-top: calc(22px * var(--layout-density, 1)); }
   .artist-portal .webdj-stage { height: 100%; aspect-ratio: auto; }
-  .artist-portal .webdj-stage .video-placeholder img { object-fit: contain; }
   .artist-portal .about-frame { height: 0; }
   .artist-portal .about-copy {
     width: 40%;
