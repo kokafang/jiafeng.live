@@ -1037,7 +1037,8 @@ a {
 }
 
 .webdj-stage .video-placeholder img {
-  object-fit: contain;
+  object-fit: cover;
+  object-position: center;
 }
 
 .webdj-stage .video-embed-wrap {
