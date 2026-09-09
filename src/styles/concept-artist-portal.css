@@ -697,8 +697,8 @@ a {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center 82%;
+  object-fit: contain;
+  object-position: right center;
 }
 
 .about-copy {
@@ -708,8 +708,8 @@ a {
   bottom: 18px;
   width: calc((100% - 24px) / 3);
   padding: 18px;
-  border: 1px solid rgba(247, 243, 234, 0.18);
-  background: rgba(8, 10, 12, 0.34);
+  border: 1px solid rgba(155, 166, 226, 0.32);
+  background: linear-gradient(145deg, rgba(27, 29, 59, 0.8), rgba(15, 25, 39, 0.8));
   overscroll-behavior-y: contain;
   overflow-y: auto;
   scrollbar-width: thin;
@@ -731,7 +731,7 @@ a {
 
 .about-copy p {
   margin: 0;
-  color: rgba(247, 243, 234, 0.9);
+  color: #f7f3ea;
   font-size: 0.92rem;
   line-height: 1.62;
 }
@@ -1651,15 +1651,15 @@ a {
   .music-nav-button { min-height: 44px; }
   .music-year-dot { min-width: 0; min-height: 44px; }
 
-  .about-frame { height: auto; min-height: 620px; padding: 300px 18px 18px; }
-  .about-frame > img { position: absolute; inset: 0; height: 420px; object-position: 82% 60%; }
+  .about-frame { height: auto; min-height: 0; padding: 0; }
+  .about-frame > img { position: static; height: auto; }
   .about-copy {
     position: relative;
     inset: auto;
-    width: 100%;
+    width: auto;
+    margin: 18px;
     padding: 22px;
     overflow: visible;
-    background: rgba(8, 10, 12, 0.8);
   }
 }
 
@@ -1674,9 +1674,7 @@ a {
   #products .section-fill { grid-template-columns: minmax(0, 1fr); }
   #products .fill-block { height: auto; }
   #products .fill-block strong { font-size: 1.35rem; }
-  .about-frame { padding: 250px 12px 12px; }
-  .about-frame > img { height: 360px; }
-  .about-copy { padding: 18px; }
+  .about-copy { margin: 12px; padding: 18px; }
 }
 
 @media (hover: none), (pointer: coarse) {
