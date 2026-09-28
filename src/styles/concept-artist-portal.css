@@ -1532,36 +1532,7 @@ a {
   #products .section-fill { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
-@media (max-width: 900px) and (pointer: coarse) {
-  html.mobile-pages,
-  .mobile-pages body {
-    height: 100dvh;
-    overflow: hidden;
-  }
-
-  .mobile-pages .artist-portal { min-height: 0; height: 100dvh; }
-
-  .mobile-pages .portal-stage,
-  .mobile-pages .portal-section {
-    display: none;
-  }
-
-  .mobile-pages .is-mobile-active {
-    position: fixed;
-    inset: 0;
-    height: 100dvh;
-    min-height: 0;
-    max-height: none;
-    overflow-y: auto;
-    overflow-x: hidden;
-    overscroll-behavior-y: contain;
-    padding-top: max(88px, calc(env(safe-area-inset-top) + 80px));
-    padding-bottom: max(32px, env(safe-area-inset-bottom));
-  }
-
-  .mobile-pages .portal-stage.is-mobile-active { display: flex; }
-  .mobile-pages .portal-section.is-mobile-active { display: grid; }
-
+@media (max-width: 900px) {
   .portal-stage {
     padding: max(40px, env(safe-area-inset-top)) 20px 32px;
     background-size: auto, auto, auto, auto, cover, auto;
@@ -1673,7 +1644,7 @@ a {
   }
 }
 
-@media (max-width: 480px) and (pointer: coarse) {
+@media (max-width: 480px) {
   .portal-section { padding: 84px var(--section-gutter) 40px; }
   .portal-top-nav-group { gap: 20px; }
   .portal-mini-nav { width: calc(100% - 16px); gap: 12px; }
@@ -1738,7 +1709,7 @@ a {
 }
 
 /* One desktop viewport per section. The content is fitted, never clipped or scrolled. */
-@media (min-width: 901px), (pointer: fine) {
+@media (min-width: 901px) {
   html { --app-vh: 100dvh; }
   .artist-portal .portal-section {
     height: 100dvh;
@@ -1931,7 +1902,7 @@ a {
 .artist-portal .portal-section > div > :is(.section-fill, .spotify-section, .about-frame) { margin-top: 0; }
 .portal-top-nav-group a { font-size: 1.12rem; }
 
-@media (max-width: 900px) and (pointer: coarse) {
+@media (max-width: 900px) {
   .mini-brand, .mini-links a { font-size: 0.94rem; }
   .music-year-dot, .music-nav-button, .webdj-link { font-size: 0.94rem; }
   .music-feature-description p, .webdj-copy p, .about-copy p,

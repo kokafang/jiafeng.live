@@ -40,7 +40,7 @@ html[lang="zh-CN"] :is(.mini-link-label, .portal-top-nav-group a) { letter-spaci
 html[lang="zh-CN"] :is(.show-chinese-title, .project-dialog-title > span, #wechat-tshirt-title > span) { display: none; }
 html[lang="zh-CN"] :is(.webdj-copy, .about-copy, .music-feature-description, .project-dialog-copy) { line-break: auto; }
 html[lang="zh-CN"] :is(.project-description, .merch-description) { line-height: 1.7; }
-@media (max-width: 900px) and (pointer: coarse) {
+@media (max-width: 900px) {
   .portal-mini-nav { gap: 8px; }
   .portal-mini-nav > .language-toggle { flex-basis: 44px; }
   .portal-top-nav-group .language-toggle { display: none; }

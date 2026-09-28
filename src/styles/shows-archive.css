@@ -43,7 +43,7 @@
 .shows-empty { grid-row: 1 / -1; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 12px; padding: 24px; text-align: center; color: #a4b4b0; font-size: 14px; border-top: 1px solid var(--show-line); }
 .shows-empty strong { font-size: 20px; font-weight: 400; color: #edf5ee; }
 .shows-archive :focus-visible { outline: 2px solid #b8f1d9; outline-offset: 4px; }
-@media (max-width: 900px) and (pointer: coarse) {
+@media (max-width: 900px) {
   .mobile-pages #shows.is-mobile-active { overflow: hidden; grid-template-rows: minmax(0, 1fr); gap: 0; padding-bottom: max(20px, env(safe-area-inset-bottom)); }
   #shows .section-index { display: none; }
   #shows > div { height: 100%; min-height: 0; display: flex; flex-direction: column; }
@@ -74,7 +74,7 @@
   .show-start-time { margin-top: 2px; }
 }
 
-@media (max-width: 900px) and (pointer: coarse) {
+@media (max-width: 900px) {
   @container show-list (max-height: 520px) {
     .show-row { gap: 2px 8px; padding-block: 2px; grid-template-columns: minmax(0, 1fr) 96px; }
     .show-detail { font-size: 15px; line-height: 1.25; }

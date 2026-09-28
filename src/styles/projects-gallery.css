@@ -64,7 +64,7 @@
   object-fit: fill;
   image-rendering: pixelated;
 }
-@media (max-width: 900px) and (pointer: coarse) {
+@media (max-width: 900px) {
   #products .section-fill { grid-template-rows: none; }
   #products .fill-block strong { word-break: keep-all; }
   #products .bach-art { height: auto; aspect-ratio: 4 / 3; container-type: inline-size; }
@@ -78,6 +78,6 @@
 }
 
 /* In short desktop windows, keep the artwork and titles rather than squeezing them. */
-@media (min-width: 901px) and (max-height: 700px), (pointer: fine) and (max-height: 700px) {
+@media (min-width: 901px) and (max-height: 700px) {
   #products .project-description { display: none; }
 }

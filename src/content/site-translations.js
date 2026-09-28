@@ -3,6 +3,7 @@ import { displayShow } from './shows-display.js';
 export const normalizeText = value => value.replace(/\s+/g, ' ').trim();
 
 const labels = {
+  Menu: '菜单',
   Music: '音乐', MUSIC: '音乐', 'Web-DJ': '网页 DJ', 'WEB-DJ': '网页 DJ', 'Web DJ': '网页 DJ',
   Projects: '项目', PROJECTS: '项目', About: '关于', ABOUT: '关于', Shows: '演出', SHOWS: '演出',
   Press: '媒体', PRESS: '媒体', Merch: '周边', MERCH: '周边', Listen: '收听',
@@ -210,6 +211,7 @@ export function createSiteTranslator({ shows = [], projectDetails = {}, pressIte
     const zh = musicZh[release.id];
     if (!zh) continue;
     add(release.titleEn, zh[0]); add(release.description, zh[1]);
+    add(`${release.year} · ${release.titleEn}`, `${release.year} · ${zh[0]}`);
   }
   for (const show of shows) {
     const display = displayShow(show);

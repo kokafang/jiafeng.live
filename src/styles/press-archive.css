@@ -94,18 +94,18 @@
 .press-footer { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
 .press-counter { color: #b9cac3; font-size: 13px; font-variant-numeric: tabular-nums; }
 .press-archive :focus-visible { outline: 2px solid #b8f1d9; outline-offset: 4px; }
-@media (max-height: 750px) and (pointer: fine) {
+@media (min-width: 901px) and (max-height: 750px) and (pointer: fine) {
   .press-archive, .press-list { gap: 12px; }
   .press-card-copy { padding: 14px 16px; gap: 8px; }
   .artist-portal .press-card h3 { font-size: 28px; }
   .artist-portal .press-card p { font-size: 16px; line-height: 1.35; }
   .press-card-meta { font-size: 13px; }
 }
-@media (max-height: 650px) and (pointer: fine) {
+@media (min-width: 901px) and (max-height: 650px) and (pointer: fine) {
   .press-card-copy { padding-block: 12px; gap: 8px; }
   .artist-portal .press-card p { display: none; }
 }
-@media (max-width: 900px) and (pointer: coarse) {
+@media (max-width: 900px) {
   .press-archive { display: flex; flex-direction: column; gap: 20px; }
   .press-filters { flex-wrap: wrap; }
   .press-filters button { flex: 1 1 auto; padding-inline: 12px; font-size: 14px; }

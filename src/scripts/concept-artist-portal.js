@@ -9,6 +9,8 @@ import { mountProjectsGallery } from './projects-gallery.js';
 import { mountProjectDialog } from './project-dialog.js';
 import { mountProjectMist } from './project-mist.js';
 import { mountLanguageSwitch } from './site-language.js';
+import { mountMobileNavigation } from './mobile-navigation.js';
+import '../styles/mobile-portal.css';
 import { mountAvsProjectLink } from './avs-project-link.js';
 
 if (import.meta.env.DEV) {
@@ -33,8 +35,9 @@ const cursorTrail = document.querySelector(".cursor-code-trail");
 const miniNavLinks = [...document.querySelectorAll("[data-section-link]")];
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
-const mobilePages = window.matchMedia("(max-width: 900px) and (pointer: coarse)");
+const mobilePages = window.matchMedia("(max-width: 900px)");
 const liquidNavigation = createLiquidNavigation({ nav: miniNav, strip: miniNavStrip, reducedMotion });
+const mobileNavigation = mountMobileNavigation({ nav: miniNav, strip: miniNavStrip, media: mobilePages });
 const playerScroll = guardPlayerScrolling({ mobilePages });
 let projectDialog;
 let projectMist;
@@ -47,7 +50,6 @@ projectDialog = mountProjectDialog({
   onClose: () => { desktopSnap.cancel(); projectMist?.setPaused(false); }
 });
 projectMist = mountProjectMist({ finePointer, reducedMotion });
-let mobileSectionId = sections.find(section => `#${section.id}` === location.hash)?.id || "top";
 let currentIndex = -1;
 let sectionTops = [];
 let navigationFrame = null;
@@ -76,15 +78,12 @@ if (miniNavStrip && miniNavNext) {
 
 function syncNavigationState() {
   navigationFrame = null;
-  const marker = window.scrollY + window.innerHeight * 0.3;
+  const anchorOffset = parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop) || 0;
+  const marker = window.scrollY + (mobilePages.matches ? Math.max(100, anchorOffset + 1) : window.innerHeight * 0.3);
   let nextIndex = 0;
-  if (mobilePages.matches) {
-    nextIndex = sections.findIndex(section => section.id === mobileSectionId);
-  } else {
-    sectionTops.forEach((top, index) => {
-      if (top <= marker) nextIndex = index;
-    });
-  }
+  sectionTops.forEach((top, index) => {
+    if (top <= marker) nextIndex = index;
+  });
   const showNav = mobilePages.matches || window.scrollY > (stageSection?.offsetHeight ?? window.innerHeight) * 0.6;
   miniNav?.classList.toggle("is-visible", showNav);
   if (miniNav) miniNav.inert = !showNav;
@@ -98,54 +97,24 @@ function syncNavigationState() {
     else link.removeAttribute("aria-current");
   });
   liquidNavigation.update({ immediate: firstSelection });
-  if (mobilePages.matches) {
-    const activeLink = miniNavLinks.find(link => link.classList.contains("is-active"));
-    const strip = activeLink?.parentElement;
-    if (strip) {
-      const linkRect = activeLink.getBoundingClientRect();
-      const stripRect = strip.getBoundingClientRect();
-      strip.scrollBy({
-        left: linkRect.left - stripRect.left - (stripRect.width - linkRect.width) / 2,
-        behavior: firstSelection || reducedMotion.matches ? "instant" : "smooth"
-      });
-    }
-  }
-}
-
-function showMobileSection(id) {
-  const target = sections.find(section => section.id === id);
-  if (!target) return;
-  const previous = document.querySelector(".is-mobile-active");
-  if (previous && previous !== target) {
-    previous.querySelectorAll('iframe[src*="youtube.com/embed/"]').forEach(frame => {
-      frame.contentWindow?.postMessage(JSON.stringify({ event: "command", func: "pauseVideo", args: [] }), "https://www.youtube.com");
-    });
-  }
-  mobileSectionId = id;
-  sections.forEach(section => section.classList.toggle("is-mobile-active", section === target));
-  syncNavigationState();
 }
 
 function applyPageMode() {
   desktopSnap.cancel();
-  const selected = sections[Math.max(0, currentIndex)] || stageSection;
+  mobileNavigation.close();
   document.documentElement.classList.toggle("mobile-pages", mobilePages.matches);
-  if (mobilePages.matches) {
-    showMobileSection(currentIndex < 0 ? mobileSectionId : selected.id);
-  } else {
-    sections.forEach(section => section.classList.remove("is-mobile-active"));
-    if (currentIndex >= 0) selected.scrollIntoView({ behavior: "instant" });
-    measureSections();
-  }
+  requestAnimationFrame(measureSections);
+}
+
+function restoreMobileAnchor() {
+  if (!mobilePages.matches) return;
+  const target = sections.find(section => section.id === (location.hash.slice(1) || "top"));
+  target?.scrollIntoView({ behavior: "instant", block: "start" });
 }
 
 mobilePages.addEventListener("change", applyPageMode);
-window.addEventListener("popstate", () => {
-  if (mobilePages.matches) showMobileSection(location.hash.slice(1) || "top");
-});
-window.addEventListener("hashchange", () => {
-  if (mobilePages.matches) showMobileSection(location.hash.slice(1) || "top");
-});
+window.addEventListener("popstate", restoreMobileAnchor);
+window.addEventListener("hashchange", restoreMobileAnchor);
 
 function measureSections() {
   if (document.documentElement.classList.contains("mobile-pages") !== mobilePages.matches) return;
@@ -167,7 +136,7 @@ if (stageSection) {
   heroObserver.observe(stageSection);
 }
 
-// Mobile switches views; desktop menus share the same animation as wheel snapping.
+// Mobile follows document anchors; desktop keeps its section snapping.
 document.querySelectorAll('.portal-top-nav a[href^="#"], .portal-mini-nav a[href^="#"]')
   .forEach((link) => {
     link.addEventListener("click", (event) => {
@@ -176,7 +145,8 @@ document.querySelectorAll('.portal-top-nav a[href^="#"], .portal-mini-nav a[href
       if (!target) return;
       event.preventDefault();
       if (mobilePages.matches) {
-        showMobileSection(target.id);
+        mobileNavigation.close();
+        target.scrollIntoView({ behavior: reducedMotion.matches ? "instant" : "smooth", block: "start" });
         if (location.hash !== link.hash) history.pushState(null, "", link.hash);
         return;
       }
@@ -310,6 +280,22 @@ const musicReleases = [
   }
 ].sort((a, b) => b.year - a.year);
 
+const releasePicker = document.createElement("label");
+releasePicker.className = "mobile-release-picker";
+const releasePickerLabel = document.createElement("span");
+releasePickerLabel.textContent = "Choose a release";
+const releaseSelect = document.createElement("select");
+releaseSelect.setAttribute("aria-label", "Choose a release");
+musicReleases.forEach(release => {
+  const option = document.createElement("option");
+  option.value = release.id;
+  option.textContent = release.year + " · " + release.titleEn;
+  releaseSelect.append(option);
+});
+releaseSelect.addEventListener("change", () => renderMusicRelease(releaseIndexForId(releaseSelect.value)));
+releasePicker.append(releasePickerLabel, releaseSelect);
+document.querySelector(".music-browse-bar")?.prepend(releasePicker);
+
 let activeReleaseIndex = 0;
 let requestedReleaseIndex = 0;
 let pendingMusicSwitch = null;
@@ -416,6 +402,7 @@ function applyReleaseCopy(release) {
 }
 
 function updateReleaseControls(index) {
+  releaseSelect.value = musicReleases[index].id;
   if (musicEarlierButton) musicEarlierButton.disabled = index >= musicReleases.length - 1;
   if (musicRecentButton) musicRecentButton.disabled = index <= 0;
   musicYearButtons.forEach(button => {
@@ -533,7 +520,7 @@ if (cursorFish && cursorTrail) {
     if (event.target instanceof HTMLIFrameElement) hideFish();
   });
   window.addEventListener("pointermove", (event) => {
-    if (!finePointer.matches || reducedMotion.matches || projectDialog.isOpen() || event.pointerType !== "mouse" || event.target instanceof HTMLIFrameElement) {
+    if (mobilePages.matches || !finePointer.matches || reducedMotion.matches || projectDialog.isOpen() || event.pointerType !== "mouse" || event.target instanceof HTMLIFrameElement) {
       hideFish();
       return;
     }

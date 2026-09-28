@@ -84,7 +84,7 @@ export function mountPressArchive() {
     previous.disabled = page === 0;
     next.disabled = page >= result.pageCount - 1;
     if (document.documentElement.classList.contains('mobile-pages')) {
-      host.closest('.portal-section')?.scrollTo({ top: 0, behavior: 'instant' });
+      host.closest('.portal-section')?.scrollIntoView({ block: 'start', behavior: 'instant' });
     }
   }
 

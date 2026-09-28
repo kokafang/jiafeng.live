@@ -2,9 +2,8 @@ import {
   WebGLRenderer, Scene, OrthographicCamera, PlaneGeometry, ShaderMaterial,
   Mesh, CanvasTexture, LinearFilter, NoColorSpace
 } from 'three';
-import { stampMistMask, fadeMistMask, recoveryAlpha, MIST_RECOVERY_END } from './project-mist-brush.js';
 import {
-  createAsciiDrops, releaseAsciiDrops, advanceAsciiDrops, createAsciiDropAtlas, drawAsciiDrops
+  createAsciiDrops, createAsciiDropAtlas, drawAsciiDrops
 } from './project-mist-drops.js';
 
 const vertexShader = `
@@ -16,12 +15,11 @@ const vertexShader = `
 `;
 
 const fragmentShader = `
-  uniform sampler2D uWipe;
   uniform sampler2D uDrops;
   uniform float uTime;
   uniform float uSeed;
   uniform float uAspect;
-  uniform float uFocus;
+  uniform float uReveal;
   varying vec2 vUv;
 
   float hash(vec2 p) {
@@ -46,19 +44,14 @@ const fragmentShader = `
     float veil = smoothstep(0.3, 0.8, fog);
     float grain = hash(floor(vUv * vec2(340.0, 255.0)) + uSeed) - 0.5;
     float edge = smoothstep(0.15, 0.72, length(vUv - 0.5));
-    vec2 wipeDrift = vec2(noise(p * 16.0 + uSeed), noise(p * 19.0 + uSeed + 31.0)) - 0.5;
-    vec2 wipeUv = clamp(vUv + wipeDrift * vec2(0.008 / uAspect, 0.008), 0.0, 1.0);
-    float erased = texture2D(uWipe, wipeUv).a;
-    float residue = erased * (1.0 - erased) * (0.03 + noise(p * vec2(6.0, 25.0) + uSeed) * 0.10);
-    float wet = min(1.0, 1.0 - erased + residue) * (1.0 - uFocus);
     vec3 water = mix(vec3(0.028, 0.105, 0.13), vec3(0.29, 0.47, 0.49), veil * 0.24);
-    float fogAlpha = (0.66 + edge * 0.15 + veil * 0.075 + grain * 0.016) * wet;
-    // Flat monospace ink falls independently, so it stays visible across the wiped path.
-    float inkAlpha = texture2D(uDrops, vUv).a * (1.0 - uFocus);
+    float fogAlpha = 0.66 + edge * 0.15 + veil * 0.075 + grain * 0.016;
+    float inkAlpha = texture2D(uDrops, vUv).a;
     float alpha = inkAlpha + fogAlpha * (1.0 - inkAlpha);
     vec3 color = (vec3(0.59, 0.80, 0.82) * inkAlpha + water * fogAlpha * (1.0 - inkAlpha))
       / max(alpha, 0.0001);
-    gl_FragColor = vec4(color, alpha);
+    // Fade the whole overlay together, preserving the image's original colors underneath.
+    gl_FragColor = vec4(color, alpha * (1.0 - smoothstep(0.0, 1.0, uReveal)));
   }
 `;
 
@@ -79,8 +72,8 @@ export function createProjectMist(section) {
   const geometry = new PlaneGeometry(2, 2);
   const material = new ShaderMaterial({
     uniforms: {
-      uWipe: { value: null }, uDrops: { value: null }, uTime: { value: 0 }, uSeed: { value: 0 },
-      uAspect: { value: 4 / 3 }, uFocus: { value: 0 }
+      uDrops: { value: null }, uTime: { value: 0 }, uSeed: { value: 0 },
+      uAspect: { value: 4 / 3 }, uReveal: { value: 0 }
     },
     vertexShader, fragmentShader, transparent: true, depthTest: false, depthWrite: false
   });
@@ -90,19 +83,6 @@ export function createProjectMist(section) {
   const entries = [...section.querySelectorAll('.fill-block')].flatMap((card, index) => {
     const media = card.querySelector('.image-card-wrap, .video-placeholder');
     if (!media) return [];
-    const mask = document.createElement('canvas');
-    mask.width = 192;
-    mask.height = 144;
-    const ink = mask.getContext('2d');
-    const coverage = new Float32Array(mask.width * mask.height);
-    const maskPixels = ink.createImageData(mask.width, mask.height);
-    for (let i = 0; i < maskPixels.data.length; i += 4) {
-      maskPixels.data[i] = maskPixels.data[i + 1] = maskPixels.data[i + 2] = 255;
-    }
-    const texture = new CanvasTexture(mask);
-    texture.minFilter = texture.magFilter = LinearFilter;
-    texture.generateMipmaps = false;
-    texture.colorSpace = NoColorSpace;
     const dropCanvas = document.createElement('canvas');
     dropCanvas.width = 384;
     dropCanvas.height = 288;
@@ -113,8 +93,7 @@ export function createProjectMist(section) {
     dropTexture.minFilter = dropTexture.magFilter = LinearFilter;
     dropTexture.generateMipmaps = false;
     dropTexture.colorSpace = NoColorSpace;
-    return [{ card, media, index, mask, ink, texture, coverage, maskPixels, maskDirty: false, rect: null, hovering: false,
-      lastPoint: null, painted: false, releasedAt: 0, drops, dropInk, dropTexture }];
+    return [{ card, media, index, rect: null, reveal: 0, dropTexture }];
   });
   // One shared renderer is scissored to the thumbnails, never the text or controls.
   section.append(canvas);
@@ -144,43 +123,6 @@ export function createProjectMist(section) {
     });
   }
 
-  function wipe(entry, event) {
-    if (!running || event.pointerType === 'touch') return;
-    const rect = entry.media.getBoundingClientRect();
-    if (!rect.width || !rect.height) return;
-    if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) {
-      release(entry);
-      return;
-    }
-    entry.hovering = true;
-    releaseAsciiDrops(entry.drops, time);
-    const point = {
-      x: (event.clientX - rect.left) / rect.width * entry.mask.width,
-      y: (event.clientY - rect.top) / rect.height * entry.mask.height
-    };
-    const radius = Math.max(24, Math.min(58, 72 / rect.width * entry.mask.width));
-    stampMistMask(entry.coverage, entry.mask.width, entry.mask.height, entry.lastPoint, point, radius);
-    entry.lastPoint = point;
-    entry.painted = true;
-    entry.maskDirty = true;
-  }
-
-  function release(entry) {
-    if (entry.hovering) entry.releasedAt = time;
-    entry.hovering = false;
-    entry.lastPoint = null;
-  }
-
-  entries.forEach(entry => {
-    // The modal trigger overlays its image, so listen on the card and hit-test the thumbnail.
-    entry.card.addEventListener('pointerenter', event => {
-      entry.lastPoint = null;
-      wipe(entry, event);
-    }, { signal: events.signal });
-    entry.card.addEventListener('pointermove', event => wipe(entry, event), { signal: events.signal, passive: true });
-    entry.card.addEventListener('pointerleave', () => release(entry), { signal: events.signal });
-  });
-
   function render(now) {
     frame = null;
     if (!running) return;
@@ -194,37 +136,17 @@ export function createProjectMist(section) {
     renderer.setScissorTest(true);
     entries.forEach(entry => {
       if (!entry.rect || !entry.media.isConnected || entry.card.hidden) return;
-      const releasedFor = time - entry.releasedAt;
-      if (advanceAsciiDrops(entry.drops, time, delta, entry.hovering, releasedFor)) {
-        drawAsciiDrops(entry.dropInk, entry.drops, dropAtlas);
-        entry.dropTexture.needsUpdate = true;
-      }
-      const recovery = recoveryAlpha(delta, releasedFor);
-      if (entry.painted && !entry.hovering && recovery > 0) {
-        fadeMistMask(entry.coverage, recovery);
-        if (releasedFor > MIST_RECOVERY_END) {
-          entry.coverage.fill(0);
-          entry.painted = false;
-        }
-        entry.maskDirty = true;
-      }
-      if (entry.maskDirty) {
-        for (let i = 0; i < entry.coverage.length; i++) {
-          entry.maskPixels.data[i * 4 + 3] = Math.round(entry.coverage[i] * 255);
-        }
-        entry.ink.putImageData(entry.maskPixels, 0, 0);
-        entry.texture.needsUpdate = true;
-        entry.maskDirty = false;
-      }
+      const focused = entry.card.contains(document.activeElement) && document.activeElement.matches(':focus-visible');
+      const revealed = entry.card.matches(':hover') || focused;
+      const step = delta / (revealed ? 0.42 : 0.6);
+      entry.reveal = revealed ? Math.min(1, entry.reveal + step) : Math.max(0, entry.reveal - step);
       const rect = entry.rect;
       if (rect.width <= 0 || rect.height <= 0) return;
-      material.uniforms.uWipe.value = entry.texture;
       material.uniforms.uDrops.value = entry.dropTexture;
       material.uniforms.uTime.value = time;
       material.uniforms.uSeed.value = entry.index * 9.71;
       material.uniforms.uAspect.value = rect.width / rect.height;
-      const focused = entry.card.contains(document.activeElement) && document.activeElement.matches(':focus-visible');
-      material.uniforms.uFocus.value = focused ? 1 : 0;
+      material.uniforms.uReveal.value = entry.reveal;
       renderer.setViewport(rect.x, rect.y, rect.width, rect.height);
       renderer.setScissor(rect.x, rect.y, rect.width, rect.height);
       renderer.render(scene, camera);
@@ -253,11 +175,6 @@ export function createProjectMist(section) {
     running = true;
     dirty = true;
     lastFrame = 0;
-    entries.forEach(entry => {
-      entry.hovering = entry.media.matches(':hover');
-      entry.lastPoint = null;
-      entry.releasedAt = time;
-    });
     frame = requestAnimationFrame(render);
   }
   function pause() {
@@ -274,7 +191,6 @@ export function createProjectMist(section) {
     events.abort();
     resize.disconnect();
     entries.forEach(entry => {
-      entry.texture.dispose();
       entry.dropTexture.dispose();
     });
     geometry.dispose();

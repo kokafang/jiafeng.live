@@ -37,7 +37,7 @@
 .merch-source:hover { border-color: #e6f2db; }
 .merch-source:focus-visible { outline: 2px solid #b8f1d9; outline-offset: 6px; }
 
-@media (max-width: 900px) and (pointer: coarse) {
+@media (max-width: 900px) {
   .mobile-pages #merch.is-mobile-active { grid-template-rows: auto; gap: 0; }
   #merch > div { min-height: 0; }
   .merch-collection { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto; gap: 40px; padding-top: 16px; }

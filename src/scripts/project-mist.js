@@ -1,6 +1,7 @@
 export function mountProjectMist({ finePointer, reducedMotion }) {
   const section = document.querySelector('#products');
   if (!section) return { setPaused() {} };
+  const desktopViewport = window.matchMedia('(min-width: 901px)');
   let visible = false;
   let paused = false;
   let disposed = false;
@@ -11,7 +12,7 @@ export function mountProjectMist({ finePointer, reducedMotion }) {
 
   function enabled() {
     return !disposed && !failed && visible && !paused && !document.hidden &&
-      finePointer.matches && !reducedMotion.matches;
+      desktopViewport.matches && finePointer.matches && !reducedMotion.matches;
   }
 
   async function sync() {
@@ -38,6 +39,7 @@ export function mountProjectMist({ finePointer, reducedMotion }) {
     sync();
   }, { threshold: [0, 0.1, 0.2] });
   observer.observe(section);
+  desktopViewport.addEventListener('change', sync, { signal: events.signal });
   finePointer.addEventListener('change', sync, { signal: events.signal });
   reducedMotion.addEventListener('change', sync, { signal: events.signal });
   document.addEventListener('visibilitychange', sync, { signal: events.signal });

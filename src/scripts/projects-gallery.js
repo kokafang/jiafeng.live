@@ -29,7 +29,7 @@ export function mountProjectsGallery() {
       page = Math.max(0, Math.min(pageCount - 1, page + (index ? 1 : -1)));
       render();
       if (document.documentElement.classList.contains('mobile-pages')) {
-        section.scrollTo({ top: 0, behavior: 'instant' });
+        section.scrollIntoView({ block: 'start', behavior: 'instant' });
       }
     });
     controls.append(button);
