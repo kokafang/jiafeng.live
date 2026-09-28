@@ -246,6 +246,7 @@ export function createSiteTranslator({ shows = [], projectDetails = {}, pressIte
   for (const project of projectGallery) {
     const zh = galleryProjectsZh[project.id];
     for (const field of ['title', 'year', 'yearNote', 'category', 'summary']) add(project[field], zh[field]);
+    add(`${project.year} · ${project.title}`, `${zh.year} · ${zh.title}`);
     add(project.image.alt, zh.image.alt);
     add(project.image.caption, zh.image.caption);
   }

@@ -1,5 +1,6 @@
 import { projectGallery } from '../content/project-gallery.js';
 import { createProjectRotation } from './project-rotation.js';
+import { createProjectTransition } from './project-transition.js';
 import '../styles/projects-gallery.css';
 
 export function mountProjectsGallery() {
@@ -59,16 +60,28 @@ export function mountProjectsGallery() {
     if (project.yearNote) meta.append(element('span', 'project-index-year-note', project.yearNote));
     const name = element('span', 'project-index-name', project.title);
     button.append(meta, name);
-    button.addEventListener('click', event => {
+    button.addEventListener('click', () => {
       rotation.select(number);
       updateRotation();
-      if (event.detail > 0 && matchMedia('(max-width: 900px)').matches && stage.getBoundingClientRect().top < 80) {
-        stage.scrollIntoView({ block: 'start', behavior: reducedMotion.matches ? 'instant' : 'smooth' });
-      }
     });
     index.append(button);
     return button;
   });
+  const picker = element('label', 'mobile-project-picker');
+  const pickerLabel = element('span', '', 'Choose a project');
+  const projectSelect = element('select');
+  projectSelect.setAttribute('aria-label', 'Choose a project');
+  projectSelect.setAttribute('aria-controls', stage.id);
+  projectGallery.forEach((project, number) => {
+    const option = element('option', '', `${project.year} · ${project.title}`);
+    option.value = String(number);
+    projectSelect.append(option);
+  });
+  projectSelect.addEventListener('change', () => {
+    rotation.select(Number(projectSelect.value));
+    updateRotation();
+  });
+  picker.append(pickerLabel, projectSelect);
   const playback = element('div', 'project-playback');
   const intervalLabel = element('span', 'project-interval', '5 sec / project');
   const pauseButton = element('button', 'project-pause');
@@ -78,13 +91,12 @@ export function mountProjectsGallery() {
   const pauseText = element('span');
   pauseButton.append(pauseSymbol, pauseText);
   playback.append(intervalLabel, pauseButton);
-  controls.append(index, playback);
+  controls.append(picker, index, playback);
   const announcement = element('span', 'project-announcement');
   announcement.setAttribute('aria-live', 'polite');
-  host.replaceChildren(stage, controls, announcement);
+  host.replaceChildren(controls, stage, announcement);
   let userPaused = false;
   let motionPaused = reducedMotion.matches;
-  let motionAnimation;
 
   function render(number, { automatic = false } = {}) {
     const project = projectGallery[number];
@@ -102,16 +114,14 @@ export function mountProjectsGallery() {
     category.textContent = project.category;
     summary.textContent = project.summary;
     detail.dataset.projectDetail = project.id;
+    projectSelect.value = String(number);
     buttons.forEach((button, i) => button.setAttribute('aria-pressed', String(i === number)));
     if (!automatic) announcement.textContent = project.title;
-    motionAnimation?.cancel();
-    if (!reducedMotion.matches && stage.animate) {
-      motionAnimation = stage.animate([{ opacity: 0.65 }, { opacity: 1 }], { duration: 320, easing: 'ease-out' });
-    }
     const nextImage = new Image();
     nextImage.src = projectGallery[(number + 1) % projectGallery.length].image.src;
   }
-  const rotation = createProjectRotation({ count: projectGallery.length, interval: 5000, onChange: render });
+  const transition = createProjectTransition({ stage, render, reducedMotion: () => reducedMotion.matches });
+  const rotation = createProjectRotation({ count: projectGallery.length, interval: 5000, onChange: transition.show });
   function updateRotation() {
     const stopped = userPaused || motionPaused;
     pauseSymbol.textContent = stopped ? '▷' : 'Ⅱ';
@@ -141,6 +151,7 @@ export function mountProjectsGallery() {
   listen(document, 'visibilitychange', () => setPaused('document', document.hidden));
   listen(reducedMotion, 'change', () => {
     motionPaused = reducedMotion.matches;
+    if (motionPaused) transition.finish();
     setPaused('reduced-motion', motionPaused);
   });
   const syncFocus = () => {
@@ -158,10 +169,10 @@ export function mountProjectsGallery() {
   listen(window, 'pageshow', () => setPaused('page', false));
   rotation.setPaused('document', document.hidden);
   rotation.setPaused('reduced-motion', motionPaused);
-  render(0, { automatic: true });
+  transition.show(0, { automatic: true });
   updateRotation();
   if (import.meta.hot) import.meta.hot.dispose(() => {
-    rotation.destroy(); visibility.disconnect(); events.abort(); motionAnimation?.cancel();
+    rotation.destroy(); visibility.disconnect(); events.abort(); transition.destroy();
   });
   return { setPaused };
 }
