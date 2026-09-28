@@ -6,7 +6,8 @@ import { pressItems } from '../src/content/press.js';
 import { displayShow } from '../src/content/shows-display.js';
 import { createSiteTranslator, musicZh } from '../src/content/site-translations.js';
 
-const shows = JSON.parse(readFileSync(new URL('../src/content/shows.json', import.meta.url)));
+// Editorial translation regressions use a fixed snapshot, so new cities can use source wording.
+const shows = JSON.parse(readFileSync(new URL('./fixtures/shows-reference.json', import.meta.url)));
 const { translate } = createSiteTranslator({ shows, projectDetails, pressItems });
 
 test('navigation and language-sensitive UI have Chinese equivalents', () => {
@@ -49,13 +50,33 @@ test('every current project and press entry has translated prose and image label
   }
 });
 
-test('all shows translate performance format and city while preserving proper venue names', () => {
+test('reference shows translate performance format and city while preserving proper venue names', () => {
   for (const show of shows) {
     const display = displayShow(show);
     assert.match(translate(display.title), /[\u3400-\u9fff]/, display.title);
     assert.match(translate(display.location), /[\u3400-\u9fff]/, display.location);
     assert.equal(translate(display.title, 'en'), display.title);
   }
+});
+
+test('live archive titles and locations have usable translations including source-text fallbacks', () => {
+  const liveShows = JSON.parse(readFileSync(new URL('../src/content/shows.json', import.meta.url)));
+  const translator = createSiteTranslator({ shows: liveShows });
+  for (const show of liveShows) {
+    const display = displayShow(show);
+    for (const source of [display.title, display.location]) {
+      assert.ok(translator.translate(source).trim());
+      assert.equal(translator.translate(source, 'en'), source);
+    }
+  }
+});
+
+test('new cities and venues need no editorial mapping before publication', () => {
+  const show = { event: '新场地', location: '新城市，中国', performance: 'Web DJ' };
+  const translator = createSiteTranslator({ shows: [show] });
+  const display = displayShow(show);
+  assert.equal(translator.translate(display.title), '网页 DJ @ 新场地');
+  assert.equal(translator.translate(display.location), '新城市，中国');
 });
 
 test('new upcoming shows translate workshop, big band and city labels', () => {

@@ -1,0 +1,13 @@
+# Automatic Shows synchronization
+
+The user requested automatic publication after updating the existing Obsidian performance archive. Use the existing importer, GitHub repository and Vercel Git deployment. Install one per-user macOS launchd job on this Mac; run at login and every 300 seconds. The Mac must be awake, online and have received the vault changes through the existing Obsidian sync.
+
+An independent checkout under `~/Library/Application Support/jiafeng-shows-sync` avoids the NAS mount and keeps the user's development checkout untouched. Each changed source snapshot must have been quiet for 30 seconds. Validate table structure, required sections, complete referenced URLs, real dates and ranges, duplicate event identities, public-only output fields and a maximum 10% record-count decrease. Preserve existing row IDs by event identity; compare semantic data independently of legacy index-derived IDs. Keep source-text fallbacks for unfamiliar venue names.
+
+Fetch current `main`, export only public `src/content/shows.json`, run repository tests and build, then commit and push only that file. Check that the source snapshot is still current before publishing. Never force-push. A competing push, failed validation, network outage or test/build failure leaves production unchanged and is retried on a later run. Repository mutations and reset are permitted only in the marked runner-owned checkout. No source-note upload, new credential store or AI API call is needed.
+
+Historical assertions use an immutable fixture rather than mutable published data, while live structural validation remains active. Integration tests use temporary local Git remotes and exercise publishing, no-change behavior, failures and unrelated-file isolation. A lock prevents overlapping manual/job runs. Commands have bounded timeouts. Status and logs remain local and record outcomes rather than private note content.
+
+Normal interrupted-run locks recover automatically. An interruption during lock recovery itself fails closed with `lock-recovery-required`; the operation guide documents pausing, checking for remaining runners, moving the owned lock aside and resuming. This explicit maintenance case avoids a race in which concurrent recovery could take a live successor's lock.
+
+Install the runner and importer in the local runtime, with explicit executable paths and a safe PATH. Keep launchd arguments in a plist, never a shell command. Verify the real launchd execution context, source access and Git push authentication without fabricating a public performance. Instructions document status, logs, pause/resume and manual operation. This uses the user's request to enable automatic sync; no separate recurring-service product or account is introduced.

@@ -5,6 +5,9 @@ import { parseArchive } from './import-shows.mjs';
 import { displayShow } from '../src/content/shows-display.js';
 import { createShowSearch } from '../src/content/show-search.js';
 
+// Fixed public regression examples; normal archive updates must not rewrite these expectations.
+const referenceShows = JSON.parse(readFileSync(new URL('./fixtures/shows-reference.json', import.meta.url)));
+
 const fixture = `## 逐场档案
 | 2020-01-02 | City | Venue | Live | [source][W1] · 旧站记载 |
 | 2021-02-03（待核） | City | Festival | DJ | [source][C1] · 活动公告 |
@@ -27,7 +30,7 @@ test('preserves same-day events, uncertainty, sources and descending dates', () 
 });
 
 test('public titles combine format and place, with Chinese subtitles and English cities', () => {
-  const rows = JSON.parse(readFileSync(new URL('../src/content/shows.json', import.meta.url)));
+  const rows = referenceShows;
   for (const row of rows) {
     const display = displayShow(row);
     assert.ok(['Live set', 'DJ set', 'Hybrid set', 'Web DJ', 'Web DJ Big Band', 'Panel speaker', 'Workshop + performance'].includes(display.format));
@@ -56,7 +59,7 @@ test('public titles combine format and place, with Chinese subtitles and English
 });
 
 test('August 2024 tour venues use artist corrections and remain searchable', () => {
-  const rows = JSON.parse(readFileSync(new URL('../src/content/shows.json', import.meta.url)));
+  const rows = referenceShows;
   const search = createShowSearch(rows);
   const hangzhou = rows.find(show => show.date === '2024-08-23');
   const shanghai = rows.find(show => show.date === '2024-08-25');
@@ -70,7 +73,7 @@ test('August 2024 tour venues use artist corrections and remain searchable', () 
 });
 
 test('search supports years, cities, venues, formats, Chinese and multiple terms', () => {
-  const rows = JSON.parse(readFileSync(new URL('../src/content/shows.json', import.meta.url)));
+  const rows = referenceShows;
   const search = createShowSearch(rows);
   assert.deepEqual(search('  '), rows);
   for (const query of ['2015', 'New York', 'OIL', 'Web DJ', 'webdj', '杭州', '2024 Ningbo', 'mecanique']) {
@@ -93,21 +96,46 @@ test('site archive has unique IDs, real dates, known statuses and safe links', (
   const rows = JSON.parse(readFileSync(new URL('../src/content/shows.json', import.meta.url)));
   assert.ok(rows.length > 0, 'the public archive must not be empty');
   assert.equal(new Set(rows.map(row => row.id)).size, rows.length);
+  assert.equal(new Set(rows.map(row => JSON.stringify([row.date, row.location, row.event]))).size, rows.length);
   rows.forEach((row, i) => {
+    const allowedFields = ['id', 'date', 'endDate', 'dateUncertain', 'year', 'location', 'event', 'performance', 'status', 'sources', 'time'];
+    assert.ok(Object.keys(row).every(key => allowedFields.includes(key)), 'public field allowlist');
+    for (const key of ['id', 'location', 'event']) assert.ok(typeof row[key] === 'string' && row[key].trim());
+    assert.equal(typeof row.performance, 'string');
+    assert.equal(typeof row.dateUncertain, 'boolean');
     assert.equal(new Date(row.date).toISOString().slice(0, 10), row.date);
+    assert.equal(row.year, Number(row.date.slice(0, 4)));
+    if (row.endDate !== null) {
+      assert.equal(new Date(row.endDate).toISOString().slice(0, 10), row.endDate);
+      assert.ok(row.endDate >= row.date);
+    }
+    if ('time' in row) assert.match(row.time, /^([01]\d|2[0-3]):[0-5]\d$/);
     assert.ok(['provisional', 'documented', 'artist-archive', 'artist-confirmed', 'listing', 'upcoming'].includes(row.status));
-    row.sources.forEach(source => assert.match(source.url, /^https?:\/\//));
+    assert.ok(Array.isArray(row.sources));
+    row.sources.forEach(source => {
+      assert.deepEqual(Object.keys(source).sort(), ['label', 'url']);
+      assert.ok(typeof source.label === 'string' && source.label.trim());
+      assert.match(source.url, /^https?:\/\//);
+      assert.ok(new URL(source.url).hostname);
+    });
     if (i) assert.ok(rows[i - 1].date >= row.date);
+    const display = displayShow(row);
+    for (const key of ['title', 'chineseTitle', 'venue', 'city', 'location']) {
+      assert.ok(typeof display[key] === 'string' && display[key].trim(), `${row.id}: ${key}`);
+    }
   });
+});
+
+test('reference archive preserves uncertain historical years', () => {
   for (const date of ['2015-12-23', '2015-12-26', '2015-12-27']) {
-    const row = rows.find(show => show.date === date);
+    const row = referenceShows.find(show => show.date === date);
     assert.equal(row.dateUncertain, true, `${date} must retain its uncertain year`);
     assert.equal(row.status, 'provisional');
   }
 });
 
 test('full date searches do not confuse month and day, and include event intervals', () => {
-  const rows = JSON.parse(readFileSync(new URL('../src/content/shows.json', import.meta.url)));
+  const rows = referenceShows;
   const search = createShowSearch(rows);
   assert.deepEqual(search('2026-03-03').map(show => show.event), ['WebM']);
   assert.deepEqual(search('2026-03-20 Shanghai').map(show => show.event), ['Dweller']);
@@ -118,7 +146,7 @@ test('full date searches do not confuse month and day, and include event interva
 });
 
 test('artist-supplied shows are added once, with correct formats and missing-city handling', () => {
-  const rows = JSON.parse(readFileSync(new URL('../src/content/shows.json', import.meta.url)));
+  const rows = referenceShows;
   const expected = [
     ['2024-11-02', 'Live set', 'Shanghai'],
     ['2025-06-01', 'Live set', 'Changsha'],
@@ -144,7 +172,7 @@ test('artist-supplied shows are added once, with correct formats and missing-cit
 });
 
 test('upcoming section exports future appearances separately without private notes', () => {
-  const rows = JSON.parse(readFileSync(new URL('../src/content/shows.json', import.meta.url)));
+  const rows = referenceShows;
   const upcoming = rows.filter(show => show.status === 'upcoming');
   const expected = [
     ['2026-11-18', 'Web DJ Big Band @ Wigwam', 'Shanghai, China'],
@@ -186,6 +214,13 @@ test('display retains the Web DJ big band performance format', () => {
   assert.equal(band.title, 'Web DJ Big Band @ Wigwam');
   assert.equal(band.chineseTitle, '网页 DJ 大乐队');
   assert.equal(band.formatUncertain, false);
+});
+
+test('unmapped cities and venues remain readable using source text', () => {
+  const display = displayShow({ event: '新场地', location: '新城市，中国', performance: 'Live' });
+  assert.equal(display.title, 'Live set @ 新场地');
+  assert.equal(display.venue, '新场地');
+  assert.equal(display.location, '新城市，中国');
 });
 
 test('confirmation of a venue alone is not confirmation of the whole performance', () => {

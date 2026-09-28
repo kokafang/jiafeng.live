@@ -14,7 +14,7 @@ Merch includes the Emotional Dance Music DIY Dance Kit with an Out of stock labe
 
 ## Updating Shows
 
-The source of truth is the vault note `🙋 me/自我介绍/高嘉丰演出 Archive（统一核对版）.md`. The site does not read the vault at runtime or watch it for changes. Editing the note alone does not update the website. The existing flow is a manual export, validation, and Git-push deployment:
+The source of truth is the vault note `🙋 me/自我介绍/高嘉丰演出 Archive（统一核对版）.md`. A local macOS background job can now check this note every five minutes and automatically export, validate and push public changes; see [automatic synchronization](shows-autosync.md) for installation, operation and safeguards. The website itself remains static. The following manual export, validation and Git-push workflow remains available:
 
 ```sh
 node scripts/import-shows.mjs "$HOME/Documents/jiafeng-vault/🙋 me/自我介绍/高嘉丰演出 Archive（统一核对版）.md" src/content/shows.json
@@ -23,7 +23,7 @@ npm run build
 git diff -- src/content/shows.json src/content/shows-display.js src/content/site-translations.js
 ```
 
-Run these from the website directory. If the vault lives elsewhere, pass that note's actual path as the first argument. Review the changed rows; add display/translation mappings when introducing a new city or performance format, and update the existing Upcoming assertions when the source list changes. Commit only the reviewed public data, mappings, and tests, then push `main` to `origin` (`kokafang/jiafeng.live`). The linked Vercel project builds and deploys that branch to `https://jiafeng.live`. Confirm the deployment is Ready and inspect the new entries online before reporting synchronization complete. The original vault note, private daily notes, and contacts do not need to be uploaded.
+Run these from the website directory. If the vault lives elsewhere, pass that note's actual path as the first argument. Review the changed rows; add display/translation mappings when introducing a new city or performance format where editorial labels are needed. Historical behavior assertions use an immutable fixture, so ordinary archive maintenance does not require changing those tests. Commit only the reviewed public data, mappings, and tests, then push `main` to `origin` (`kokafang/jiafeng.live`). The linked Vercel project builds and deploys that branch to `https://jiafeng.live`. Confirm the deployment is Ready and inspect the new entries online before reporting synchronization complete. The original vault note, private daily notes, and contacts do not need to be uploaded.
 
 Migration recovery on 2026-09-28 restored the original Git history, remote, `.gitignore`, Vercel project link, and npm executable links. The previously deployed September 12 source changes were recovered as a separate commit after comparing their build output byte-for-byte with production. No working source was overwritten by the older remote checkout.
 

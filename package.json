@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "node --test scripts/*.test.mjs",
+    "install:shows-sync": "python3 scripts/install-shows-sync.py"
   },
   "devDependencies": {
     "vite": "^7.1.7"
