@@ -1,4 +1,7 @@
 import { displayShow } from './shows-display.js';
+import { projectGallery } from './project-gallery.js';
+import { galleryLabels, galleryProjectsZh, newProjectsZh, projectYearFactsZh } from './project-gallery-translations.js';
+import { pressEditorialLabels, pressEditorialZh } from './press-editorial-translations.js';
 
 export const normalizeText = value => value.replace(/\s+/g, ' ').trim();
 
@@ -65,7 +68,7 @@ const labels = {
 
 export const staticParagraphsZh = {
   '.webdj-copy > p': [
-    '自 2017 年起，高嘉丰持续发展自己的浏览器现场表演实践，并将其称为“网页 DJ”。他不使用传统 DJ 软件，而是完全在浏览器中演出，在 YouTube 视频、田野录音、在线声音生成器、直播、人声清唱，以及来自不同地区和风格的音乐之间穿梭。',
+    '自 2018 年起，高嘉丰持续发展自己的浏览器现场表演实践，并将其称为“网页 DJ”。他不使用传统 DJ 软件，而是完全在浏览器中演出，在 YouTube 视频、田野录音、在线声音生成器、直播、人声清唱，以及来自不同地区和风格的音乐之间穿梭。',
     '整场演出在多个标签页之间实时编排。音乐不一定对拍；他通过打开、叠加、打断和切换不同声音来源来控制节奏。浏览器窗口同步投影给观众，浏览互联网、搜索、缓冲和意外瞬间也因此成为表演中可见的一部分。'
   ],
   '.about-copy > p': [
@@ -189,8 +192,16 @@ const places = {
   China: '中国', Germany: '德国', 'United States': '美国', Taiwan: '台湾', France: '法国', 'Czech Republic': '捷克', Slovakia: '斯洛伐克', Sweden: '瑞典'
 };
 
+Object.assign(projectsZh, newProjectsZh);
+for (const [id, fact] of Object.entries(projectYearFactsZh)) {
+  const zh = projectsZh[id];
+  zh.factLabels ||= new Array(zh.facts.length);
+  zh.factLabels.push(fact.label);
+  zh.facts.push(fact.value);
+}
+
 export function createSiteTranslator({ shows = [], projectDetails = {}, pressItems = [], musicReleases = [] } = {}) {
-  const dictionary = new Map(Object.entries(labels));
+  const dictionary = new Map(Object.entries({ ...labels, ...galleryLabels, ...pressEditorialLabels }));
   const add = (source, target) => { if (source && target) dictionary.set(normalizeText(source), target); };
   for (const [id, project] of Object.entries(projectDetails)) {
     const zh = projectsZh[id];
@@ -226,10 +237,17 @@ export function createSiteTranslator({ shows = [], projectDetails = {}, pressIte
   const kinds = { 'Radio show': '电台节目', 'Live radio set': '电台现场', 'Release feature': '作品介绍', 'Year-end selection': '年度推荐', Interview: '专访', 'Exhibition report': '展览报道', Feature: '专题', 'Performance report': '演出回顾' };
   const languages = { EN: '英文', ZH: '中文', JA: '日文' };
   for (const item of pressItems) {
-    const zh = pressZh[item.id];
+    const zh = pressEditorialZh[item.id] || pressZh[item.id];
     if (!zh) continue;
-    add(item.title, zh[0]); add(item.description, zh[1]); add(item.thumbnail.alt, zh[2]);
-    add(`${item.kind} / ${item.language}`, `${kinds[item.kind]} / ${languages[item.language]}`);
+    add(item.title, zh[0]); add(item.description, zh[1]); add(item.thumbnail?.alt, zh[2]);
+    const language = item.language.split(' / ').map(code => languages[code] || code).join(' / ');
+    add(`${item.kind} / ${item.language}`, `${kinds[item.kind] || pressEditorialLabels[item.kind] || item.kind} / ${language}`);
+  }
+  for (const project of projectGallery) {
+    const zh = galleryProjectsZh[project.id];
+    for (const field of ['title', 'year', 'yearNote', 'category', 'summary']) add(project[field], zh[field]);
+    add(project.image.alt, zh.image.alt);
+    add(project.image.caption, zh.image.caption);
   }
   for (const release of musicReleases) {
     const zh = musicZh[release.id];

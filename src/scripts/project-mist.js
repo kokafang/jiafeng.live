@@ -1,6 +1,6 @@
 export function mountProjectMist({ finePointer, reducedMotion }) {
   const section = document.querySelector('#products');
-  if (!section) return { setPaused() {} };
+  if (!section?.querySelector('.image-card-wrap, .video-placeholder')) return { setPaused() {} };
   const desktopViewport = window.matchMedia('(min-width: 901px)');
   let visible = false;
   let paused = false;

@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import { existsSync, readFileSync } from 'node:fs';
 import { projectDetails } from '../src/content/project-details.js';
+import { projectGallery } from '../src/content/project-gallery.js';
 
 test('project introductions have readable copy and existing local artwork', () => {
   for (const [id, project] of Object.entries(projectDetails)) {
@@ -53,22 +54,23 @@ test('Ting Difang foregrounds dialect in its card and project introduction', () 
   assert.match(project.category, /Dialect/);
   assert.match(project.summary, /local dialects/);
   assert.match(project.paragraphs[0], /begins with dialect/);
-  const html = readFileSync(new URL('../index.html', import.meta.url), 'utf8');
-  assert.match(html, /<strong>Ting Difang: Dialect &amp; Sound/);
+  const gallery = projectGallery.find(item => item.id === 'ting-difang');
+  assert.match(gallery.title, /Dialect/);
+  assert.equal(gallery.year, '2026');
 });
 
 test('project thumbnails retain a real dance photo and the original Bach sprite', () => {
   const html = readFileSync(new URL('../index.html', import.meta.url), 'utf8');
-  assert.match(html, /class="da-wo-dance-thumbnail" src="\/images\/da-wo-xian-ren-dance.webp"/);
+  assert.equal(projectGallery.find(item => item.id === 'da-wo-xian-ren').image.src, '/images/da-wo-xian-ren-dance.webp');
   assert.match(html, /\/images\/bach-typewriter-sprites.webp/);
-  const css = readFileSync(new URL('../src/styles/projects-gallery.css', import.meta.url), 'utf8');
-  assert.match(css, /\/images\/bach-windows-score-background.jpg/);
+  assert.equal(projectDetails['bach-typewriter'].image.src, '/images/bach-windows-score-background.jpg');
   assert.ok(existsSync(new URL('../public/images/bach-windows-score-background.jpg', import.meta.url)));
 });
 
 test('every project dialog button maps to a reusable content record', () => {
   const html = readFileSync(new URL('../index.html', import.meta.url), 'utf8');
-  const ids = [...html.matchAll(/<button\b[^>]*data-project-detail="([^"]+)"/g)].map(match => match[1]);
+  const ids = [...projectGallery.map(project => project.id),
+    ...[...html.matchAll(/<button\b[^>]*data-project-detail="([^"]+)"/g)].map(match => match[1])];
   for (const id of [
     'fakebook',
     'emotional-dance-music-kit',

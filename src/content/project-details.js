@@ -45,7 +45,8 @@ export const projectDetails = {
     facts: [
       { label: 'Release', value: 'Emotional Dance Music' },
       { label: 'Format', value: 'Album / rhythm game / USB dance pad' },
-      { label: 'Platform', value: 'StepMania' }
+      { label: 'Platform', value: 'StepMania' },
+      { label: 'Year', value: '2020' }
     ],
     paragraphs: [
       'Emotional Dance Music was conceived as an album that could be played as well as heard. The DIY kit pairs the release with a USB dance pad and a downloadable StepMania-based rhythm game, turning listening into a full-body interface.',
@@ -120,7 +121,8 @@ export const projectDetails = {
     facts: [
       { label: 'Music for the entire production', value: 'Jiafeng 高嘉丰' },
       { label: 'Choreography / co-direction', value: 'Yuan Wanbin 元万斌 / Liu Yuchengjie 刘雨成杰' },
-      { label: 'Stage design, writing / co-direction', value: 'Mu Fan 慕凡' }
+      { label: 'Stage design, writing / co-direction', value: 'Mu Fan 慕凡' },
+      { label: 'Year', value: '2025' }
     ],
     paragraphs: [
       'Created with Suzhou Ballet Theatre, Da Wo Xian Ren brings ballet into a surreal underwater world, pairing the humour of an internet fishing meme with Zhuangzi\'s question about the happiness of fish. The audience is drawn into an encounter where the roles of observer, angler and catch become uncertain.',
@@ -201,7 +203,8 @@ export const projectDetails = {
       { label: 'Focus', value: 'Local dialects & Hunan expressions' },
       { label: 'Format', value: 'Sound / exhibitions / hands-on making' },
       { label: 'Place', value: 'Guitang River Park, Changsha, China' },
-      { label: 'Approach', value: 'Listen local' }
+      { label: 'Approach', value: 'Listen local' },
+      { label: 'Year', value: '2026' }
     ],
     paragraphs: [
       'Ting Difang begins with dialect: the accents, expressions and speech rhythms through which a place makes itself heard. Local language is approached as sound as much as meaning, bringing the texture of everyday conversation into a creative practice of listening and play.',
@@ -212,6 +215,65 @@ export const projectDetails = {
       label: 'Explore Ting Difang on Xiaohongshu',
       href: 'https://www.xiaohongshu.com/user/profile/5f53295a0000000001002a36',
       credit: 'Images and project information: 听地方 Tīng. Images are the public post covers.'
+    }
+  },
+  trio: {
+    title: 'TRI-O',
+    titleZh: '算法 MIDI 控制器',
+    category: 'Algorithmic Instrument',
+    status: 'Experimental MIDI controller',
+    summary: 'An experimental instrument exploring the space between human control and randomness in music, light and visuals.',
+    image: {
+      src: '/images/trio.jpeg',
+      alt: 'TRI-O algorithmic MIDI controller',
+      caption: 'TRI-O / algorithmic performance'
+    },
+    gallery: [],
+    video: { id: '0MNyVq7LMpo', title: 'TRI-O demonstration' },
+    facts: [
+      { label: 'Format', value: 'Algorithmic MIDI controller' },
+      { label: 'Inspiration', value: 'The Three-Body Problem' },
+      { label: 'Award year', value: '2014' }
+    ],
+    paragraphs: [
+      'Inspired by The Three-Body Problem, TRI-O approaches the musical controller as a system that can act somewhere between deliberate human control and randomness. It connects algorithmic behaviour with live performance.',
+      'The project explores how music, light and visual systems can be given a more human quality of control. It received recognition at the Margaret Guthman Musical Instrument Competition in 2014.'
+    ],
+    source: {
+      label: 'Watch TRI-O on YouTube',
+      href: 'https://www.youtube.com/watch?v=0MNyVq7LMpo',
+      credit: 'An experimental instrument by Jiafeng 高嘉丰. The year shown is the award year.'
+    }
+  },
+  'web-dj': {
+    title: 'Web-DJ',
+    titleZh: '网页 DJ',
+    category: 'Browser-based Performance',
+    status: 'Ongoing since 2018',
+    summary: 'A live performance practice that turns the web browser into an instrument, assembling sound and image across open tabs.',
+    image: {
+      src: '/images/webdj-red-stage-cover.webp',
+      alt: 'Jiafeng performing a Web-DJ set',
+      caption: 'Web-DJ / live browser performance'
+    },
+    gallery: [],
+    video: { id: 'TuOVWeBmguQ', title: 'Web-DJ live performance' },
+    facts: [
+      { label: 'Years', value: '2018–present' },
+      { label: 'Format', value: 'Live sound and image' },
+      { label: 'Instrument', value: 'Web browser' }
+    ],
+    paragraphs: [
+      'Since 2018, Jiafeng has developed his own approach to browser-based live performance, which he calls Web DJ. Instead of using conventional DJ software, he performs entirely inside a web browser, moving between YouTube videos, field recordings, online generators, live streams, acapellas, and music from different genres and regions.',
+      'The set is assembled in real time across multiple tabs. Tracks are not always beat-matched; Jiafeng controls the pacing by opening, layering, interrupting, and switching between different sources. The browser window is projected for the audience, so navigating the internet, searching, buffering, and unexpected moments all become visible parts of the performance.'
+    ],
+    source: {
+      label: 'Watch the full Web-DJ set',
+      href: 'https://www.youtube.com/watch?v=TuOVWeBmguQ',
+      credit: 'A continuing performance project by Jiafeng 高嘉丰, 2018–present.',
+      references: [
+        { label: 'NTS: Jiafeng, Live from Shanghai (2018)', href: 'https://www.nts.live/shows/shanghai/episodes/jiafeng-live-from-shanghai-26th-august-2018' }
+      ]
     }
   }
 };

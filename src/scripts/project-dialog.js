@@ -109,6 +109,29 @@ export function mountProjectDialog({ onOpen = () => {}, onClose = () => {} } = {
     const summary = element('p', 'project-dialog-summary', project.summary);
     summary.id = 'project-dialog-summary';
     copy.append(title, summary);
+    if (project.video) {
+      const video = element('div', 'project-dialog-video');
+      const play = element('button', 'project-dialog-video-play');
+      play.type = 'button';
+      play.setAttribute('aria-label', 'Play project video');
+      const poster = element('img');
+      poster.src = project.image.src;
+      poster.alt = project.image.alt;
+      const label = element('span', '', 'Play project video');
+      play.append(poster, label);
+      play.addEventListener('click', () => {
+        const frame = element('iframe');
+        frame.src = `https://www.youtube.com/embed/${project.video.id}?autoplay=1&playsinline=1`;
+        frame.title = project.video.title;
+        frame.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen';
+        frame.referrerPolicy = 'strict-origin-when-cross-origin';
+        frame.allowFullscreen = true;
+        video.replaceChildren(frame);
+        frame.focus({ preventScroll: true });
+      });
+      video.append(play);
+      copy.append(video);
+    }
     if (project.listen) {
       const listen = element('section', 'project-dialog-listen');
       listen.setAttribute('aria-label', 'Project soundtrack');
@@ -177,6 +200,7 @@ export function mountProjectDialog({ onOpen = () => {}, onClose = () => {} } = {
   }
 
   dialog.addEventListener('close', () => {
+    scroll.querySelectorAll('iframe').forEach(frame => frame.remove());
     document.documentElement.classList.remove('project-dialog-open');
     document.documentElement.style.removeProperty('--project-dialog-scrollbar');
     onClose();

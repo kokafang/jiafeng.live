@@ -220,3 +220,10 @@ html.project-dialog-open { overflow: hidden; }
   .project-dialog[open], .project-dialog::backdrop { animation: none; }
   .project-dialog-close, .project-dialog-thumbnail, .project-dialog-listen-link { transition: none; }
 }
+
+.project-dialog-video { width: 100%; margin: 24px 0; aspect-ratio: 16 / 9; overflow: hidden; background: #0c100f; }
+.project-dialog-video iframe { width: 100%; height: 100%; border: 0; display: block; }
+.project-dialog-video-play { position: relative; width: 100%; height: 100%; padding: 0; border: 0; background: #0c100f; color: #eeeae0; cursor: pointer; }
+.project-dialog-video-play img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.project-dialog-video-play span { position: absolute; bottom: 18px; left: 18px; padding: 10px 16px; border: 1px solid #91b1a2; border-radius: 2px; background: rgba(12,16,15,.92); font: 400 13px / 1.5 'Space Grotesk', sans-serif; }
+.project-dialog-video-play:focus-visible { outline: 2px solid #c3d6ae; outline-offset: -4px; }

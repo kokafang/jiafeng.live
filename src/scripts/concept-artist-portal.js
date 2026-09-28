@@ -23,7 +23,7 @@ if (import.meta.env.DEV) {
 
 mountShowsArchive();
 mountPressArchive();
-mountProjectsGallery();
+const projectsGallery = mountProjectsGallery();
 
 const sections = [...document.querySelectorAll(".portal-stage, .portal-section")];
 const stageSection = document.querySelector(".portal-stage");
@@ -46,8 +46,8 @@ const desktopSnap = createDesktopSnap({
   onNavigate: playerScroll.guardAll
 });
 projectDialog = mountProjectDialog({
-  onOpen: () => { desktopSnap.cancel(); playerScroll.guardAll(); projectMist?.setPaused(true); },
-  onClose: () => { desktopSnap.cancel(); projectMist?.setPaused(false); }
+  onOpen: () => { desktopSnap.cancel(); playerScroll.guardAll(); projectMist?.setPaused(true); projectsGallery.setPaused('dialog', true); },
+  onClose: () => { desktopSnap.cancel(); projectMist?.setPaused(false); projectsGallery.setPaused('dialog', false); }
 });
 projectMist = mountProjectMist({ finePointer, reducedMotion });
 let currentIndex = -1;

@@ -43,7 +43,7 @@ test('every current project and press entry has translated prose and image label
     }
   }
   for (const item of pressItems) {
-    for (const source of [item.title, item.description, item.thumbnail.alt, `${item.kind} / ${item.language}`]) {
+    for (const source of [item.title, item.description, item.thumbnail?.alt, `${item.kind} / ${item.language}`].filter(Boolean)) {
       assert.notEqual(translate(source), source, item.id + ': ' + source);
       assert.ok(!translate(source).includes('undefined'));
     }

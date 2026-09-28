@@ -12,14 +12,34 @@ export function createDesktopSnap({ sections, enabled, reducedMotion, onNavigate
   let reverseTravel = 0;
   let origin = null;
   let committed = false;
+  let readingGesture = false;
   let destination = null;
   let settleTimer;
   let pointerDown = false;
 
-  function stops() {
+  function sectionRanges() {
     const limit = Math.max(0, document.documentElement.scrollHeight - innerHeight);
-    const points = sections.map(section => Math.min(section.getBoundingClientRect().top + scrollY, limit));
+    return sections.map(section => {
+      const rect = section.getBoundingClientRect();
+      return {
+        top: Math.max(0, Math.min(rect.top + scrollY, limit)),
+        bottom: Math.max(0, Math.min(rect.bottom + scrollY - innerHeight, limit)),
+      };
+    });
+  }
+
+  function stops() {
+    const points = sectionRanges().flatMap(({ top, bottom }) => bottom > top + 2 ? [top, bottom] : [top]);
     return [...new Set(points.map(Math.round))].sort((a, b) => a - b);
+  }
+
+  function readingRange(y) {
+    return sectionRanges().find(({ top, bottom }) => bottom > top + 2 && y >= top - 2 && y <= bottom + 2);
+  }
+
+  function canRead(y, sign) {
+    const range = readingRange(y);
+    return range && (sign > 0 ? y < range.bottom - 2 : y > range.top + 2);
   }
 
   function nearest(y) {
@@ -61,6 +81,7 @@ export function createDesktopSnap({ sections, enabled, reducedMotion, onNavigate
     reverseTravel = 0;
     direction = 0;
     committed = false;
+    readingGesture = false;
     lastWheelAt = -Infinity;
     quietTailMagnitude = Infinity;
     quietWheelCount = 0;
@@ -114,7 +135,6 @@ export function createDesktopSnap({ sections, enabled, reducedMotion, onNavigate
     }
     const delta = event.deltaY * (event.deltaMode === 1 ? 16 : event.deltaMode === 2 ? innerHeight : 1);
     if (!delta) return;
-    event.preventDefault();
     const now = performance.now();
     const sign = Math.sign(delta);
     const fresh = now - lastWheelAt > gestureGap;
@@ -130,6 +150,21 @@ export function createDesktopSnap({ sections, enabled, reducedMotion, onNavigate
       quietWheelCount += 1;
       if (quietWheelCount >= 3) quietTailMagnitude = Math.min(quietTailMagnitude, magnitude);
     }
+    // A tall section has a native reading range between its first and last
+    // viewport. Preserve the swipe tail guard when arriving from another page.
+    if (frame === null && canRead(scrollY, sign) &&
+        (readingGesture || !committed || fresh || renewed || sign !== direction)) {
+      clearTimeout(idleTimer);
+      origin = null;
+      travel = 0;
+      reverseTravel = 0;
+      committed = true;
+      readingGesture = true;
+      direction = sign;
+      lastWheelAt = now;
+      return;
+    }
+    event.preventDefault();
     if (frame !== null && committed) {
       lastWheelAt = now;
       if (direction === sign || direction === 0) {
@@ -152,6 +187,7 @@ export function createDesktopSnap({ sections, enabled, reducedMotion, onNavigate
       origin = fresh && landing !== null ? landing : nearest(scrollY);
       travel = 0;
       committed = false;
+      readingGesture = false;
     }
     lastWheelAt = now;
     direction = sign;
@@ -177,11 +213,13 @@ export function createDesktopSnap({ sections, enabled, reducedMotion, onNavigate
 
   window.addEventListener('keydown', event => {
     if (!enabled() || event.defaultPrevented || event.metaKey || event.ctrlKey || event.altKey ||
-        event.target.closest?.('input, textarea, select, button, a, [contenteditable="true"], [role="slider"]') || nestedScroller(event.target)) return;
+        event.target.closest?.('input, textarea, select, button, a, summary, [contenteditable="true"], [role="slider"]') || nestedScroller(event.target)) return;
     let target;
     const current = destination ?? nearest(scrollY);
-    if (event.key === 'PageDown' || event.key === 'ArrowDown' || (event.key === ' ' && !event.shiftKey)) target = adjacent(current, 1);
-    else if (event.key === 'PageUp' || event.key === 'ArrowUp' || event.key === ' ') target = adjacent(current, -1);
+    const sign = event.key === 'PageDown' || event.key === 'ArrowDown' || (event.key === ' ' && !event.shiftKey) ? 1
+      : event.key === 'PageUp' || event.key === 'ArrowUp' || event.key === ' ' ? -1 : 0;
+    if (sign && frame === null && canRead(scrollY, sign)) { cancel(); return; }
+    if (sign) target = adjacent(current, sign);
     else if (event.key === 'Home') target = 0;
     else if (event.key === 'End') target = stops().at(-1);
     else if (event.key === 'Escape') { cancel(); settle(); return; }
@@ -192,7 +230,7 @@ export function createDesktopSnap({ sections, enabled, reducedMotion, onNavigate
 
   // Include scrollbar dragging and browsers without scrollend support.
   function settle() {
-    if (enabled() && !pointerDown && frame === null && origin === null) {
+    if (enabled() && !pointerDown && frame === null && origin === null && !readingRange(scrollY)) {
       const target = nearest(scrollY);
       if (Math.abs(target - scrollY) > 2) animateTo(target, 280);
     }

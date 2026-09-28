@@ -6,7 +6,7 @@ const html = readFileSync(new URL('../index.html', import.meta.url), 'utf8');
 const main = readFileSync(new URL('../src/scripts/concept-artist-portal.js', import.meta.url), 'utf8');
 
 test('AVS is the production-safe static project card', () => {
-  const cardStart = html.indexOf('<div class="fill-block sampler-project" data-avs-project>');
+  const cardStart = html.search(/<article\b[^>]*data-avs-project/);
   assert.notEqual(cardStart, -1, 'expected the AVS project card');
   const card = html.slice(cardStart, html.indexOf('</article>', cardStart));
   assert.match(card, /data-avs-project/);

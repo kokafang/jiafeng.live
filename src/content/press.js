@@ -1,7 +1,22 @@
-// Publication or broadcast dates, not release dates. Source checks are in docs/press-source-notes.md.
+// Publication or broadcast dates, not release dates. Editorial coverage and appearances
+// are separate; directory-only articles do not need decorative thumbnails.
 export const pressItems = [
   {
-    id: 'nts-bloodz-boi-jiafeng', category: 'press', publisher: 'NTS Radio',
+    id: 'superelle-ai-individuals', category: 'press', publisher: 'SuperELLE',
+    published: '2026-05-27', kind: 'Group interview', language: 'ZH',
+    title: 'Creative individuals in the age of AI',
+    description: 'A group interview including Jiafeng on AI, creative workflows and music tools.',
+    url: 'https://m.sohu.com/a/1028467900_99985468'
+  },
+  {
+    id: 'upee-band-interview', category: 'press', publisher: 'UPEE',
+    published: '2024', kind: 'Interview', language: 'ZH',
+    title: 'A love for bands, their stages and their world',
+    description: 'A conversation with Jiafeng about the stage and the ecosystem around bands.',
+    url: 'https://www.upee.review/p/bb5'
+  },
+  {
+    id: 'nts-bloodz-boi-jiafeng', category: 'radio', publisher: 'NTS Radio',
     published: '2024-01-17', kind: 'Radio show', language: 'EN',
     title: 'Bloodz Boi w/ Jiafeng',
     thumbnail: { src: '/images/07-gjf个人2（摄影：王玮）.jpg', alt: 'Portrait of Jiafeng, guest on Bloodz Boi on NTS' },
@@ -25,12 +40,26 @@ export const pressItems = [
     url: 'https://avyss-magazine.com/2023/04/11/42747/'
   },
   {
+    id: 'sixth-tone-hyperpop', category: 'press', publisher: 'Sixth Tone',
+    published: '2021-11-05', kind: 'Scene feature', language: 'EN',
+    title: 'Inside China’s Hyperpop Scene',
+    description: 'A look at the musicians and online communities shaping hyperpop in China, including Jiafeng.',
+    url: 'https://www.sixthtone.com/news/1008879'
+  },
+  {
     id: 'mixmag-albums-2020', category: 'press', publisher: 'Mixmag',
-    published: '2020', kind: 'Year-end selection', language: 'EN',
+    published: '2020-12-17', kind: 'Year-end selection', language: 'EN',
     title: 'The Best Albums of 2020',
     thumbnail: { src: '/images/press-mixmag-2020.jpg', alt: 'Mixmag year-end 2020 feature artwork' },
     description: 'Emotional Dance Music selected by Eastern Margins for Mixmag\'s year-end album feature.',
     url: 'https://mixmag.net/feature/the-best-albums-of-the-year-2020'
+  },
+  {
+    id: 'neocha-sounds-y2k', category: 'press', publisher: 'Neocha',
+    published: '2020-11-23', kind: 'Profile', language: 'EN / ZH',
+    title: 'Sounds of the Y2K',
+    description: 'A bilingual profile of Jiafeng’s music, internet sensibility and creative identity.',
+    url: 'https://neocha.com/magazine/sounds-of-the-y2k/'
   },
   {
     id: 'mixmag-asia-interview', category: 'press', publisher: 'Mixmag Asia',
@@ -39,6 +68,13 @@ export const pressItems = [
     thumbnail: { src: '/images/press-mixmag-asia.jpg', alt: 'Jiafeng in the Mixmag Asia interview feature image' },
     description: 'An interview with Cheryl Chow on experimental pop, internet culture and turning an album into a dance game.',
     url: 'https://mixmag.asia/feature/chinese-hyper-pop-artist-gao-jiafeng-emotional-dance-music'
+  },
+  {
+    id: 'radii-album-game', category: 'press', publisher: 'RADII',
+    published: '2020-07-15', kind: 'Project feature', language: 'EN',
+    title: 'An album, a game and a dance floor',
+    description: 'RADII explores the Emotional Dance Music album and its Dance Dance Revolution-inspired game release.',
+    url: 'https://radii.co/article/jiafeng-dance-dance-revolution'
   },
   {
     id: 'times-art-museum', category: 'institutions', publisher: 'Beijing Times Art Museum',
@@ -57,12 +93,19 @@ export const pressItems = [
     url: 'https://radii.co/article/listen-gao-jiafeng-inflicts-his-browser-dj-set-on-nts'
   },
   {
-    id: 'nts-jiafeng-shanghai', category: 'press', publisher: 'NTS Radio',
+    id: 'nts-jiafeng-shanghai', category: 'radio', publisher: 'NTS Radio',
     published: '2018-08-26', kind: 'Live radio set', language: 'EN',
     title: 'Jiafeng: Live from Shanghai',
     thumbnail: { src: '/images/webdj-video-cover.png', alt: 'Jiafeng performing a Web-DJ set' },
     description: 'A live Web-DJ set for NTS Shanghai, weaving YouTube and Bilibili clips into a performance with saxophone and throat singing.',
     url: 'https://www.nts.live/shows/shanghai/episodes/jiafeng-live-from-shanghai-26th-august-2018'
+  },
+  {
+    id: 'radii-cyborg-mutant', category: 'press', publisher: 'RADII',
+    published: '2018-07-12', kind: 'Profile', language: 'EN',
+    title: 'Like a Cyborg Mutant',
+    description: 'A profile of Jiafeng’s music and multimedia practice in contemporary China.',
+    url: 'https://radii.co/article/like-a-cyborg-mutant-multimedia-artist-jiafeng-digests-modern-china'
   },
   {
     id: 'mcam-performance', category: 'institutions', publisher: 'McaM / Mingyuan Group',
@@ -71,14 +114,31 @@ export const pressItems = [
     thumbnail: { src: '/images/press-mcam.jpg', alt: 'Group discussion pictured in the McaM event report' },
     description: 'An institutional recap of Jiafeng\'s improvised performance at Ming Contemporary Art Museum in Shanghai.',
     url: 'https://www.mingyuangroup.com/wap/news-1.aspx?Id=2196'
+  },
+  {
+    id: 'electronic-beats-cassette-labels', category: 'press', publisher: 'Electronic Beats',
+    published: '2016-02-08', kind: 'Scene feature', language: 'EN',
+    title: 'Muted Portraits and China’s cassette resurgence',
+    description: 'Muted Portraits appears in Electronic Beats’ survey of ten Chinese cassette labels.',
+    url: 'https://www.electronicbeats.net/10-chinese-cassette-labels-leading-a-tape-resurgence/'
   }
 ];
 
 export const pressCategories = [
   { id: 'all', label: 'All' },
   { id: 'press', label: 'Press' },
+  { id: 'radio', label: 'Radio' },
   { id: 'institutions', label: 'Institutions' }
 ];
+
+export function getPressArchive() {
+  const featured = pressItems.find(item => item.id === 'mixmag-asia-interview');
+  return {
+    featured,
+    articles: pressItems.filter(item => item.category === 'press' && item !== featured),
+    appearances: pressItems.filter(item => item.category !== 'press')
+  };
+}
 
 export function getPressPage(category = 'all', page = 0) {
   const matches = pressItems.filter(item => category === 'all' || item.category === category);

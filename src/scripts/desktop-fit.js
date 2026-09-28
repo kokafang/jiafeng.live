@@ -40,33 +40,7 @@ export function fitDesktopSections({ sections, mobilePages }) {
           set(copy, '--copy-font', `${Math.floor(low)}px`);
         }
       });
-      if (section.id === 'products') {
-        const grid = content.querySelector('.section-fill');
-        const cards = [...grid.children].filter(card => !card.hidden);
-        set(content, '--projects-fit-width', '100%');
-        let bestWidth = grid.getBoundingClientRect().width;
-        let bestOverflow = Infinity;
-        // Preserve 4:3 artwork: fit the grid's width in short windows, never its image height.
-        for (let i = 0; i < 8; i++) {
-          const overflow = Math.max(0, ...cards.map(card => {
-            const stack = card.querySelector('.project-link-card') || card;
-            return stack.scrollHeight - stack.clientHeight;
-          }));
-          if (overflow <= 1) break;
-          const width = grid.getBoundingClientRect().width;
-          if (overflow >= bestOverflow) {
-            set(content, '--projects-fit-width', bestWidth + 'px');
-            break;
-          }
-          bestOverflow = overflow;
-          bestWidth = width;
-          const columns = getComputedStyle(grid).gridTemplateColumns.split(' ').length;
-          const next = Math.max(Math.min(600, content.clientWidth), width - (overflow + 2) * columns * 4 / 3);
-          if (next >= width) break;
-          set(content, '--projects-fit-width', next + 'px');
-        }
-      }
-      content.scrollTop = 0;
+      if (!section.matches('.editorial-section, #press')) content.scrollTop = 0;
     }
     if (heroNav) {
       set(heroNav, '--hero-nav-scale', String(Math.min(1, (innerWidth - 56) / heroNav.offsetWidth, innerHeight * 0.35 / heroNav.offsetHeight)));

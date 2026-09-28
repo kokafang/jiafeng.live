@@ -1,120 +1,188 @@
+/* Press is a reading archive: it shares the site gutter and grows with its content. */
+.artist-portal #press.portal-section {
+  height: auto;
+  min-height: 100dvh;
+  max-height: none;
+  grid-template-rows: auto;
+  background: #0c100f;
+  padding-bottom: 48px;
+  overflow: visible;
+}
+.artist-portal #press.portal-section > div {
+  height: auto;
+  min-height: 0;
+  max-height: none;
+  overflow: visible;
+}
 .press-archive {
-  display: grid;
-  grid-template-rows: auto minmax(0, 1fr) auto;
-  flex: 1;
-  min-height: 0;
-  gap: 16px;
+  --press-ink: #f4f0e6;
+  --press-muted: #aeb8b1;
+  --press-line: rgba(213, 225, 213, 0.21);
+  --press-accent: #d0e6b6;
+  width: 100%;
+  color: var(--press-ink);
 }
-.press-filters, .press-pagination { display: flex; gap: 8px; }
-.press-archive button {
-  min-height: 44px;
-  padding: 9px 18px;
-  color: #d5e4df;
-  background: rgba(173, 218, 209, 0.04);
-  border: 1px solid #526961;
-  border-radius: 28px;
-  font: inherit;
-  font-size: 15px;
-  transition: background 180ms ease, border-color 180ms ease;
-}
-.press-archive button[aria-pressed="true"] { color: #fff; background: #294840; border-color: #a9cabe; }
-.press-archive button:hover:not(:disabled) { background: #294840; }
-.press-archive button:disabled { opacity: 0.35; }
-.press-list {
-  min-height: 0;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  grid-template-rows: repeat(2, minmax(0, 1fr));
-  gap: 16px;
-}
-.press-list > li { min-width: 0; min-height: 0; }
-.press-card {
-  height: 100%;
-  display: grid;
-  grid-template-columns: 38% minmax(0, 1fr);
-  border: 1px solid rgba(210, 236, 228, 0.24);
-  background: rgba(10, 22, 23, 0.78);
-  color: #f1f3e9;
-  text-decoration: none;
-  transition: background 200ms ease, border-color 200ms ease;
-}
-.press-card:hover { background: rgba(26, 49, 49, 0.94); border-color: #91bfb3; }
-.press-thumbnail { min-width: 0; min-height: 0; overflow: hidden; background: #172925; }
-.press-thumbnail img { display: block; width: 100%; height: 100%; object-fit: cover; }
-.press-card-copy {
-  min-width: 0;
-  min-height: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  padding: clamp(16px, 1.5vw, 24px);
-}
-.press-card-meta {
+.press-heading {
   display: flex;
   justify-content: space-between;
-  gap: 16px;
-  color: #b8d2c8;
-  font-size: 14px;
-  line-height: 1.35;
+  align-items: baseline;
+  gap: 20px;
+  padding-bottom: 0;
+  margin-bottom: 32px;
 }
-.press-card time { flex-shrink: 0; font-variant-numeric: tabular-nums; }
-.artist-portal .press-card h3 {
+.artist-portal .press-heading .press-heading-title {
   margin: 0;
-  font: 500 clamp(28px, 2.6vw, 40px) / 1.08 "Cormorant Garamond", serif;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  overflow: hidden;
-  flex-shrink: 0;
+  color: var(--press-ink);
+  font: 500 clamp(44px, 5vw, 76px) / 1.05 "Cormorant Garamond", serif;
 }
-.artist-portal .press-card p {
+.artist-portal .press-heading .press-heading-description {
   margin: 0;
-  color: #d4e0da;
-  font-size: 18px;
-  line-height: 1.45;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-  overflow: hidden;
+  color: var(--press-muted);
+  font-size: 13px;
+  line-height: 1.5;
 }
-.press-card-source {
-  margin-top: auto;
-  display: flex;
-  justify-content: space-between;
+.press-feature {
+  display: grid;
+  grid-template-columns: 47% minmax(0, 1fr);
   align-items: center;
-  gap: 12px;
-  color: #adc1b8;
+  gap: clamp(30px, 4.3vw, 68px);
+  padding-bottom: 38px;
+  border-bottom: 1px solid var(--press-line);
+}
+.press-feature-image {
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: #17221f;
+}
+.press-feature-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.press-feature-copy { min-width: 0; }
+.press-feature-meta {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 20px;
+  color: var(--press-muted);
+  font: 400 13px / 1.5 "Space Grotesk", sans-serif;
+}
+.press-feature-meta > span { color: var(--press-accent); font-weight: 500; }
+.artist-portal .press-feature h3 {
+  max-width: 13ch;
+  margin: 24px 0 20px;
+  font: 500 clamp(38px, 4.7vw, 68px) / 1.02 "Cormorant Garamond", serif;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+.artist-portal .press-feature p {
+  max-width: 41ch;
+  margin: 0;
+  color: var(--press-muted);
+  font-size: clamp(15px, 1.25vw, 18px);
+  line-height: 1.8;
+}
+.press-read-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 44px;
+  gap: 34px;
+  margin-top: 25px;
+  border-bottom: 1px solid var(--press-line);
+  color: var(--press-ink);
+  text-decoration: none;
+  font-size: 14px;
+}
+.press-read-link:hover { color: var(--press-accent); border-color: currentColor; }
+.press-directory-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 42px;
+  margin-bottom: 18px;
+  color: var(--press-muted);
+  font: 400 11px / 1.5 "Space Grotesk", sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.artist-portal .press-directory-heading p { margin: 0; color: inherit; font: inherit; }
+.press-directory { list-style: none; padding: 0; margin: 0; }
+.press-directory > li { margin: 0; padding: 0; }
+.press-directory-link {
+  display: grid;
+  grid-template-columns: minmax(128px, 0.65fr) minmax(0, 2.45fr) minmax(112px, 0.6fr) 44px 18px;
+  align-items: baseline;
+  gap: 22px;
+  padding: 23px 0;
+  border-top: 1px solid var(--press-line);
+  color: var(--press-ink);
+  text-decoration: none;
+  transition: color 180ms ease;
+}
+.press-directory-link:hover { color: var(--press-accent); }
+.press-outlet { font: 500 14px / 1.5 "Space Grotesk", sans-serif; }
+.artist-portal .press-directory-link .press-article-title {
+  min-width: 0;
+  margin: 0;
+  font: 400 16px / 1.6 "Syne", "PingFang SC", sans-serif;
+}
+.press-kind, .press-directory-link time {
+  color: var(--press-muted);
+  font: 400 12px / 1.5 "Space Grotesk", "PingFang SC", sans-serif;
+}
+.press-archive time { flex-shrink: 0; font-variant-numeric: tabular-nums; }
+.press-directory-link time { text-align: right; }
+.press-arrow { font-size: 20px; line-height: 1; }
+.press-appearances { margin-top: 28px; border-top: 1px solid var(--press-line); }
+.press-appearances-toggle {
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+  padding: 24px 0;
+  color: var(--press-ink);
+  font-size: 15px;
+  list-style: none;
+}
+.press-appearances-toggle::-webkit-details-marker { display: none; }
+.press-appearances-caption {
+  margin-left: auto;
+  color: var(--press-muted);
   font-size: 12px;
-  letter-spacing: 0.04em;
 }
-.press-card-arrow { font-size: 24px; line-height: 1; color: #ecf5ee; }
-.press-footer { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
-.press-counter { color: #b9cac3; font-size: 13px; font-variant-numeric: tabular-nums; }
-.press-archive :focus-visible { outline: 2px solid #b8f1d9; outline-offset: 4px; }
-@media (min-width: 901px) and (max-height: 750px) and (pointer: fine) {
-  .press-archive, .press-list { gap: 12px; }
-  .press-card-copy { padding: 14px 16px; gap: 8px; }
-  .artist-portal .press-card h3 { font-size: 28px; }
-  .artist-portal .press-card p { font-size: 16px; line-height: 1.35; }
-  .press-card-meta { font-size: 13px; }
+.press-appearances-toggle::after { content: '+'; font-size: 22px; line-height: 1; }
+.press-appearances[open] > .press-appearances-toggle::after { content: '−'; }
+.press-archive :focus-visible { outline: 2px solid var(--press-accent); outline-offset: 5px; }
+@media (max-width: 1100px) {
+  .press-directory-link { grid-template-columns: 122px minmax(0, 1fr) 110px 40px 16px; gap: 18px; }
+  .press-outlet { font-size: 13px; }
+  .artist-portal .press-directory-link .press-article-title { font-size: 15px; }
 }
-@media (min-width: 901px) and (max-height: 650px) and (pointer: fine) {
-  .press-card-copy { padding-block: 12px; gap: 8px; }
-  .artist-portal .press-card p { display: none; }
+@media (max-width: 700px) {
+  .press-heading { align-items: flex-start; flex-direction: column; gap: 8px; margin-bottom: 24px; padding-bottom: 18px; }
+  .artist-portal .press-heading .press-heading-title { font-size: 44px; }
+  .press-feature { grid-template-columns: minmax(0, 1fr); gap: 24px; padding-bottom: 30px; }
+  .press-feature-image { aspect-ratio: 3 / 2; }
+  .artist-portal .press-feature h3 { font-size: clamp(40px, 9vw, 54px); margin-block: 18px; max-width: 15ch; }
+  .artist-portal .press-feature p { max-width: none; font-size: 16px; }
+  .press-read-link { margin-top: 18px; }
+  .press-directory-heading { margin-top: 30px; }
+  .press-directory-link { grid-template-columns: minmax(0, 1fr) 40px 16px; gap: 7px 12px; padding: 19px 0; }
+  .press-outlet { grid-column: 1; grid-row: 1; color: var(--press-muted); font-size: 12px; }
+  .artist-portal .press-directory-link .press-article-title { grid-column: 1 / 3; grid-row: 2; font-size: 16px; }
+  .press-kind { display: none; }
+  .press-directory-link time { grid-column: 2; grid-row: 1; }
+  .press-directory-link .press-arrow { grid-column: 3; grid-row: 2; align-self: center; }
+  .press-appearances-toggle { flex-wrap: wrap; gap: 7px 16px; }
+  .press-appearances-toggle::after { margin-left: auto; }
+  .press-appearances-caption { order: 3; width: 100%; margin-left: 0; }
 }
-@media (max-width: 900px) {
-  .press-archive { display: flex; flex-direction: column; gap: 20px; }
-  .press-filters { flex-wrap: wrap; }
-  .press-filters button { flex: 1 1 auto; padding-inline: 12px; font-size: 14px; }
-  .press-list { grid-template-columns: minmax(0, 1fr); grid-template-rows: none; gap: 16px; }
-  .press-card { grid-template-columns: minmax(0, 1fr); }
-  .press-thumbnail { aspect-ratio: 16 / 9; }
-  .press-card-copy { gap: 14px; padding: 20px; }
-  .artist-portal .press-card h3 { display: block; font-size: 32px; }
-  .artist-portal .press-card p { display: block; font-size: 18px; }
-  .press-pagination button { padding-inline: 14px; font-size: 13px; }
-  .press-counter { font-size: 12px; }
+@media (prefers-reduced-motion: reduce) {
+  .press-directory-link { transition: none; }
 }
+
+html[lang="zh-CN"] .artist-portal .press-feature h3 { max-width: none; }
