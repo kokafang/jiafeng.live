@@ -1,5 +1,42 @@
 [
   {
+    "id": "show-2026-11-18-170",
+    "date": "2026-11-18",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2026,
+    "location": "上海，中国",
+    "event": "Wigwam",
+    "performance": "Web DJ 大乐队／Web DJ Big Band",
+    "status": "upcoming",
+    "sources": []
+  },
+  {
+    "id": "show-2026-10-23-169",
+    "date": "2026-10-23",
+    "endDate": "2026-10-25",
+    "dateUncertain": false,
+    "year": 2026,
+    "location": "海口，中国",
+    "event": "明日公园",
+    "performance": "工作坊 + 演出（连续三天）",
+    "status": "upcoming",
+    "sources": []
+  },
+  {
+    "id": "show-2026-10-10-168",
+    "date": "2026-10-10",
+    "endDate": null,
+    "dateUncertain": false,
+    "year": 2026,
+    "location": "Berlin，德国",
+    "event": "SaltyAcid",
+    "performance": "Web DJ，19:00",
+    "status": "upcoming",
+    "sources": [],
+    "time": "19:00"
+  },
+  {
     "id": "show-2026-10-06-167",
     "date": "2026-10-06",
     "endDate": null,

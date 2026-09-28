@@ -161,7 +161,7 @@ const places = {
   Guangzhou: '广州', "Xi'an": '西安', Wuhan: '武汉', Guiyang: '贵阳', Xiamen: '厦门', Taipei: '台北', Fuzhou: '福州', Chiayi: '嘉义',
   'New York': '纽约', Macau: '澳门', Paris: '巴黎', Caen: '卡昂', Prague: '布拉格', Bratislava: '布拉迪斯拉发', Berlin: '柏林',
   Stockholm: '斯德哥尔摩', Uppsala: '乌普萨拉', Chongqing: '重庆', Tainan: '台南', Kaohsiung: '高雄', Taitung: '台东',
-  Hsinchu: '新竹', 'Hong Kong': '香港', Yangshuo: '阳朔', 'Not recorded': '未记录',
+  Hsinchu: '新竹', 'Hong Kong': '香港', Yangshuo: '阳朔', Haikou: '海口', 'Not recorded': '未记录',
   China: '中国', Germany: '德国', 'United States': '美国', Taiwan: '台湾', France: '法国', 'Czech Republic': '捷克', Slovakia: '斯洛伐克', Sweden: '瑞典'
 };
 

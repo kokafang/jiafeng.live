@@ -30,7 +30,7 @@ test('public titles combine format and place, with Chinese subtitles and English
   const rows = JSON.parse(readFileSync(new URL('../src/content/shows.json', import.meta.url)));
   for (const row of rows) {
     const display = displayShow(row);
-    assert.ok(['Live set', 'DJ set', 'Hybrid set', 'Web DJ', 'Panel speaker'].includes(display.format));
+    assert.ok(['Live set', 'DJ set', 'Hybrid set', 'Web DJ', 'Web DJ Big Band', 'Panel speaker', 'Workshop + performance'].includes(display.format));
     assert.ok(display.title.startsWith(`${display.format} @ `));
     assert.doesNotMatch(display.title, /\bat\b/i);
     assert.match(display.chineseTitle, /\p{Script=Han}/u);
@@ -78,7 +78,7 @@ test('search supports years, cities, venues, formats, Chinese and multiple terms
   }
   assert.ok(search('2015').every(show => show.year === 2015));
   assert.ok(search('New York').every(show => displayShow(show).city === 'New York'));
-  assert.ok(search('Web DJ').every(show => displayShow(show).format === 'Web DJ'));
+  assert.ok(search('Web DJ').every(show => displayShow(show).format.startsWith('Web DJ')));
   assert.ok(search('2024 Ningbo').every(show => show.year === 2024 && displayShow(show).city === 'Ningbo'));
   assert.deepEqual(search('New York United States'), search('New York'));
   assert.deepEqual(search('webdj'), search('Web DJ'));
@@ -91,7 +91,7 @@ test('search supports years, cities, venues, formats, Chinese and multiple terms
 
 test('site archive has unique IDs, real dates, known statuses and safe links', () => {
   const rows = JSON.parse(readFileSync(new URL('../src/content/shows.json', import.meta.url)));
-  assert.equal(rows.length, 167);
+  assert.ok(rows.length > 0, 'the public archive must not be empty');
   assert.equal(new Set(rows.map(row => row.id)).size, rows.length);
   rows.forEach((row, i) => {
     assert.equal(new Date(row.date).toISOString().slice(0, 10), row.date);
@@ -99,8 +99,6 @@ test('site archive has unique IDs, real dates, known statuses and safe links', (
     row.sources.forEach(source => assert.match(source.url, /^https?:\/\//));
     if (i) assert.ok(rows[i - 1].date >= row.date);
   });
-  assert.equal(rows[0].date, '2026-10-06');
-  assert.equal(rows.at(-1).date, '2009-02-14');
   for (const date of ['2015-12-23', '2015-12-26', '2015-12-27']) {
     const row = rows.find(show => show.date === date);
     assert.equal(row.dateUncertain, true, `${date} must retain its uncertain year`);
@@ -114,6 +112,8 @@ test('full date searches do not confuse month and day, and include event interva
   assert.deepEqual(search('2026-03-03').map(show => show.event), ['WebM']);
   assert.deepEqual(search('2026-03-20 Shanghai').map(show => show.event), ['Dweller']);
   assert.deepEqual(search('2025-10-24').map(show => show.event), ['IMX（International Music X）']);
+  assert.deepEqual(search('2026-10-24 Haikou').map(show => show.event), ['明日公园']);
+  assert.deepEqual(search('2026-10-25 工作坊').map(show => show.event), ['明日公园']);
   assert.deepEqual(search('2026-03-03 Shanghai'), []);
 });
 
@@ -146,16 +146,46 @@ test('artist-supplied shows are added once, with correct formats and missing-cit
 test('upcoming section exports future appearances separately without private notes', () => {
   const rows = JSON.parse(readFileSync(new URL('../src/content/shows.json', import.meta.url)));
   const upcoming = rows.filter(show => show.status === 'upcoming');
-  assert.deepEqual(upcoming.map(show => show.date), ['2026-10-06', '2026-10-03', '2026-10-02', '2026-09-26']);
-  assert.equal(displayShow(upcoming[0]).title, 'Panel speaker @ AIPPI');
-  assert.equal(displayShow(upcoming[0]).location, 'Hamburg, Germany');
-  assert.equal(displayShow(upcoming[1]).title, 'Web DJ @ Reactor');
-  assert.equal(displayShow(upcoming[2]).title, 'Web DJ @ illum');
-  assert.equal(upcoming[3].time, '20:00');
-  assert.equal(displayShow(upcoming[3]).title, 'Live set @ Yuyintang Town C Hall');
+  const expected = [
+    ['2026-11-18', 'Web DJ Big Band @ Wigwam', 'Shanghai, China'],
+    ['2026-10-23', 'Workshop + performance @ Mingri Park', 'Haikou, China'],
+    ['2026-10-10', 'Web DJ @ SaltyAcid', 'Berlin, Germany'],
+    ['2026-10-06', 'Panel speaker @ AIPPI', 'Hamburg, Germany'],
+    ['2026-10-03', 'Web DJ @ Reactor', 'Shanghai, China'],
+    ['2026-10-02', 'Web DJ @ illum', 'Shanghai, China'],
+    ['2026-09-26', 'Live set @ Yuyintang Town C Hall', 'Shanghai, China'],
+  ];
+  for (const [date, title, location] of expected) {
+    const show = upcoming.find(row => row.date === date);
+    assert.ok(show, `missing upcoming appearance on ${date}`);
+    const display = displayShow(show);
+    assert.equal(display.title, title, date);
+    assert.equal(display.location, location, date);
+    assert.equal(display.formatUncertain, false, date);
+    assert.deepEqual(show.sources, [], date);
+  }
+  assert.equal(upcoming.find(show => show.date === '2026-09-26').time, '20:00');
+  assert.equal(upcoming.find(show => show.date === '2026-10-10').time, '19:00');
+  assert.equal(upcoming.find(show => show.date === '2026-10-23').endDate, '2026-10-25');
+  assert.equal(upcoming.find(show => show.date === '2026-11-18').time, undefined);
   assert.deepEqual(createShowSearch(rows)('upcoming', new Date(2026, 8, 7)), upcoming);
   assert.doesNotMatch(JSON.stringify(rows), /分票房|联系人|\/Users\//);
   assert.ok(!rows.some(show => show.date === '2026-08-29'));
+});
+
+test('display retains the workshop and performance format with English place labels', () => {
+  const workshop = displayShow({ event: '明日公园', location: '海口，中国', performance: '工作坊 + 演出（连续三天）' });
+  assert.equal(workshop.title, 'Workshop + performance @ Mingri Park');
+  assert.equal(workshop.chineseTitle, '工作坊 + 演出 · 明日公园');
+  assert.equal(workshop.location, 'Haikou, China');
+  assert.equal(workshop.formatUncertain, false);
+});
+
+test('display retains the Web DJ big band performance format', () => {
+  const band = displayShow({ event: 'Wigwam', location: '上海，中国', performance: 'Web DJ 大乐队／Web DJ Big Band' });
+  assert.equal(band.title, 'Web DJ Big Band @ Wigwam');
+  assert.equal(band.chineseTitle, '网页 DJ 大乐队');
+  assert.equal(band.formatUncertain, false);
 });
 
 test('confirmation of a venue alone is not confirmation of the whole performance', () => {

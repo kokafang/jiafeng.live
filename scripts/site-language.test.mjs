@@ -58,6 +58,26 @@ test('all shows translate performance format and city while preserving proper ve
   }
 });
 
+test('new upcoming shows translate workshop, big band and city labels', () => {
+  const appearances = [
+    { event: 'SaltyAcid', location: 'Berlin，德国', performance: 'Web DJ，19:00' },
+    { event: '明日公园', location: '海口，中国', performance: '工作坊 + 演出（连续三天）' },
+    { event: 'Wigwam', location: '上海，中国', performance: 'Web DJ 大乐队／Web DJ Big Band' },
+  ];
+  const translator = createSiteTranslator({ shows: appearances });
+  const expected = [
+    ['网页 DJ @ SaltyAcid', '柏林，德国'],
+    ['工作坊 + 演出 @ 明日公园', '海口，中国'],
+    ['网页 DJ 大乐队 @ Wigwam', '上海，中国'],
+  ];
+  appearances.forEach((show, index) => {
+    const display = displayShow(show);
+    assert.equal(translator.translate(display.title), expected[index][0]);
+    assert.equal(translator.translate(display.location), expected[index][1]);
+    assert.equal(translator.translate(display.title, 'en'), display.title);
+  });
+});
+
 test('all music releases have Chinese titles and descriptions', () => {
   assert.equal(Object.keys(musicZh).length, 5);
   assert.ok(musicZh['beng-di-zhi-da-bing']);

@@ -5,6 +5,7 @@ const titles = {
   '喜客厅（大理古城）': ['Xi Ke Ting', '喜客厅（大理古城）'],
   'IMX（International Music X）': ['IMX (International Music X)', 'IMX 国际音乐论坛'],
   '育音堂小镇 C厅': ['Yuyintang Town C Hall', '育音堂小镇 C厅'],
+  '明日公园': ['Mingri Park', '明日公园'],
   '杭州草莓音乐节 @ 大运河杭钢公园': ['Hangzhou Strawberry Music Festival', '杭州草莓音乐节 · 大运河杭钢公园'],
   '长沙草莓音乐节': ['Changsha Strawberry Music Festival', '长沙草莓音乐节'],
   '对冲联合巡演；场地待公布（原公告）': ['Duichong Joint Tour / Jiafeng × 8:48', '对冲联合巡演 · 场地待核'],
@@ -95,7 +96,7 @@ const locations = {
   '台南，台湾': 'Tainan, Taiwan', '高雄，台湾': 'Kaohsiung, Taiwan', '台东，台湾': 'Taitung, Taiwan',
   '新竹，台湾': 'Hsinchu, Taiwan', '香港': 'Hong Kong, China',
   '中国，具体行政区待核': 'China / location to verify', '阳朔，中国': 'Yangshuo, China',
-  '大理，中国': 'Dali, China',
+  '大理，中国': 'Dali, China', '海口，中国': 'Haikou, China',
   'Hamburg，德国': 'Hamburg, Germany',
 };
 
@@ -131,12 +132,16 @@ export function displayShow(show) {
     : '';
   const location = country ? `${city}, ${country}` : city;
   const web = /Browser DJ|Web[- ]?DJ/i.test(show.performance);
+  const webBigBand = web && /Big Band|大乐队/i.test(show.performance);
   const panel = /Panel Speaker/i.test(show.performance);
+  const workshopPerformance = /工作坊.*演出|Workshop.*performance/i.test(show.performance);
   const dj = /\bDJ\b/i.test(show.performance);
   const live = /\bLive\b|\bSolo\b|\bDuo\b|个人现场|人声|手风琴/i.test(show.performance);
   let format = 'Live set';
   let chineseTitle = '现场演出';
   if (panel) { format = 'Panel speaker'; chineseTitle = '论坛嘉宾'; }
+  else if (workshopPerformance) { format = 'Workshop + performance'; chineseTitle = '工作坊 + 演出'; }
+  else if (webBigBand) { format = 'Web DJ Big Band'; chineseTitle = '网页 DJ 大乐队'; }
   else if (web) { format = 'Web DJ'; chineseTitle = '网页 DJ'; }
   else if (dj && live) { format = 'Hybrid set'; chineseTitle = '混合现场'; }
   else if (dj) { format = 'DJ set'; chineseTitle = 'DJ 演出'; }
@@ -148,5 +153,5 @@ export function displayShow(show) {
   const displayPlace = (placeUncertain ? 'an unconfirmed venue' : place).replace(/\bat\b/gi, '@');
   return { format, title: `${format} @ ${displayPlace}`,
     chineseTitle, venue, city, country, location, fullLocation,
-    formatUncertain: !panel && !web && !dj && !live };
+    formatUncertain: !panel && !workshopPerformance && !web && !dj && !live };
 }
