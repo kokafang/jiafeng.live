@@ -22,6 +22,9 @@ const labels = {
   'Music for the entire immersive dance-theatre production.': '为整部沉浸式舞蹈剧场作品创作音乐。',
   'Dialect / Sound / Place': '方言 / 声音 / 地方', 'Ting Difang: Dialect & Sound 听地方': '听地方：方言与声音',
   'Local dialects, everyday voices and playful listening in Changsha.': '从长沙出发，在方言、日常声音与互动中聆听地方。',
+  'Muted Portraits 无声肖像': '无声肖像 Muted Portraits',
+  'Conversations about music, published on cassette.': '把关于音乐的对话，出版成磁带。',
+  'View Muted Portraits 无声肖像 project details': '查看无声肖像 Muted Portraits 项目介绍',
   'Watch the full set': '观看完整演出', 'Open Spotify ↗': '在 Spotify 收听 ↗', 'Open YouTube ↗': '在 YouTube 观看 ↗', 'Open Bandcamp ↗': '在 Bandcamp 收听 ↗',
   'Click to use player': '点击操作播放器', 'Activate player controls': '启用播放器控制',
   'USB DANCE PAD / ALBUM + GAME': 'USB 跳舞毯 / 专辑 + 游戏', 'DIY Dance Kit': 'DIY 跳舞套装',
@@ -75,6 +78,21 @@ export const musicZh = {
 };
 
 export const projectsZh = {
+  'muted-portraits': {
+    title: '无声肖像 Muted Portraits', category: '磁带厂牌 / 声音艺术', status: '创办于 2015 年',
+    summary: '一个将听众关于音乐的对话，转化为发行内容的磁带出版项目。',
+    paragraphs: [
+      '高嘉丰于 2015 年在纽约创办 Muted Portraits（无声肖像），通过聆听者接近音乐：让不同背景的人在不知道作者身份的情况下听一首作品，再谈谈自己听到了什么。',
+      '这些对话成为磁带的内容。被讨论的音乐本身不收录其中，留下的是听众的感受、联想、声音与日常环境，录音来自面对面交谈、电话和微信语音。',
+      '首批发行围绕卖卖、李增辉和李世扬的作品展开。通过出版这些回应，Muted Portraits 让聆听音乐、谈论音乐的过程也成为作品的一部分。'
+    ],
+    factLabels: ['创办', '创办人', '形式', '首批发行'],
+    facts: ['2015 年，纽约', '高嘉丰 Jiafeng', '口述录音磁带', '卖卖 / 李增辉 / 李世扬'],
+    captions: ['李增辉《植物少年》 · MP001 · 2015'],
+    alts: ['Muted Portraits 的 MP001《植物少年》磁带及包装，李增辉，2015 年'],
+    source: ['阅读撒把芥末当年的评论', '高嘉丰创办。磁带原始照片来自 Muted Portraits 官网存档。'],
+    references: ['Electronic Beats：中国磁带厂牌专题（2016）', '查看 Muted Portraits 官网存档']
+  },
   fakebook: {
     title: '中指爵士 The FakeBook', category: '互动乐器', status: '浏览器乐器',
     summary: '一件基于浏览器摄像头的爵士乐器，将手势转化为由实时和弦谱组织的音符。',

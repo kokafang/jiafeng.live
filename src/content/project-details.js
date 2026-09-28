@@ -141,6 +141,39 @@ export const projectDetails = {
       ]
     }
   },
+  'muted-portraits': {
+    title: 'Muted Portraits',
+    titleZh: '无声肖像',
+    category: 'Cassette Label / Sound Art',
+    status: 'Founded in 2015',
+    summary: 'A cassette publishing project that turns listeners\' conversations about music into the release itself.',
+    image: {
+      src: '/images/muted-portraits-mp001.jpg',
+      alt: 'Li Zenghui\'s Zhiwu Shaonian cassette and packaging, Muted Portraits MP001, 2015',
+      caption: 'Li Zenghui / Zhiwu Shaonian · MP001 · 2015'
+    },
+    gallery: [],
+    facts: [
+      { label: 'Founded', value: '2015, New York' },
+      { label: 'Founder', value: 'Jiafeng 高嘉丰' },
+      { label: 'Format', value: 'Spoken-word cassettes' },
+      { label: 'First releases', value: 'Mai Mai / Li Zenghui / Shih-Yang Lee' }
+    ],
+    paragraphs: [
+      'Founded by Jiafeng in New York in 2015, Muted Portraits approaches music through the people listening to it. Listeners from different backgrounds hear a piece without being told who made it, then talk about what they heard.',
+      'These conversations become the cassette. The original music is left out: what remains is a collection of impressions, associations, voices and everyday surroundings, recorded through in-person conversations, phone calls and WeChat voice messages.',
+      'The first releases centred on works by Mai Mai, Li Zenghui and Shih-Yang Lee. By publishing the responses, Muted Portraits makes listening and talking about music part of the work itself.'
+    ],
+    source: {
+      label: 'Read the contemporary review on Sub Jam',
+      href: 'https://subjam.org/blog/166',
+      credit: 'Founded by Jiafeng 高嘉丰. Original cassette photograph from the Muted Portraits website archive.',
+      references: [
+        { label: 'Electronic Beats: Chinese cassette labels (2016)', href: 'https://www.electronicbeats.net/10-chinese-cassette-labels-leading-a-tape-resurgence/' },
+        { label: 'Visit the archived Muted Portraits website', href: 'https://web.archive.org/web/20180831181455/http://mutedportraits.org/huanying' }
+      ]
+    }
+  },
   'ting-difang': {
     title: 'Ting Difang: Dialect & Sound',
     titleZh: '听地方',

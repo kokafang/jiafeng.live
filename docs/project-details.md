@@ -57,3 +57,17 @@ Bach Typewriter retains its original pixel-art sprite, positioned over a generat
 ## Optional Soundtrack Link
 
 Add `listen: { title, credit, label, href }` to a project record to show the shared soundtrack panel beneath the introduction summary. It uses an accessible native link, opens in a new tab, and does not dismiss the modal. Additional source links can be recorded in `source.references` as `{ label, href }` records.
+
+## Muted Portraits Sources
+
+Restored 2026-09-28 at Jiafeng's request. Muted Portraits（无声肖像）is the cassette label and spoken-word publishing project he founded in New York in 2015, rather than a solo music album. Anonymous listeners hear a piece without being told its author; their responses and discussions are published, while the original music is omitted. The first releases involved Mai Mai（卖卖）, Li Zenghui（李增辉）and Shih-Yang Lee（李世扬）.
+
+- [Sub Jam / 罗万象, 2016-01-29](https://subjam.org/blog/166): process, recording media and the first three artists; “last year” dates its founding to 2015.
+- [Electronic Beats, 2016-02-08](https://www.electronicbeats.net/10-chinese-cassette-labels-leading-a-tape-resurgence/): spoken-word, cassette-only label run by New York-based Gao Jiafeng; links to the former label homepage.
+- [Artist biography in a 2017 event announcement](https://www.sohu.com/a/142629953_168491): explicitly dates the label's founding to 2015.
+- [Old artist biography, 2016-02-01 snapshot](https://web.archive.org/web/20160201055452/http://fenggaocom.domain.com/bio.html): identifies Jiafeng as the label's manager. This content page was linked by the iframe-based gaojiafeng.com site.
+- [Label homepage, 2018-08-31 snapshot](https://web.archive.org/web/20180831181455/http://mutedportraits.org/huanying): original welcome page with the cassette photograph.
+
+`public/images/muted-portraits-mp001.jpg` is the unchanged original 900 × 741 JPEG (478,860 bytes), recovered from the [2018-11-27 image snapshot](https://web.archive.org/web/20181127132809im_/http://gaojiafeng.com/images/kadai.jpg). The archived label homepage embeds that original gaojiafeng.com image. Its visible lettering identifies Li Zenghui's《植物少年》, catalogue MP001, and ©2015 Muted Portraits. The image depicts three views of that one release, not all three artists' editions. SHA-256: `549fd4eea2862066484ed588148ebda90c1ad896afb38229311ce98a0627b77a`.
+
+No closing year, edition size or complete catalogue is asserted. No verified Bandcamp release page was found, so the project links to the contemporary review, English coverage and archived label homepage. The existing project dialog and translations are reused; adding this ninth card activates the existing eight-card pagination.
