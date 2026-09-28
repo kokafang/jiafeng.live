@@ -1,4 +1,4 @@
-#products .fill-block[hidden] { display: none; }
+:is(#products, #tools) .fill-block[hidden] { display: none; }
 
 .projects-footer {
   display: flex;
@@ -30,7 +30,7 @@
 .projects-pagination button:focus-visible { outline: 2px solid #b8f1d9; outline-offset: 4px; }
 
 /* Frame the logo at (0, 535) in a 660 x 495 window of the original photograph. */
-#products .ting-difang-art img {
+:is(#products, #tools) .ting-difang-art img {
   position: absolute;
   left: 0;
   top: -108.0808%;
@@ -39,13 +39,13 @@
   max-width: none;
 }
 
-#products .bach-art {
+:is(#products, #tools) .bach-art {
   display: flex;
   align-items: center;
   justify-content: center;
   background: #008080 url("/images/bach-windows-score-background.jpg") center / cover no-repeat;
 }
-#products .da-wo-dance-thumbnail { object-position: center 70%; }
+:is(#products, #tools) .da-wo-dance-thumbnail { object-position: center 70%; }
 .bach-sprite {
   position: absolute;
   right: 12%;
@@ -55,7 +55,7 @@
   overflow: hidden;
 }
 /* Display one original sprite frame without changing or stretching the artwork. */
-#products .bach-sprite img {
+:is(#products, #tools) .bach-sprite img {
   position: absolute;
   inset: 0 auto auto 0;
   width: 800%;
@@ -65,10 +65,10 @@
   image-rendering: pixelated;
 }
 @media (max-width: 900px) {
-  #products .section-fill { grid-template-rows: none; }
-  #products .fill-block strong { word-break: keep-all; }
-  #products .bach-art { height: auto; aspect-ratio: 4 / 3; container-type: inline-size; }
-  #products .bach-sprite { height: 58.5cqw; }
+  :is(#products, #tools) .section-fill { grid-template-rows: none; }
+  :is(#products, #tools) .fill-block strong { word-break: keep-all; }
+  :is(#products, #tools) .bach-art { height: auto; aspect-ratio: 4 / 3; container-type: inline-size; }
+  :is(#products, #tools) .bach-sprite { height: 58.5cqw; }
   .projects-footer { margin-top: 24px; }
   .projects-pagination button { padding-inline: 14px; font-size: 14px; }
   .projects-counter { font-size: 12px; }
@@ -79,5 +79,109 @@
 
 /* In short desktop windows, keep the artwork and titles rather than squeezing them. */
 @media (min-width: 901px) and (max-height: 700px) {
-  #products .project-description { display: none; }
+  :is(#products, #tools) .project-description { display: none; }
+}
+@media (min-width: 901px) and (max-height: 820px) {
+  .artist-portal #products .project-description { display: none; }
+  .artist-portal #products .fill-block strong { font-size: clamp(16px, calc(24px * var(--layout-density, 1)), 24px); }
+  .artist-portal #products .fill-block > span {
+    font-size: clamp(9px, calc(13px * var(--layout-density, 1)), 13px);
+    letter-spacing: 0.08em;
+  }
+}
+
+/* One dark frame for photos, artwork and video; no card-order exceptions. */
+.artist-portal :is(#products, #tools) :is(.image-card-wrap, .video-embed-wrap) {
+  border: 1px solid rgba(173, 201, 193, 0.18);
+  border-radius: 6px;
+  background-color: #102329;
+  background-clip: padding-box;
+}
+.artist-portal :is(#products, #tools) .bach-art {
+  background: #008080 url("/images/bach-windows-score-background.jpg") center / cover no-repeat;
+  background-clip: padding-box;
+}
+.artist-portal :is(#products, #tools) .collection-intro {
+  flex-shrink: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  max-width: none;
+  margin: 0 0 calc(22px * var(--layout-density, 1));
+  color: #b8ccc4;
+  font-size: 15px;
+  line-height: 1.5;
+}
+.collection-intro a { color: #d8eedf; text-underline-offset: 4px; }
+
+/* Tools are a compact directory. Prototypes sit below the released experiments. */
+.artist-portal #tools .tools-directory {
+  flex: 0 1 auto;
+  width: 100%;
+  max-width: 1120px;
+  align-self: center;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: auto auto auto;
+  gap: 18px;
+}
+.artist-portal #tools .fill-block,
+.artist-portal #tools .project-link-card {
+  display: grid;
+  grid-template-columns: minmax(110px, 0.7fr) minmax(0, 1fr);
+  grid-template-rows: auto auto 1fr;
+  column-gap: 18px;
+  row-gap: 6px;
+  align-content: start;
+  height: auto;
+}
+.artist-portal #tools .fill-block { padding: 16px; border-radius: 10px; }
+.artist-portal #tools .fill-block:has(> .project-link-card) { display: block; }
+.artist-portal #tools .image-card-wrap {
+  grid-column: 1;
+  grid-row: 1 / 4;
+  width: 100%;
+  margin: 0;
+  align-self: start;
+}
+.artist-portal #tools .tool-interface-art img { object-fit: contain; }
+.artist-portal #tools :is(.fill-block, .project-link-card) > :is(span, strong, p) { grid-column: 2; }
+.artist-portal #tools :is(.fill-block, .project-link-card) > span {
+  margin: 0;
+  padding-right: 28px;
+  font-size: 10px;
+  line-height: 1.5;
+}
+.artist-portal #tools .fill-block strong { font-size: 23px; line-height: 1.2; }
+.artist-portal #tools .project-description { margin: 0; font-size: 14px; line-height: 1.5; }
+.artist-portal #tools .project-detail-trigger::after { top: 12px; right: 12px; width: 26px; height: 26px; font-size: 20px; }
+.artist-portal #tools .tools-group-heading {
+  grid-column: 1 / -1;
+  margin: 16px 0 0;
+  padding-top: 18px;
+  border-top: 1px solid rgba(173, 201, 193, 0.18);
+  color: #b8ccc4;
+  font: 400 12px / 1.5 "Space Grotesk", sans-serif;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.artist-portal #tools .tools-group-heading ~ .fill-block { background: transparent; border-color: rgba(173, 201, 193, 0.12); }
+.artist-portal #tools :is(.image-card-wrap, .video-placeholder)::after { content: none; }
+.artist-portal #tools :is(.image-card-wrap, .video-placeholder) img { filter: none; }
+
+@media (max-width: 900px) {
+  .artist-portal #tools .tools-directory { grid-template-columns: minmax(0, 1fr); grid-template-rows: none; }
+  .artist-portal #tools .fill-block,
+  .artist-portal #tools .project-link-card { grid-template-columns: minmax(90px, 0.55fr) minmax(0, 1fr); column-gap: 14px; }
+  .artist-portal #tools .fill-block strong { font-size: 22px; }
+  .artist-portal #tools .fill-block { padding: 14px; }
+  .artist-portal #tools .bach-art { container-type: normal; }
+  .artist-portal #tools .bach-sprite { height: 78%; }
+}
+@media (min-width: 901px) and (max-height: 700px) {
+  .artist-portal #tools .tools-directory { max-width: 950px; gap: 12px; }
+  .artist-portal #tools .fill-block { padding: 12px; }
+  .artist-portal #tools .fill-block,
+  .artist-portal #tools .project-link-card { grid-template-columns: 100px minmax(0, 1fr); column-gap: 14px; }
+  .artist-portal #tools .fill-block strong { font-size: 20px; }
+  .artist-portal #tools .tools-group-heading { margin-top: 0; padding-top: 10px; }
 }

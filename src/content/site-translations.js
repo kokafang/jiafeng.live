@@ -4,8 +4,14 @@ export const normalizeText = value => value.replace(/\s+/g, ' ').trim();
 
 const labels = {
   Menu: '菜单',
+  'Selected work in sound, performance and publishing.': '声音、表演与出版领域的代表创作。',
+  'Explore Web DJ ↗': '探索网页 DJ ↗',
+  'Instruments, musical companions and experiments to play with.': '可以上手探索的乐器、音乐伙伴与互动实验。',
+  'Play jazz with a camera and your hands.': '通过摄像头，用手势即兴演奏爵士。',
+  'An album, a rhythm game and a dance pad.': '一张专辑、一款节奏游戏与一块跳舞毯。',
+  'An experimental instrument for algorithmic performance.': '为算法演奏设计的实验乐器。',
   Music: '音乐', MUSIC: '音乐', 'Web-DJ': '网页 DJ', 'WEB-DJ': '网页 DJ', 'Web DJ': '网页 DJ',
-  Projects: '项目', PROJECTS: '项目', About: '关于', ABOUT: '关于', Shows: '演出', SHOWS: '演出',
+  Projects: '创作项目', PROJECTS: '创作项目', Tools: '乐器与工具', TOOLS: '乐器与工具', About: '关于', ABOUT: '关于', Shows: '演出', SHOWS: '演出',
   Press: '媒体', PRESS: '媒体', Merch: '周边', MERCH: '周边', Listen: '收听',
   Newer: '较新', Earlier: '较早', Previous: '上一页', Next: '下一页', All: '全部', Institutions: '艺术机构',
   Date: '日期', Performance: '演出', Location: '地点', Info: '状态', Upcoming: '即将开始', Past: '已结束',

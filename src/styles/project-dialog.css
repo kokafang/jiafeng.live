@@ -1,4 +1,4 @@
-#products .fill-block:has(.project-detail-trigger) { position: relative; }
+:is(#products, #tools) .fill-block:has(.project-detail-trigger) { position: relative; }
 .project-detail-trigger {
   position: absolute;
   inset: 0;

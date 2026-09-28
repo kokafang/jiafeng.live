@@ -98,7 +98,7 @@ export function mountLanguageSwitch({ musicReleases = [] } = {}) {
     });
     translateTree(document.body);
     document.title = locale === 'en' ? originalTitle : '高嘉丰 Jiafeng · 音乐与创作';
-    if (description) description.content = locale === 'en' ? originalDescription : '高嘉丰官方网站：音乐、网页 DJ、创作项目、演出、媒体报道与周边。';
+    if (description) description.content = locale === 'en' ? originalDescription : '高嘉丰官方网站：音乐、网页 DJ、创作项目、乐器与工具、演出、媒体报道与周边。';
     status.textContent = locale === 'en' ? 'Language: English' : '已切换为中文';
     document.dispatchEvent(new CustomEvent('site:languagechange', { detail: { locale } }));
   }

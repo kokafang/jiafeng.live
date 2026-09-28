@@ -60,7 +60,8 @@ export function fitDesktopSections({ sections, mobilePages }) {
           }
           bestOverflow = overflow;
           bestWidth = width;
-          const next = Math.max(Math.min(720, content.clientWidth), width - (overflow + 2) * 16 / 3);
+          const columns = getComputedStyle(grid).gridTemplateColumns.split(' ').length;
+          const next = Math.max(Math.min(600, content.clientWidth), width - (overflow + 2) * columns * 4 / 3);
           if (next >= width) break;
           set(content, '--projects-fit-width', next + 'px');
         }

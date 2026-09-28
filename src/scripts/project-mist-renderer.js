@@ -115,10 +115,17 @@ export function createProjectMist(section) {
     entries.forEach(entry => {
       if (!entry.media.isConnected || entry.card.hidden) { entry.rect = null; return; }
       const rect = entry.media.getBoundingClientRect();
+      // Image wrappers have a border; video buttons sit inside their bordered wrapper.
+      const insetX = entry.media.clientLeft;
+      const insetY = entry.media.clientTop;
+      const left = rect.left - origin.left - section.clientLeft + insetX;
+      const bottom = height - (rect.bottom - origin.top - section.clientTop) + insetY;
+      // Cover fractional CSS pixels too, so light artwork cannot leak around the tint.
       entry.rect = {
-        x: rect.left - origin.left - section.clientLeft + 1,
-        y: height - (rect.bottom - origin.top - section.clientTop) + 1,
-        width: Math.max(0, rect.width - 2), height: Math.max(0, rect.height - 2)
+        x: Math.floor(left),
+        y: Math.floor(bottom),
+        width: Math.max(0, Math.ceil(left + rect.width - insetX * 2) - Math.floor(left)),
+        height: Math.max(0, Math.ceil(bottom + rect.height - insetY * 2) - Math.floor(bottom))
       };
     });
   }

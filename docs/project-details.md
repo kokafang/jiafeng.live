@@ -1,6 +1,6 @@
 # Project Introduction Dialog
 
-The Projects page uses one native modal dialog for on-site introductions. It does not change the URL, gallery page, or section selection. Closing restores the opener's focus and the underlying scroll position.
+The Projects and Tools sections share one native modal dialog for on-site introductions. It does not change the URL, gallery page, or section selection. Closing restores the opener's focus and the underlying scroll position.
 
 ## Add Another Project
 
@@ -70,4 +70,12 @@ Restored 2026-09-28 at Jiafeng's request. Muted Portraits（无声肖像）is th
 
 `public/images/muted-portraits-mp001.jpg` is the unchanged original 900 × 741 JPEG (478,860 bytes), recovered from the [2018-11-27 image snapshot](https://web.archive.org/web/20181127132809im_/http://gaojiafeng.com/images/kadai.jpg). The archived label homepage embeds that original gaojiafeng.com image. Its visible lettering identifies Li Zenghui's《植物少年》, catalogue MP001, and ©2015 Muted Portraits. The image depicts three views of that one release, not all three artists' editions. SHA-256: `549fd4eea2862066484ed588148ebda90c1ad896afb38229311ce98a0627b77a`.
 
-No closing year, edition size or complete catalogue is asserted. No verified Bandcamp release page was found, so the project links to the contemporary review, English coverage and archived label homepage. The existing project dialog and translations are reused; adding this ninth card activates the existing eight-card pagination.
+No closing year, edition size or complete catalogue is asserted. No verified Bandcamp release page was found, so the project links to the contemporary review, English coverage and archived label homepage. The existing project dialog and translations are reused; the subsequent Projects / Tools split places this card among the five selected creative projects.
+
+## Projects / Tools classification (2026-09-28)
+
+Projects (`#products`, retained for old links) contains Muted Portraits, Ting Difang, Emotional Dance Music DIY Kit, Da Wo Xian Ren and TRI-O. Web DJ remains a dedicated section, linked from the Projects introduction. Tools (`#tools`) contains Bach Typewriter and The FakeBook followed by the In development group (LMDJ and AVS Sampler). The shared dialog data and triggers work in both sections.
+
+Projects uses three columns on desktop; Tools is a compact directory. Both use 4:3 media, a dark background and the same subtle 1px border. Avoid nth-child artwork backgrounds: moving a card must not change its image treatment. Photos use intentional cover framing; FakeBook, LMDJ and AVS use contain to preserve interface content. Bach retains its original sprite and score background; the specific Ting Difang and dance-photo focal points remain. Source images are unchanged.
+
+The mist overlay derives its inset from the actual media border (video buttons have none), then covers fractional CSS pixel edges. This avoids a bright sliver on light photos. In short desktop windows, summaries are omitted while titles, categories and artwork remain readable; full introductions are available in the dialog.

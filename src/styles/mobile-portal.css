@@ -169,20 +169,20 @@
   .about-copy { margin: 0; padding: 20px 0 0; border: 0; background: transparent; }
   .about-copy p + p { margin-top: 18px; }
 
-  #products .section-fill { grid-template-columns: minmax(0, 1fr); gap: 20px; }
-  #products .fill-block { height: auto; padding: 14px; border-radius: 12px; }
-  #products .image-card-wrap, #products .video-embed-wrap { margin-bottom: 16px; border-radius: 6px; }
-  #products .fill-block strong { font-size: 26px; line-height: 1.15; overflow-wrap: anywhere; }
-  #products .fill-block > span, #products .project-link-card > span {
+  :is(#products, #tools) .section-fill { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+  :is(#products, #tools) .fill-block { height: auto; padding: 14px; border-radius: 12px; }
+  :is(#products, #tools) .image-card-wrap, :is(#products, #tools) .video-embed-wrap { margin-bottom: 16px; border-radius: 6px; }
+  :is(#products, #tools) .fill-block strong { font-size: 26px; line-height: 1.15; overflow-wrap: anywhere; }
+  :is(#products, #tools) .fill-block > span, :is(#products, #tools) .project-link-card > span {
     font-size: 12px;
     line-height: 1.5;
     letter-spacing: 0.08em;
   }
-  #products .project-description { font-size: 16px; line-height: 1.6; }
+  :is(#products, #tools) .project-description { font-size: 16px; line-height: 1.6; }
   .project-detail-trigger::after { top: 22px; right: 22px; width: 36px; height: 36px; }
-  #products .project-mist-layer { display: none; }
-  #products :is(.image-card-wrap, .video-placeholder) img { filter: none; }
-  #products :is(.image-card-wrap, .video-placeholder)::after { opacity: 0.12; }
+  :is(#products, #tools) .project-mist-layer { display: none; }
+  :is(#products, #tools) :is(.image-card-wrap, .video-placeholder) img { filter: none; }
+  :is(#products, #tools) :is(.image-card-wrap, .video-placeholder)::after { opacity: 0.12; }
 
   #shows > div { height: auto; }
   .shows-archive { display: block; }
@@ -224,5 +224,5 @@
 }
 
 @media (min-width: 600px) and (max-width: 900px) {
-  #products .section-fill { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  :is(#products, #tools) .section-fill { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }

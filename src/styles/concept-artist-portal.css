@@ -282,10 +282,10 @@ a {
 
 .mini-nav-next { display: none; }
 
-#products .sampler-project { justify-content: flex-start; }
-#products .sampler-art { background: #0b0b0c; flex-shrink: 0; }
-#products .sampler-project strong { margin-top: 0; }
-#products .project-description {
+:is(#products, #tools) .sampler-project { justify-content: flex-start; }
+:is(#products, #tools) .sampler-art { background: #0b0b0c; flex-shrink: 0; }
+:is(#products, #tools) .sampler-project strong { margin-top: 0; }
+:is(#products, #tools) .project-description {
   font-size: 0.86rem;
   line-height: 1.65;
   margin-top: 12px;
@@ -569,71 +569,71 @@ a {
   padding: 18px;
 }
 
-#products .section-fill {
+:is(#products, #tools) .section-fill {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   grid-template-rows: 1fr;
   align-items: stretch;
   justify-content: stretch;
 }
 
-#products .fill-block {
+:is(#products, #tools) .fill-block {
   grid-column: auto;
   grid-row: auto;
   min-height: 0;
   height: 100%;
 }
 
-#products .fill-block {
+:is(#products, #tools) .fill-block {
   justify-content: flex-start;
   padding: 20px;
   overflow: visible;
   transition: border-color 160ms ease, background-color 160ms ease;
 }
 
-#products .fill-block:focus-within {
+:is(#products, #tools) .fill-block:focus-within {
   border-color: rgba(247, 243, 234, 0.5);
 }
 
 @media (hover: hover) and (pointer: fine) {
-  #products .fill-block:has(.project-link-card:hover),
-  #products .fill-block:has(.video-placeholder:hover) {
+  :is(#products, #tools) .fill-block:has(.project-link-card:hover),
+  :is(#products, #tools) .fill-block:has(.video-placeholder:hover) {
     border-color: rgba(247, 243, 234, 0.42);
     background-color: rgba(255, 255, 255, 0.055);
   }
   .mini-links a:hover { color: var(--ink); }
 }
 
-#products .project-link-card {
+:is(#products, #tools) .project-link-card {
   display: flex;
   flex-direction: column;
   flex: 1;
 }
 
-#products .avs-project-link { min-height: 0; }
+:is(#products, #tools) .avs-project-link { min-height: 0; }
 
-#products .fill-block:nth-child(1) {
+:is(#products, #tools) .fill-block:nth-child(1) {
   grid-column: auto;
   grid-row: auto;
 }
 
-#products .fill-block:nth-child(2) {
+:is(#products, #tools) .fill-block:nth-child(2) {
   grid-column: auto;
   grid-row: auto;
 }
 
-#products .fill-block:nth-child(3) {
+:is(#products, #tools) .fill-block:nth-child(3) {
   grid-column: auto;
   grid-row: auto;
 }
 
-#products .fill-block strong {
+:is(#products, #tools) .fill-block strong {
   margin-top: 0;
   word-break: keep-all;
   font-size: clamp(0.9rem, 1.5vw, 1.4rem);
   line-height: 1.12;
 }
 
-#products .project-link-card strong::after {
+:is(#products, #tools) .project-link-card strong::after {
   content: " ↗";
   display: inline;
   font-family: sans-serif;
@@ -641,13 +641,13 @@ a {
   opacity: 0.6;
 }
 
-#products .video-embed-wrap {
+:is(#products, #tools) .video-embed-wrap {
   margin-top: 0;
   margin-bottom: 18px;
   padding-top: 66.6667%;
 }
 
-#products .media-block .video-embed-wrap {
+:is(#products, #tools) .media-block .video-embed-wrap {
   margin-bottom: 18px;
 }
 
@@ -766,24 +766,24 @@ a {
   object-position: center center;
 }
 
-#products .image-card-wrap {
+:is(#products, #tools) .image-card-wrap {
   position: relative;
   aspect-ratio: 4 / 3;
 }
 
-#products .video-embed-wrap {
+:is(#products, #tools) .video-embed-wrap {
   padding-top: 0;
   aspect-ratio: 4 / 3;
 }
 
-#products .image-card-wrap img,
-#products .video-placeholder img {
+:is(#products, #tools) .image-card-wrap img,
+:is(#products, #tools) .video-placeholder img {
   object-fit: cover;
 }
 
 /* Static blue tint remains available when WebGL or motion is unavailable. */
 @media (hover: hover) and (pointer: fine) {
-  #products :is(.image-card-wrap, .video-placeholder)::after {
+  :is(#products, #tools) :is(.image-card-wrap, .video-placeholder)::after {
     content: "";
     position: absolute;
     inset: 0;
@@ -792,23 +792,23 @@ a {
     opacity: 1;
     transition: opacity 420ms ease;
   }
-  #products :is(.image-card-wrap, .video-placeholder) img {
+  :is(#products, #tools) :is(.image-card-wrap, .video-placeholder) img {
     filter: grayscale(0.65) saturate(0.6) brightness(0.82);
     transition: filter 420ms ease;
   }
-  #products .fill-block:is(:hover, :focus-within) :is(.image-card-wrap, .video-placeholder)::after {
+  :is(#products, #tools) .fill-block:is(:hover, :focus-within) :is(.image-card-wrap, .video-placeholder)::after {
     opacity: 0;
   }
-  #products .fill-block:is(:hover, :focus-within) :is(.image-card-wrap, .video-placeholder) img {
+  :is(#products, #tools) .fill-block:is(:hover, :focus-within) :is(.image-card-wrap, .video-placeholder) img {
     filter: none;
   }
-  #products .video-play-button { z-index: 1; }
-  #products.has-project-mist :is(.image-card-wrap, .video-placeholder)::after { opacity: 0; transition: none; }
-  #products.has-project-mist :is(.image-card-wrap, .video-placeholder) img { filter: none; transition: none; }
+  :is(#products, #tools) .video-play-button { z-index: 1; }
+  :is(#products, #tools).has-project-mist :is(.image-card-wrap, .video-placeholder)::after { opacity: 0; transition: none; }
+  :is(#products, #tools).has-project-mist :is(.image-card-wrap, .video-placeholder) img { filter: none; transition: none; }
 }
 
-#products { position: relative; }
-#products .project-mist-layer {
+:is(#products, #tools) { position: relative; }
+:is(#products, #tools) .project-mist-layer {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -817,16 +817,16 @@ a {
   pointer-events: none;
   visibility: hidden;
 }
-#products.has-project-mist .video-play-button,
-#products.has-project-mist .project-detail-trigger { z-index: 3; }
+:is(#products, #tools).has-project-mist .video-play-button,
+:is(#products, #tools).has-project-mist .project-detail-trigger { z-index: 3; }
 
 /* Touch browsing stays clear and single-tap; only the thumbnail edges carry the water tint. */
 @media (hover: none), (pointer: coarse) {
-  #products .project-mist-layer { display: none; }
+  :is(#products, #tools) .project-mist-layer { display: none; }
 
-  #products :is(.image-card-wrap, .video-placeholder) img { filter: none; }
+  :is(#products, #tools) :is(.image-card-wrap, .video-placeholder) img { filter: none; }
 
-  #products :is(.image-card-wrap, .video-placeholder)::after {
+  :is(#products, #tools) :is(.image-card-wrap, .video-placeholder)::after {
     content: "";
     position: absolute;
     inset: 0;
@@ -839,32 +839,32 @@ a {
     transition: box-shadow 180ms ease-out;
   }
 
-  #products :is(.project-link-card, .project-detail-trigger, .video-placeholder) {
+  :is(#products, #tools) :is(.project-link-card, .project-detail-trigger, .video-placeholder) {
     -webkit-tap-highlight-color: rgba(139, 221, 231, 0.13);
   }
 
-  #products .project-link-card:active .image-card-wrap::after,
-  #products .fill-block:has(.project-detail-trigger:active) .image-card-wrap::after,
-  #products .video-placeholder:active::after {
+  :is(#products, #tools) .project-link-card:active .image-card-wrap::after,
+  :is(#products, #tools) .fill-block:has(.project-detail-trigger:active) .image-card-wrap::after,
+  :is(#products, #tools) .video-placeholder:active::after {
     box-shadow: inset 0 0 0 1px rgba(181, 242, 247, 0.52), inset 0 0 24px rgba(105, 208, 225, 0.20);
     transition-duration: 70ms;
   }
 
-  #products .video-play-button { z-index: 2; }
-  #products .video-placeholder:hover .video-play-button {
+  :is(#products, #tools) .video-play-button { z-index: 2; }
+  :is(#products, #tools) .video-placeholder:hover .video-play-button {
     transform: translate(-50%, -50%);
     border-color: rgba(255, 255, 255, 0.58);
     background: rgba(8, 10, 12, 0.52);
   }
-  #products .video-placeholder:active .video-play-button {
+  :is(#products, #tools) .video-placeholder:active .video-play-button {
     border-color: rgba(190, 244, 250, 0.9);
     background: rgba(18, 59, 69, 0.7);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  #products :is(.image-card-wrap, .video-placeholder)::after,
-  #products :is(.image-card-wrap, .video-placeholder) img { transition: none; }
+  :is(#products, #tools) :is(.image-card-wrap, .video-placeholder)::after,
+  :is(#products, #tools) :is(.image-card-wrap, .video-placeholder) img { transition: none; }
 }
 
 .project-link-card {
@@ -1529,7 +1529,7 @@ a {
 @media (max-width: 1200px) {
   .portal-top-nav { gap: 24px; }
   .portal-top-nav-group { gap: 24px; }
-  #products .section-fill { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  :is(#products, #tools) .section-fill { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (max-width: 900px) {
@@ -1652,9 +1652,9 @@ a {
   .spotify-feature-card { padding: 0; }
   .music-year-nav { gap: 6px; }
   .music-year-dot { font-size: 0.65rem; letter-spacing: 0.08em; padding: 10px 0; }
-  #products .section-fill { grid-template-columns: minmax(0, 1fr); }
-  #products .fill-block { height: auto; }
-  #products .fill-block strong { font-size: 1.35rem; }
+  :is(#products, #tools) .section-fill { grid-template-columns: minmax(0, 1fr); }
+  :is(#products, #tools) .fill-block { height: auto; }
+  :is(#products, #tools) .fill-block strong { font-size: 1.35rem; }
   .about-copy { margin: 12px; padding: 18px; }
 }
 
@@ -1703,10 +1703,6 @@ a {
   .mini-links a { color: LinkText; }
 }
 
-#products .fill-block:nth-child(1) .image-card-wrap,
-#products .fill-block:nth-child(2) .image-card-wrap {
-  background: #000;
-}
 
 /* One desktop viewport per section. The content is fitted, never clipped or scrolled. */
 @media (min-width: 901px) {
@@ -1827,21 +1823,21 @@ a {
     padding: calc(18px * var(--layout-density, 1));
   }
   .artist-portal .about-copy p + p { margin-top: calc(12px * var(--layout-density, 1)); }
-  .artist-portal #products .section-fill {
+  .artist-portal :is(#products, #tools) .section-fill {
     width: var(--projects-fit-width, 100%);
     max-width: 100%;
     align-self: center;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     grid-template-rows: repeat(2, minmax(0, 1fr));
     gap: calc(18px * var(--layout-density, 1));
   }
-  .artist-portal #products .fill-block {
+  .artist-portal :is(#products, #tools) .fill-block {
     height: 100%;
     padding: calc(14px * var(--layout-density, 1));
     background: rgba(255, 255, 255, 0.018);
   }
-  .artist-portal #products .project-link-card { height: 100%; min-height: 0; }
-  .artist-portal #products .image-card-wrap, .artist-portal #products .video-embed-wrap {
+  .artist-portal :is(#products, #tools) .project-link-card { height: 100%; min-height: 0; }
+  .artist-portal :is(#products, #tools) .image-card-wrap, .artist-portal :is(#products, #tools) .video-embed-wrap {
     height: auto;
     min-height: 0;
     padding-top: 0;
@@ -1849,13 +1845,13 @@ a {
     flex: none;
     margin-bottom: calc(12px * var(--layout-density, 1));
   }
-  .artist-portal #products .video-placeholder img { object-fit: cover; }
-  .artist-portal #products .fill-block strong { font-size: clamp(19px, calc(24px * var(--layout-density, 1)), 24px); }
-  .artist-portal #products .fill-block > span, .artist-portal #products .project-link-card > span {
+  .artist-portal :is(#products, #tools) .video-placeholder img { object-fit: cover; }
+  .artist-portal :is(#products, #tools) .fill-block strong { font-size: clamp(19px, calc(24px * var(--layout-density, 1)), 24px); }
+  .artist-portal :is(#products, #tools) .fill-block > span, .artist-portal :is(#products, #tools) .project-link-card > span {
     font-size: clamp(10px, calc(13px * var(--layout-density, 1)), 13px);
     margin-bottom: calc(6px * var(--layout-density, 1));
   }
-  .artist-portal #products .project-description {
+  .artist-portal :is(#products, #tools) .project-description {
     flex: 0 0 auto;
     min-height: 0;
     margin-top: calc(6px * var(--layout-density, 1));
@@ -1906,7 +1902,7 @@ a {
   .mini-brand, .mini-links a { font-size: 0.94rem; }
   .music-year-dot, .music-nav-button, .webdj-link { font-size: 0.94rem; }
   .music-feature-description p, .webdj-copy p, .about-copy p,
-  #products .project-description { font-size: 1.2rem; }
-  #products .fill-block strong { font-size: 1.8rem; }
+  :is(#products, #tools) .project-description { font-size: 1.2rem; }
+  :is(#products, #tools) .fill-block strong { font-size: 1.8rem; }
   .fill-block > span, .project-link-card > span, .music-feature-left > [data-music-tag] { font-size: 1rem; }
 }
